@@ -8,17 +8,19 @@
 latexmk -C && latexmk -pdf
 ```
 
-
 ### Sort bibfile
 
 ```console
-biber --tool references.bib --output-file=sorted.bib --configfile=biber.conf 
+biber --tool references.bib --output-file=references.bib --configfile=biber.conf 
 ```
 
 
-## Cite
+## In-text
+
+### Cite
+
 ```tex
 \parencite{}
-\citeauthor{}
 \textcite{}
+\citeauthor{}
 ```
