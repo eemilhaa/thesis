@@ -10,6 +10,9 @@ scientific discussion, identification of a couple of relevant scientific texts
 
 
 ## Intro / Study questions
+- Cartographic angle:
+  - How is accessibility different / unique
+  - How should it be presented cartographically
 
 - How can accessibility be presented?
   - Temporal change in accessibility (matrixes from different years)
@@ -19,9 +22,8 @@ scientific discussion, identification of a couple of relevant scientific texts
   - How different people see the map
   - Qualitative map / quantitive
 
-- How should accessibility be precented?
-
 - How to take advantage of interactive mapping technologies 
+
 
 - How maps affect reality
 - How accessibility differs from other phenomena
@@ -49,9 +51,12 @@ already and which you’ll need to learn.
 
 - Literature review
 
+- Technologies
+
 - Interviews
-  - What do users find important from accessibiity viz
+  - What do users find important from accessibility viz
   - Identifying who to interview, who is the user?
+
 
 ### Methods for making the map happen
 
