@@ -1,7 +1,7 @@
 \documentclass[12pt]{article}
 \usepackage{settings}
 
-\title{Mapping accessibility - Interactive visualization of travel-time matrices (thesis plan)}
+\title{Mapping accessibility - Interactive visualization of travel time matrices (thesis plan)}
 \author{Eemil Haapanen}
 
 \begin{document}
@@ -123,21 +123,19 @@ General description of the matrix goes here.
 
 I see the methods necessary to implement the visualization belonging to two themes:
 Methods for figuring out how the map should be
-and methods for actually making the map be something.
+and methods for actually making the map be that way.
 
 For figuring out what the map should be like,
 I have (hopefully) at this point already formed some ideas from the background section.
 To complement those, and to keep the qualitative aspect of cartography relevant,
 interview(s) will be used alongside the development process.
 
-To make the map happen
-
-From the techical angle, there are three main components to the map:
+From the technical angle, there are three main components to the map:
 
 \begin{enumerate}
 	\item Preprocessing of the matrix to a mappable format
 	\item A back-end to serve the matrix
-	\item The web map appliaction
+	\item The web map application
 \end{enumerate}
 
 See figure \ref{fig:architechture} for my idea of what the architechture might look like.
@@ -150,11 +148,16 @@ See figure \ref{fig:architechture} for my idea of what the architechture might l
 \end{figure}
 
 When developing the visualization, the priority should be on the map application.
-However, the development must work as an iterative process,
+However, the development must progress on all components as an iterative process,
 where producing a minimal working state should be the first goal.
-Something that, to some extent, works,
-makes interviews and discussion about the map possible,
+Something that, to some extent, works, makes discussion about the map possible,
 which in turn should keep development progressing towards the right direction.
+
+It should also be noted that the number of techical options for implementing the map is large.
+Questions such as which mapping library or UI framework to use,
+or how to preprocess the matrix data should be covered here too.
+Depending on the need and extent of comparisons between different technologies,
+some synthesis could be formed about that too.
 
 \section{Results}
 
@@ -169,6 +172,25 @@ but also the output of the interviews
 and possibly of the technical comparison between technologies.
 
 \section{Discussion}
+
+Discussion and conclusions about the results
+
+\section{Timetable}
+
+I think the work needed to complete this thesis can be divided into three main themes:
+
+\begin{enumerate}
+	\item Background study / literature review to gain a theoretical base
+	\item Comparing and learning technologies to gain a technical base
+	\item The iterative development of the visualization
+\end{enumerate}
+
+My planned timing for the thesis will be from now (summer) to the end of the year (winter).
+Even though the themes above will overlap,
+my goal is to focus on the first theme first (summer, early fall),
+and after that progress towards the last theme (fall, winter).
+Realistically, techonogical experimentation will be happening continuously,
+but most likely more at the start.
 
 \printbibliography
 
