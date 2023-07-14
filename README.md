@@ -1,7 +1,13 @@
-# thesis
-This is the LaTeX source of my thesis.
+![workflow](https://github.com/eemilhaa/thesis/actions/workflows/build.yml/badge.svg)
 
-## Requirements
+# thesis (WIP)
+This is the LaTeX source of my thesis.
+A pdf file is compiled and uploaded automatically on every push.
+Find it in the build artifacts on the Actions tab.
+
+## Requirements for running locally
+
+### Packages
 Everything *should* work on most general TeX distributions.
 
 Things you'll need:
@@ -18,16 +24,14 @@ pacman -S \
   texlive-bibtexextra
 ```
 
-
-## Build
-Building means building the thesis document.
-The end result will be `thesis/main.pdf`
+### Building
+When building locally, the end result will be `thesis/main.pdf`.
 
 To do a general, one-command build:
 ```console
 sh build.sh
 ```
-This formats the bibfile (references) and build the pdf.
+This formats the bibfile and builds the pdf.
 
 To only build the pdf:
 ```console
