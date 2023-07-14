@@ -16,4 +16,4 @@ jobs:
         with:
           root_file: thesis/main.tex
         env:
-          TEXINPUTS: ".:./thesis/references.bib/:"
+          TEXINPUTS: ".:./thesis//:./thesis/references.bib/:"
