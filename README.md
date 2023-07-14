@@ -2,7 +2,7 @@
 
 # thesis (WIP)
 This is the LaTeX source of my thesis.
-A pdf file is compiled and uploaded automatically on every push.
+A pdf file is built and uploaded automatically on every push.
 Find it in the build artifacts on the Actions tab.
 
 ## Requirements for running locally
