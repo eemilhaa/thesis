@@ -1,7 +1,7 @@
 \documentclass[12pt]{article}
 \usepackage{settings}
 
-\title{Interactive maps as a tool for visualizing accessibility}
+\title{Interactive maps as a tool for visualising accessibility}
 \author{Eemil Haapanen}
 
 \begin{document}
@@ -11,10 +11,10 @@
 % What accessibility?
 The term accessibility is central to this thesis.
 In its most general sense, the word simply means how easy something is to access,
-with all further meaning stemming from the context in which the word is used.
+with all further meaning derived from the context in which the word is used.
 This context could be 
 
-% accessibility as a phenomenon in general, hard to measure
+% Geographical accessibility as a phenomenon in general, hard to measure
 The general starting point for many definitions accessibility, in the geographical sense, is
 \enquote{potential of opportunities for interaction} \parencite{han1959}.
 Depending on the factors thought to impact that potential,
@@ -28,9 +28,9 @@ meaning every place in every time has a level of access
 in relation to every other place \parencite{lev2020}.
 All this makes measuring accessibility in a wholistic way a complicated task.
 
-% hard to visualize too
-Similarily to defining or measuring it, visualizing accessibility is complex.
-Accessibility visualizations are often constrained to displaying access in relation to
+% hard to visualise too
+Similarily to defining or measuring it, visualising accessibility is complex.
+Accessibility visualisations are often constrained to displaying access in relation to
 a limited number of pre-selected places (for example \textcite{wei2018}),
 or composing an accessibility index that can be calculated and mapped for all locations,
 in relation to potentially many different things and locations (for example \textcite{kim2019}).
@@ -38,24 +38,24 @@ However, more complex accessibility measures tend to lead to
 less usable presentations \parencite{te2014},
 while mapping more simple measures could lead to an influx of variations to present.
 For example separating different travel modes, times of day or target locations
-would multiply the amount of visualizations needed to present accessibility.
+would multiply the amount of visualisations needed to present accessibility.
 
-% how interactivity benefits accessibility visualization (because of how accesibility is)
-Even if visualizing every aspect of accessibility from everywhere to everywhere is impossible,
-interactive visualizations could offer some benefits for presenting accessibility.
+% how interactivity benefits accessibility visualisation (because of how accesibility is)
+Even if visualising every aspect of accessibility from everywhere to everywhere is impossible,
+interactive visualisations could offer some benefits for presenting accessibility.
 After all, a key principle of interactivity in map presentations is
 the map user's ability to change the content of the map \parencite{rot2013}.
-For visualizing accessibility this could mean, for example,
+For visualising accessibility this could mean, for example,
 interactive selection of location or travel mode instead of
 a static accessibility index that, to a varying extent, tries to account for everything.
 Scientific literature on the topic seems to support the idea of
-interactivity in accessibility visualization, even indicating a need for such presentations.
-In a study focusing on the usablity of different accessibility instruments and visualizations,  % accessibility instrument
+interactivity in accessibility visualisation, even indicating a need for such presentations.
+In a study focusing on the usablity of different accessibility instruments and visualisations,  % accessibility instrument
 \textcite{te2014} highlight the importance of real-time interactivity between the map and the map user.
 \textcite{but2018} state that for maps to efficiently communicate accessibility,
 they should be as flexible and dynamic as possible.
-However, \textcite{but2018} also note that these qualities are often missing in accessibility visualizations.
-Along the same lines, \textcite{paj2021} find modern accessibility visualizations often complicated,
+However, \textcite{but2018} also note that these qualities are often missing in accessibility visualisations.
+Along the same lines, \textcite{paj2021} find modern accessibility visualisations often complicated,
 and lacking in interactivity and flexibility.
 
 % research questions
@@ -68,7 +68,7 @@ Firstly, how should accessibility be presented cartographically?
 To answer this, I will go into detail of what makes accessibility an unique phenomenon,
 especially from a cartographical point of view,
 and what requirements this places on visual representations of accessibility.
-Secondly, what value do interactive visualizations hold in the context of accessibility?
+Secondly, what value do interactive visualisations hold in the context of accessibility?
 Here I will focus on the general theory of cartography and especially cartographic interaction,
 also previewing previous interactive maps and presentations relative to the topic.
 Thirdly, how should an interactive accessibility presentation be implemented?
@@ -83,7 +83,7 @@ to keep in touch with the map user's perspective.
 
 % Currently I see the first two research questions as a sort of a background study
 % necessary to form a theoretical base
-% for the implementation of the interactive matrix visualization.
+% for the implementation of the interactive matrix visualisation.
 % This is why I have placed them in a background section.
 
 \subsection{Cartography}
@@ -109,7 +109,7 @@ What are the "normal" (cartography-wise) phenomena, do they exist?
 The second research question:
 
 \begin{displayquote}
-What value do interactive visualizations hold in the context of accessibility?
+What value do interactive visualisations hold in the context of accessibility?
 (General theory of cartography and especially cartographic interaction,
 previous interactive maps and presentations relative to the topic.)
 \end{displayquote}
@@ -118,7 +118,7 @@ Here I will be doing literatrure review as well,
 especially relating to the theory of cartography and interactive maps.
 Themes such as critical cartography
 and the qualitative nature of maps should be found here too.
-When previewing previous accessibility visualizations,
+When previewing previous accessibility visualisations,
 some kind of a systematic comparison of previous work
 could be a way to form a synthesis here.
 
@@ -127,7 +127,7 @@ Describe the study design in more detail.
 
 \section{Data and methods}
 
-This section will focus on the matrix visualization.
+This section will focus on the matrix visualisation.
 
 \subsection{Data - Helsinki Region Travel Time Matrix}
 
@@ -135,7 +135,7 @@ General description of the matrix goes here.
 
 \subsection{Methods}
 
-I see the methods necessary to implement the visualization belonging to two themes:
+I see the methods necessary to implement the visualisation belonging to two themes:
 Methods for figuring out how the map should be
 and methods for actually making the map be that way.
 
@@ -161,7 +161,7 @@ See figure \ref{fig:architechture} for my idea of what the architechture might l
 	\label{fig:architechture}
 \end{figure}
 
-When developing the visualization, the priority should be on the map application.
+When developing the visualisation, the priority should be on the map application.
 However, the development must progress on all components as an iterative process,
 where producing a minimal working state should be the first goal.
 Something that, to some extent, works, makes discussion about the map possible,
@@ -181,7 +181,7 @@ have their results already in the backround section,
 since they are necessary for the rest of the thesis to make sense.
 Still, some kind of a synthesis of those results should be here as well.
 
-The results of the implementation of the matrix are, firstly, the visualization itself,
+The results of the implementation of the matrix are, firstly, the visualisation itself,
 but also the output of the interviews
 and possibly of the technical comparison between technologies.
 
@@ -196,7 +196,7 @@ I think the work needed to complete this thesis can be divided into three main t
 \begin{enumerate}
 	\item Background study / literature review to gain a theoretical base
 	\item Comparing and learning technologies to gain a technical base
-	\item The iterative development of the visualization
+	\item The iterative development of the visualisation
 \end{enumerate}
 
 My planned timing for the thesis will be from now (summer) to the end of the year (winter).
