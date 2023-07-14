@@ -2,8 +2,8 @@
 
 # thesis (WIP)
 This is the LaTeX source of my thesis.
-A pdf file is built and uploaded automatically on every push.
-Find it in the build artifacts on the Actions tab.
+A pdf file is built and uploaded automatically with a github action on every push affecting any relevant files.
+You can find the pdf in the build artifacts on the Actions tab.
 
 ## Requirements for running locally
 
