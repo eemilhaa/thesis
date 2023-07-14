@@ -40,7 +40,7 @@ cd thesis && latexmk -C && latexmk -pdf
 
 To only format bibfile:
 ```console
-biber --tool references.bib -O references.bib
+biber --tool thesis/references.bib -O thesis/references.bib
 ```
 
 
