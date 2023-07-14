@@ -1,13 +1,18 @@
 # thesis
 
-### Build
+## Build
 
+### General one-command build
 ```console
-latexmk -C && latexmk -pdf
+sh build.sh
 ```
 
-### Sort bibfile
+### Only build pdf
+```console
+cd thesis && latexmk -C && latexmk -pdf
+```
 
+### Only format bibfile
 ```console
 biber --tool references.bib -O references.bib
 ```
@@ -15,8 +20,7 @@ biber --tool references.bib -O references.bib
 
 ## In-text
 
-### Cite
-
+### Cite in APA
 ```tex
 \parencite{}
 \textcite{}
