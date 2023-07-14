@@ -15,3 +15,5 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: thesis/main.tex
+        env:
+          TEXINPUTS: ".:./thesis//:"
