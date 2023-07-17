@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  build:
+    image: registry.gitlab.com/islandoftex/images/texlive:latest
+    working_dir: /usr/thesis
+    volumes:
+      - ./:/usr/thesis
+    command: ["sh", "build.sh"]

@@ -2,12 +2,26 @@
 
 # thesis (WIP)
 This is the LaTeX source of my thesis.
+
+## Building the document
+To get a pdf, you need a way to build the document.
+For this, you have a few options:
+
+### Just give me the PDF (Build remotely with a github action)
 A pdf file is built and uploaded automatically with a github action on every push affecting any relevant files.
 You can find the pdf in the build artifacts on the Actions tab.
 
-## Requirements for running locally
+### Build locally
+When building locally, the end result will be `thesis/main.pdf`.
 
-### Packages
+#### Containerized
+Run
+```console
+podman-compose up
+```
+to build a pdf.
+
+#### With native packages
 Everything *should* work on most general TeX distributions.
 
 Things you'll need:
@@ -23,9 +37,6 @@ pacman -S \
   texlive \
   texlive-bibtexextra
 ```
-
-### Building
-When building locally, the end result will be `thesis/main.pdf`.
 
 To do a general, one-command build:
 ```console
