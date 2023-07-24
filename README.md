@@ -3,25 +3,30 @@
 # thesis (WIP)
 This is the LaTeX source of my thesis.
 
-## Building the document
-To get a pdf, you need a way to build the document.
-For this, you have a few options:
+## Get the latest PDF
+A PDF file with the latest changes is always available for download -
+Find it in the build artifacts on the Actions tab.
+A new version is built and uploaded automatically with a github action on every push affecting any relevant files.
 
-### Just give me the PDF (Build remotely with a github action)
-A pdf file is built and uploaded automatically with a github action on every push affecting any relevant files.
-You can find the pdf in the build artifacts on the Actions tab.
+## Build the document locally
+More frequent builds are necessary to preview changes when writing.
+Below are two approaches for local LaTeX development.
 
-### Build locally
-When building locally, the end result will be `thesis/main.pdf`.
+When building locally, the end result will always be `thesis/main.pdf`.
 
-#### Containerized
-Run
+### Containerized
+If you have a container engine (podman / docker) installed,
+you can skip all of the headache of figuring out the tex ecosystem.
+
+Just run
 ```console
 podman-compose up
 ```
 to build a pdf.
 
-#### With native packages
+If you need to debug the build, you can read the container's logs or open a shell to the container and go from there.
+
+### With native packages
 Everything *should* work on most general TeX distributions.
 
 Things you'll need:
@@ -49,7 +54,7 @@ To only build the pdf:
 cd thesis && latexmk -C && latexmk -pdf
 ```
 
-To only format bibfile:
+To only format the bibfile:
 ```console
 biber --tool thesis/references.bib -O thesis/references.bib
 ```
