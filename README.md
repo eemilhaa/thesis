@@ -5,8 +5,8 @@ This is the LaTeX source of my thesis.
 
 ## Get the latest PDF
 A PDF file with the latest changes is always available for download -
-Find it in the build artifacts on the Actions tab.
-A new version is built and uploaded automatically with a github action on every push affecting any relevant files.
+find it in the build artifacts on the Actions tab.
+A new version is built and uploaded automatically on every push.
 
 ## Build the document locally
 More frequent builds are necessary to preview changes when writing.
@@ -16,15 +16,13 @@ When building locally, the end result will always be `thesis/main.pdf`.
 
 ### Containerized
 If you have a container engine (podman / docker) installed,
-you can skip all of the headache of figuring out the tex ecosystem.
+you can skip the headache of figuring out the tex ecosystem.
 
 Just run
 ```console
 podman-compose up
 ```
 to build a pdf.
-
-If you need to debug the build, you can read the container's logs or open a shell to the container and go from there.
 
 ### With native packages
 Everything *should* work on most general TeX distributions.
