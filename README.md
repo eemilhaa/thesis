@@ -1,6 +1,6 @@
 ![workflow](https://github.com/eemilhaa/thesis/actions/workflows/build.yml/badge.svg)
 
-> :warning: Everything is very unfinished and things will change constantly
+> :warning: Note that everything is very unfinished and things will change constantly
 
 # thesis (WIP)
 This is the LaTeX source of my thesis.
