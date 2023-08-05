@@ -1,0 +1,47 @@
+\section{Data and methods}
+
+This section will focus on the matrix visualisation.
+
+\subsection{Data - Helsinki Region Travel Time Matrix}
+
+General description of the matrix goes here.
+
+\subsection{Methods}
+
+I see the methods necessary to implement the visualisation belonging to two themes:
+Methods for figuring out how the map should be
+and methods for actually making the map be that way.
+
+For figuring out what the map should be like,
+I have (hopefully) at this point already formed some ideas from the background section.
+To complement those, and to keep the qualitative aspect of cartography relevant,
+interview(s) will be used alongside the development process.
+
+From the technical angle, there are three main components to the map:
+
+\begin{enumerate}
+	\item Preprocessing of the matrix to a mappable format
+	\item A back-end to serve the matrix
+	\item The web map application
+\end{enumerate}
+
+See figure \ref{fig:architechture} for my idea of what the architechture might look like.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{images/architechture}
+	\caption{Architechture}
+	\label{fig:architechture}
+\end{figure}
+
+When developing the visualisation, the priority should be on the map application.
+However, the development must progress on all components as an iterative process,
+where producing a minimal working state should be the first goal.
+Something that, to some extent, works, makes discussion about the map possible,
+which in turn should keep development progressing towards the right direction.
+
+It should also be noted that the number of techical options for implementing the map is large.
+Questions such as which mapping library or UI framework to use,
+or how to preprocess the matrix data should be covered here too.
+Depending on the need and extent of comparisons between different technologies,
+some synthesis could be formed about that too.
