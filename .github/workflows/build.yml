@@ -18,8 +18,20 @@ jobs:
         with:
           root_file: main.tex
           working_directory: thesis/
-      - name: Upload PDF file
-        uses: actions/upload-artifact@v3
+#      - name: Upload PDF file
+#        uses: actions/upload-artifact@v3
+#        with:
+#          name: PDF
+#         path: thesis/main.pdf
+
+      - name: Make release
+        uses: softprops/action-gh-release@v1
         with:
-          name: PDF
-          path: thesis/main.pdf
+          files: thesis/main.pdf
+          
+      - name: Remove unecessary releases
+        uses: dev-drprasad/delete-older-releases@v0.2
+        with:
+          keep_latest: 2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
