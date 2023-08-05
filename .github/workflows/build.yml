@@ -30,7 +30,7 @@ jobs:
           files: thesis/main.pdf
           
       - name: Remove unecessary releases
-        uses: dev-drprasad/delete-older-releases@v0.2
+        uses: dev-drprasad/delete-older-releases@v0.2.1
         with:
           keep_latest: 2
         env:
