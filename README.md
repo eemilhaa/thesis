@@ -1,12 +1,14 @@
 ![workflow](https://github.com/eemilhaa/thesis/actions/workflows/build.yml/badge.svg)
 
-# thesis (WIP)
 > :warning: Everything is very unfinished and things will change constantly
 
+# thesis (WIP)
 This is the LaTeX source of my thesis.
 
 ## Get the latest PDF
-A PDF file with the latest changes is always available for download - find it in the releases.
+A PDF file with the latest changes is always available for download.
+You can find it in the [releases](https://github.com/eemilhaa/thesis/releases)
+(`main.pdf` under `Assets`).
 A new version is built and released automatically on every push.
 This is done with a github action.
 
