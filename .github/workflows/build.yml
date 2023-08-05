@@ -27,6 +27,7 @@ jobs:
       - name: Make release
         uses: softprops/action-gh-release@v1
         with:
+          name: latest
           files: thesis/main.pdf
           
       - name: Remove unecessary releases
