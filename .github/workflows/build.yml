@@ -1,9 +1,10 @@
-name: Build and upload pdf
+name: Build and release PDF
 on:
   push:
     paths:
       - 'thesis/**'
-    # branches: [ "main" ]
+    branches:
+      - main
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -17,28 +18,24 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v3
 
+      - name: Remove old releases
+        uses: dev-drprasad/delete-older-releases@v0.2.1
+        with:
+          keep_latest: 0
+          delete_tags: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
           root_file: main.tex
           working_directory: thesis/
 
-      - name: Get sha
-        id: vars
-        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
-
       - name: Make release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ steps.vars.outputs.sha_short }}
+          tag_name: latest
           name: PDF
           body: The latest PDF
           files: thesis/main.pdf
-      
-          
-      - name: Remove unecessary releases
-        uses: dev-drprasad/delete-older-releases@v0.2.1
-        with:
-          keep_latest: 1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
