@@ -23,19 +23,18 @@ jobs:
           root_file: main.tex
           working_directory: thesis/
 
-#      - name: Upload PDF file
-#        uses: actions/upload-artifact@v3
-#        with:
-#          name: PDF
-#         path: thesis/main.pdf
+      - name: Get sha
+        id: vars
+        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
       - name: Make release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: latest
+          tag_name: ${{ steps.vars.outputs.sha_short }}
           name: PDF
           body: The latest PDF
           files: thesis/main.pdf
+      
           
       - name: Remove unecessary releases
         uses: dev-drprasad/delete-older-releases@v0.2.1
