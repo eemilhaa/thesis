@@ -1,26 +1,26 @@
 ![workflow](https://github.com/eemilhaa/thesis/actions/workflows/build.yml/badge.svg)
 
 # thesis (WIP)
+> :warning: Everything is very unfinished and things will change constantly
+
 This is the LaTeX source of my thesis.
 
 ## Get the latest PDF
-A PDF file with the latest changes is always available for download -
-find it in the build artifacts on the Actions tab.
-A new version is built and uploaded automatically on every push.
+A PDF file with the latest changes is always available for download - find it in the releases.
+A new version is built and released automatically on every push.
+This is done with a github action.
 
 ## Build the document locally
-More frequent builds are necessary to preview changes when writing.
 Below are two approaches for local LaTeX development.
-
 When building locally, the end result will always be `thesis/main.pdf`.
 
 ### Containerized
-If you have a container engine (podman / docker) installed,
+If you have a container engine (podman or docker) installed,
 you can skip the headache of figuring out the tex ecosystem.
 
 Just run
 ```console
-podman-compose up
+<podman/docker>-compose up
 ```
 to build a pdf.
 
@@ -58,9 +58,12 @@ biber --tool thesis/references.bib -O thesis/references.bib
 ```
 
 
-## In-text stuff
+## General LaTeX stuff
 
-### Cite in APA
+See [this repository](https://github.com/dspinellis/latex-advice)
+for excellent advice on wiritig LaTeX.
+
+### In-text citations in APA
 ```tex
 \parencite{}
 \textcite{}
