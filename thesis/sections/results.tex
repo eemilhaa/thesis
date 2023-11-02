@@ -11,6 +11,7 @@ See \ref{tab:map library comparison} for comparison of mapping libraries.
 
 
 % TODO Describe why these libraries were selected
+% Baseline: FOSS, Actively maintained
 
 \begin{table}[h]
 	\centering
@@ -19,25 +20,25 @@ See \ref{tab:map library comparison} for comparison of mapping libraries.
 		Library
 		& Quality of visualisation
 		& Rendering performance
-		& Maintainability
+		& Integration with React
 		\\ 
 		\hline
 		Deck.gl
-		& Inconsistent rendering of complex shapes, vector tiles supported
-		& Accelerated through webgl, best performace out of all tested libraries
-		& TODO
+		& Inconsistent rendering of complex polygons, vector tiles supported
+		& GPU accelerated (WebGL), most performant of the tested libraries
+		& Designed from ground up to work with React
 		\\
 		\hline
 		Leaflet
-		& Correct rendering, Vector tiles possible through plugins
-		& TODO
-		& TODO
+		& Correct rendering of shapes, Vector tiles possible through plugins
+		& No GPU acceleration, least performant of the tested libraries
+		& Integration possible with a 3rd party wrapper
 		\\
 		\hline
 		Maplibre
-		& correct drawing of polygons, raster basemaps
-		& TODO
-		& TODO
+		& Mostly correct rendering of polygons with very rare inconsistancies, vector tiles supported
+		& GPU accelerated (WebGL), slightly less performant than Deck.gl
+		& Integration possible with a 3rd party wrapper
 		\\
 		\hline
 	\end{tabular}
