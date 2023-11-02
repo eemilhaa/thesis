@@ -11,17 +11,18 @@ See \ref{tab:map library comparison} for comparison of mapping libraries.
 
 
 % TODO Describe why these libraries were selected
-% Baseline: FOSS, Actively maintained
+% Baseline: FOSS, Actively maintained, usable with UI framework
+% Discarded: Openlayers (no integration to react) Mapbox (closed source)
 
 \begin{table}[h]
 	\centering
 	\begin{tabular}{ L{0.1\textwidth} | L{0.25\textwidth} | L{0.25\textwidth} | L{0.25\textwidth} }
-		\raggedright
 		Library
 		& Quality of visualisation
 		& Rendering performance
 		& Integration with React
 		\\ 
+		\hline
 		\hline
 		Deck.gl
 		& Inconsistent rendering of complex polygons, vector tiles supported
