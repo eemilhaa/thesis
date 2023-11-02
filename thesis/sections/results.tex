@@ -7,6 +7,55 @@ The map application
 
 \subsection{Application design}
 
+See \ref{tab:map library comparison} for comparison of mapping libraries.
+
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{ L{0.1\textwidth} | L{0.2\textwidth} | L{0.2\textwidth} | L{0.2\textwidth} | L{0.2\textwidth} } 
+		\raggedright
+		Library
+		& Quality of visualisation
+		& Rendering performance
+		& License
+		& Maintainability
+		\\ 
+		\hline
+		Deck.gl
+		& Inconsistent rendering of complex shapes, vector tiles supported
+		& Accelerated through webgl, best performace of tested libraries
+		\\
+		\hline
+		Leaflet & Correct rendering, Vector tiles possible through plugins & cell6 \\ 
+		\hline
+		Mapbox & correct drawing of polygons, raster basemaps & cell6 \\ 
+		\hline
+		Maplibre & correct drawing of polygons, raster basemaps & cell6 \\ 
+		\hline
+	\end{tabular}
+	\caption{Comparison of mapping libararies}
+	\label{tab:map library comparison}
+\end{table}
+
+% \begin{table}[h]
+% 	\centering
+% 	\begin{tabularx}{\textwidth} { 
+% 		| >{\raggedright\arraybackslash}X 
+% 		| >{\raggedright\arraybackslash}X 
+% 		| >{\raggedright\arraybackslash}X 
+% 		| >{\raggedright\arraybackslash}X 
+% 		| >{\raggedright\arraybackslash}X
+% 	}
+% 	\hline
+% 	asdf & sf & item 11 & item 12 & item 13 \\
+% 	\hline
+% 	item 21  & item 22  & item 23  \\
+% 	\hline
+% 	\end{tabularx}
+% 	\caption{Comparison of mapping libararies}
+% 	\label{tab:map library comparison}
+% \end{table}
+
 \subsection{Map usage}
 
 See \ref{fig:Questions 1 and 2} for answers to questions 1 \ref{fig:Question 1} and 2 \ref{fig:Question 2}.
@@ -52,7 +101,7 @@ See \ref{fig:Questions 1 and 2} for answers to questions 1 \ref{fig:Question 1} 
 		\caption{Question 5}
 		\label{fig:Question 5}
 	\end{subfigure}%
-	\caption{Questions 1 and 2}
+	\caption{Questions 4 and 5}
 	\label{fig:Questions 4 and 5}
 \end{figure}
 
