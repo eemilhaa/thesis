@@ -13,12 +13,13 @@ See \ref{tab:map library comparison} for comparison of mapping libraries.
 % TODO Describe why these libraries were selected
 % Baseline: FOSS, Actively maintained, usable with UI framework
 % Discarded: Openlayers (no integration to react) Mapbox (closed source)
+% Integration with react -> developer experience & maintainability
 
 \begin{table}[h]
 	\centering
 	\begin{tabular}{ L{0.1\textwidth} | L{0.25\textwidth} | L{0.25\textwidth} | L{0.25\textwidth} }
 		Library
-		& Quality of visualisation
+		& Quality of visualization
 		& Rendering performance
 		& Integration with React
 		\\ 
@@ -31,19 +32,19 @@ See \ref{tab:map library comparison} for comparison of mapping libraries.
 		\\
 		\hline
 		Leaflet
-		& Correct rendering of shapes, Vector tiles possible through plugins
+		& Correct rendering of polygons, Vector tiles possible through plugins
 		& No GPU acceleration, least performant of the tested libraries
 		& Integration possible with a 3rd party wrapper
 		\\
 		\hline
 		Maplibre
-		& Mostly correct rendering of polygons with very rare inconsistancies, vector tiles supported
-		& GPU accelerated (WebGL), slightly less performant than Deck.gl
+		& Correct rendering of polygons with very rare inconsistencies, vector tiles supported
+		& GPU accelerated (WebGL), slightly less performant than deck.gl
 		& Integration possible with a 3rd party wrapper
 		\\
 		\hline
 	\end{tabular}
-	\caption{Comparison of mapping libararies}
+	\caption{Comparison of mapping libraries}
 	\label{tab:map library comparison}
 \end{table}
 
