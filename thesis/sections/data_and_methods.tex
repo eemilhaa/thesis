@@ -32,7 +32,7 @@ and thus dictates what kind of processing should be done on the data.
 Functional requirements define what a product must do,
 what its features and functions are.
 Nonfunctional requirements describe the general properties of a system.
-Nonfuctional requirements can be further dividied into quality attributes
+Nonfunctional requirements can be further dividied into quality attributes
 (how the software should be) and constraints (technical limitations)
 
 \begin{table}[h]
@@ -58,52 +58,76 @@ Nonfuctional requirements can be further dividied into quality attributes
 \end{table}
 
 \begin{table}[h]
-	\centering
-	\begin{tabular}{ | L{0.2\textwidth} | L{0.7\textwidth} | }
-		\hline
-		Category
-		& Requirements
-		\\
-		\hline
-		\hline
-		Performance
-		& \tabitem User interaction should produce instantaneous visual feedback \\
-		& \tabitem The application should be usable on less performant devices \\
-		\hline
-		Maintainability
-		& \tabitem All components should be as independent as possible \\
-		& \tabitem The tools used should be documented \\
-		\hline
-		Usability
-		& The user interface of the application should be intuitive
-		\\
-		\hline
-		Scalability
-		& \tabitem The application should be scalable depending on the usage load \\
-		& \tabitem Different application components should scale independently \\
-		\hline
-	\end{tabular}
-	\caption{The nonfunctional requirements of the map application}
+	\begin{subtable}[h]{\textwidth}
+		\centering
+		\begin{tabular}{ | L{0.2\textwidth} | L{0.7\textwidth} | }
+			\hline
+			Category
+			& Requirements
+			\\
+			\hline
+			\hline
+			Performance
+			& \tabitem User interaction should produce instantaneous visual feedback \\
+			& \tabitem The application should be usable on less performant devices \\
+			\hline
+			Maintainability
+			& \tabitem All components should be as independent as possible \\
+			& \tabitem The tools used should be documented \\
+			\hline
+			Usability
+			& The user interface of the application should be intuitive
+			\\
+			\hline
+			Scalability
+			& \tabitem The application should be scalable depending on the usage load \\
+			& \tabitem Different application components should scale independently \\
+			\hline
+		\end{tabular}
+		\caption{Quality requirements}
+		\label{tab:quality requirements}
+	\end{subtable}
+	\newline
+	\newline  % https://tex.stackexchange.com/questions/38893/cant-generate-vertical-space-between-tables
+	\newline
+	\begin{subtable}[h]{\textwidth}
+		\centering
+		\begin{tabular}{ | L{0.3\textwidth} | L{0.6\textwidth} | }
+			\hline
+			Constraint
+			& Description
+			\\
+			\hline
+			\hline
+			Platform
+			& The application runs in a web browser
+			\\
+			\hline
+		\end{tabular}
+		\caption{The constraints of the application}
+		\label{tab:constraints}
+	\end{subtable}
+	\caption{Nonfunctional requirements}
 	\label{tab:nonfunctional requirements}
 \end{table}
 
-\begin{table}[h]
-	\centering
-	\begin{tabular}{ | L{0.3\textwidth} | L{0.6\textwidth} | }
-		\hline
-		Constraint
-		& Description
-		\\
-		\hline
-		\hline
-		Platform
-		& The application runs in a web browser
-		\\
-		\hline
-	\end{tabular}
-	\caption{The constraints of the application}
-	\label{tab:constraints}
-\end{table}
+% \begin{table}[h]
+% 	\centering
+% 	\begin{tabular}{ | L{0.3\textwidth} | L{0.6\textwidth} | }
+% 		\hline
+% 		Constraint
+% 		& Description
+% 		\\
+% 		\hline
+% 		\hline
+% 		Platform
+% 		& The application runs in a web browser
+% 		\\
+% 		\hline
+% 	\end{tabular}
+% 	\caption{The constraints of the application}
+% 	\label{tab:constraints}
+% \end{table}
 
 % What interaction should there be in the map
 
