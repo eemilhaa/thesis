@@ -10,22 +10,76 @@ Travel time matrix files,
 % Why this must be considered
 As mentioned earlier, cartographic visualization is often about tradeoffs.
 The interactive map crafted here is no exception.
-Rather, it is quite the opposite -- In addition to visual composition,  % TODO
-many decisions must be made based on technical aspects. For example,
-the sheer scale and detail of the dataset being visualized means that
-instantaneous interaction with the map is not realistic
+In addition to visual composition,  % TODO
+many decisions must be made based on more technical basis.
+For example, the sheer scale and detail of the dataset being visualized
+means that instantaneous interaction with the map is not realistic
 if no detail of the mapped data is to be sacrificed.
 These kinds of tradeoffs are important to recognize,
-since only through them is it possible to specify what
+because only through them is it possible to specify what
 requirements should, or even could, be placed on the map application.
 
 % Roughly what kind of a map? Why?
-Based on the background study,
+Based on the background study,  % TODO
 I made the decision to prioritize real-time interaction over minute detail in the map.
 The goal of the map is to act as a dynamic overview to the entire travel time matrix,
-and user interaction, whether it is 
+and user interaction, whether it is changing the location or travel mode,
+should result in instant visual feedback on the map.
 This decision is what ultimately shapes the requirements for the mapped data,
 and thus dictates what kind of processing should be done on the data.
+
+% TODO copypasta
+Functional requirements define what a product must do,
+what its features and functions are.
+Nonfunctional requirements describe the general properties of a system
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{ | L{0.3\textwidth} | L{0.6\textwidth} | }
+		\hline
+		Requirement
+		& Description
+		\\
+		\hline
+		\hline
+		Interactive selection of location
+		& The user can assess the accessibility of any location within the area covered by the dataset
+		\\
+		\hline
+		Interactive selection of travel mode
+		& The user can assess the accessibility by different travel modes
+		\\
+		\hline
+	\end{tabular}
+	\caption{The functional requirements of the map application}
+	\label{tab:functional requirements}
+\end{table}
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{ | L{0.3\textwidth} | L{0.6\textwidth} | }
+		\hline
+		Category
+		& Requirement
+		\\
+		\hline
+		\hline
+		The map
+		& Inconsistent rendering of complex polygons, vector tiles supported
+		\\
+		\hline
+		Leaflet
+		& Correct rendering of polygons, Vector tiles possible through plugins
+		\\
+		\hline
+		Maplibre
+		& Correct rendering of polygons with very rare inconsistencies, vector tiles supported
+		\\
+		\hline
+	\end{tabular}
+	\caption{The nonfunctional requirements of the map application}
+	\label{tab:nonfunctional requirements}
+\end{table}
 
 % What interaction should there be in the map
 
