@@ -44,8 +44,19 @@ Nonfunctional requirements can be further dividied into quality attributes
 		\\
 		\hline
 		\hline
-		Interactive selection of location
-		& The user can assess the accessibility of any location within the area covered by the dataset
+		Location selection by clicking
+		& The user can click on a location and produce an accessibility map of that location
+		\\
+		\hline
+		Location selection by hovering
+		& The user can hover their mouse over the map, and the map reacts:
+		the map shows the accessibility of the location that is under the cursor,
+		updating constantly as the cursor moves
+		\\
+		\hline
+		Toggling between modes of location selection
+		& The user can toggle their mode of interaction by clicking:
+		Clicking while hovering locks the map, clicking while the map is locked resumes hovering
 		\\
 		\hline
 		Interactive selection of travel mode
@@ -68,12 +79,12 @@ Nonfunctional requirements can be further dividied into quality attributes
 			\hline
 			\hline
 			Performance
-			& \tabitem User interaction should produce instantaneous visual feedback \\
-			& \tabitem The application should be usable on less performant devices \\
+			& \tabitem Visual feedback from user interaction is instantaneous \\
+			& \tabitem The application is usable on less performant devices \\
 			\hline
 			Maintainability
 			& \tabitem All components should be as independent as possible \\
-			& \tabitem The tools used should be documented \\
+			& \tabitem The codebase is versioned and documented \\
 			\hline
 			Usability
 			& The user interface of the application should be intuitive
