@@ -36,6 +36,8 @@ Nonfunctional requirements can be further dividied into quality attributes
 (how the software should be) and constraints (technical limitations)
 
 \begin{table}[H]
+	\caption{The functional requirements of the map application}
+	\label{tab:functional requirements}
 	\centering
 	\begin{tabular}{ | L{0.3\textwidth} | L{0.6\textwidth} | }
 		\hline
@@ -64,12 +66,14 @@ Nonfunctional requirements can be further dividied into quality attributes
 		\\
 		\hline
 	\end{tabular}
-	\caption{The functional requirements of the map application}
-	\label{tab:functional requirements}
 \end{table}
 
 \begin{table}[H]
+	\caption{Nonfunctional requirements}
+	\label{tab:nonfunctional requirements}
 	\begin{subtable}[h]{\textwidth}
+		\caption{Quality requirements}
+		\label{tab:quality requirements}
 		\centering
 		\begin{tabular}{ | L{0.2\textwidth} | L{0.7\textwidth} | }
 			\hline
@@ -79,29 +83,30 @@ Nonfunctional requirements can be further dividied into quality attributes
 			\hline
 			\hline
 			Performance
-			& \tabitem Visual feedback from user interaction is instantaneous \\
-			& \tabitem The application is usable on less performant devices \\
+			& \tabitem Data serving speed allows for real-time interaction \\
+			& \tabitem Map rendering speed allows for real-time interaction \\
 			\hline
 			Maintainability
-			& \tabitem All components should be as independent as possible \\
+			& \tabitem All components are as independent as possible \\
 			& \tabitem The codebase is versioned and documented \\
+			& \tabitem Deploying the application is reproducible \\
 			\hline
 			Usability
-			& The user interface of the application should be intuitive
-			\\
+			& \tabitem Using the map is intuitive \\
+			& \tabitem Visual feedback from user interaction is instantaneous \\
 			\hline
 			Scalability
-			& \tabitem The application should be scalable depending on the usage load \\
-			& \tabitem Different application components should scale independently \\
+			& \tabitem The application should is scalable depending on the usage load \\
+			& \tabitem Different application components can be scaled independently \\
 			\hline
 		\end{tabular}
-		\caption{Quality requirements}
-		\label{tab:quality requirements}
 	\end{subtable}
 	\newline
 	\newline  % https://tex.stackexchange.com/questions/38893/cant-generate-vertical-space-between-tables
 	\newline
 	\begin{subtable}[h]{\textwidth}
+		\caption{The constraints of the application}
+		\label{tab:constraints}
 		\centering
 		\begin{tabular}{ | L{0.3\textwidth} | L{0.6\textwidth} | }
 			\hline
@@ -115,11 +120,7 @@ Nonfunctional requirements can be further dividied into quality attributes
 			\\
 			\hline
 		\end{tabular}
-		\caption{The constraints of the application}
-		\label{tab:constraints}
 	\end{subtable}
-	\caption{Nonfunctional requirements}
-	\label{tab:nonfunctional requirements}
 \end{table}
 
 % \begin{table}[h]
