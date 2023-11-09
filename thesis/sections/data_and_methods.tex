@@ -18,6 +18,87 @@ This visualization is based on the 2023 version of the \acrshort{ttm}
 \parencite{fin2023}.
 The version of the \acrshort{ttm} used in this visualization is at the time of writing the newest one
 
+\begin{table}[H]
+	\caption{The table structure of \acrshort{ttm} data}
+	\label{tab:ttm table structure}
+	\centering
+	\begin{tabular}{ | L{0.15\textwidth} | L{0.75\textwidth} | }
+		\hline
+		Column name
+		& Description
+		\\
+		\hline
+		\hline
+		from\_id
+		& ID number of the origin grid cell
+		\\
+		\hline
+		to\_id
+		& ID number of the destination grid cell
+		\\
+		\hline
+		walk\_avg
+		& Travel time in minutes from origin to destination by walking at an average speed
+		\\
+		\hline
+		walk\_slo
+		& Travel time in minutes from origin to destination by walking slowly
+		\\
+		\hline
+		bike\_avg
+		& Travel time in minutes from origin to destination by cycling at an average speed; incl. extra time (1 min) to unlock and lock bicycle
+		\\
+		\hline
+		bike\_fst
+		& Travel time in minutes from origin to destination by cycling fast; incl. extra time (1 min) to unlock and lock bicycle
+		\\
+		\hline
+		bike\_slo
+		& Travel time in minutes from origin to destination by cycling slowly; incl. extra time (1 min) to unlock and lock bicycle
+		\\
+		\hline
+		pt\_r\_avg
+		& Travel time in minutes from origin to destination by public transportation in rush hour traffic, walking at an average speed
+		\\
+		\hline
+		pt\_r\_slo
+		& Travel time in minutes from origin to destination by public transportation in rush hour traffic, walking at a slower speed
+		\\
+		\hline
+		pt\_m\_avg
+		& Travel time in minutes from origin to destination by public transportation in midday traffic, walking at an average speed
+		\\
+		\hline
+		pt\_m\_slo
+		& Travel time in minutes from origin to destination by public transportation in midday traffic, walking at a slower speed
+		\\
+		\hline
+		pt\_n\_avg
+		& Travel time in minutes from origin to destination by public transportation in nighttime traffic, walking at an average speed
+		\\
+		\hline
+		pt\_n\_slo
+		& Travel time in minutes from origin to destination by public transportation in nighttime traffic, walking at a lower speed
+		\\
+		\hline
+		car\_r
+		& Travel time in minutes from origin to destination by private car in rush hour traffic
+		\\
+		\hline
+		car\_m
+		& Travel time in minutes from origin to destination by private car in midday traffic
+		\\
+		\hline
+		car\_n
+		& Travel time in minutes from origin to destination by private car in nighttime traffic
+		\\
+		\hline
+		walk\_d
+		& Distance from origin to destination, in metres, on foot
+		\\
+		\hline
+	\end{tabular}
+\end{table}
 
 
 \subsection{Requirements for the interactive map presentation}
