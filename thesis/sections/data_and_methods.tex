@@ -19,7 +19,39 @@ This visualization is based on the 2023 version of the \acrshort{ttm}
 The version of the \acrshort{ttm} used in this visualization is at the time of writing the newest one
 
 \begin{table}[H]
-	\caption{The table structure of \acrshort{ttm} data}
+	\caption{Descriptive values of the \acrshort{ttm} \parencite{fin2023}}
+	\label{tab:ttm indicators}
+	\centering
+	\begin{tabular}{ | L{0.4\textwidth} | L{0.5\textwidth} | }
+		\hline
+		Grid cell size
+		& 250 x 250 m
+		\\
+		\hline
+		Number of grid cells
+		& 13231
+		\\
+		\hline
+		Number of origin-destination pairs
+		& 175 059 361
+		\\
+		\hline
+		Travel modes
+		& \tabitem walking \\
+		& \tabitem cycling \\
+		& \tabitem public transportation \\
+		& \tabitem private car \\
+		\hline
+		Travel mode variations (if applicable)
+		& \tabitem Time of day (rush hour, midday, night) \\
+		& \tabitem Walking speed (average, slow) \\
+		& \tabitem Cycling speed (average, fast, slow) \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\caption{The table structure of \acrshort{ttm} data \parencite{fin2023}}
 	\label{tab:ttm table structure}
 	\centering
 	\begin{tabular}{ | L{0.15\textwidth} | L{0.75\textwidth} | }
@@ -99,7 +131,6 @@ The version of the \acrshort{ttm} used in this visualization is at the time of w
 		\hline
 	\end{tabular}
 \end{table}
-
 
 \subsection{Requirements for the interactive map presentation}
 % What interaction should there be in the map
