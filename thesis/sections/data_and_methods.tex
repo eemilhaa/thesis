@@ -11,6 +11,26 @@ This dataset is crucial to developing the map application,
 as it is the sole source of the travel times shown on the map.
 
 % Describe ttm in general: ykr, origin dest pairs etc (more surface level stuff common to all matrices)
+A significant component of the \acrshort{ttm} is the \acrlong{ykr} (\acrshort{ykr}) grid
+made by Statistics Finland.
+The grid has a spatial resolution of 250x250m, and it covers the entire Finland.
+Most importantly, however, the part of the \acrshort{ykr} grid that overlaps with
+the Helsinki region provides the spatial component for
+the travel times stored in the \acrshort{ttm}.
+The basic idea of the \acrshort{ttm} is that it stores the travel times and distances
+from every \acrshort{ykr} grid cell to every grid cell within the Helsinki region.
+The Helsinki region fits 13231 \acrshort{ykr} grid cells,
+which means that the complete \acrshort{ttm} contains travel times and distances for
+over 175 million routes.
+
+All the routes are calculated for multiple different travel modes.
+The primary travel modes are walking, cycling, public transportation and private car,
+but, when applicable, each mode can have variations based on
+time of day and walking or cycling speed.
+Time of day is especially relevant to motorized transport
+in the form of the rush hour, for example,
+while walking speed affects any travel mode
+where a significant portion of the trip is covered on foot.
 
 % Describe the particular matrix (2023), methodology etc
 There are matrices from many years.
