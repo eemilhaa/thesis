@@ -1,0 +1,33 @@
+\begin{table}[h]
+	\caption{Comparison of mapping libraries}
+	\label{tab:map library comparison}
+	\centering
+	\begin{tabular}{ | L{0.1\textwidth} | L{0.25\textwidth} | L{0.25\textwidth} | L{0.25\textwidth} | }
+		\hline
+		Library
+		& Quality of visualization
+		& Rendering performance
+		& Integration with React
+		\\ 
+		\hline
+		\hline
+		Deck.gl
+		& Inconsistent rendering of complex polygons, vector tiles supported
+		& GPU accelerated (WebGL), most performant of the tested libraries
+		& Designed from ground up to work with React
+		\\
+		\hline
+		Leaflet
+		& Correct rendering of polygons, Vector tiles possible through plugins
+		& No GPU acceleration, least performant of the tested libraries
+		& Integration possible with a 3rd party wrapper
+		\\
+		\hline
+		Maplibre
+		& Correct rendering of polygons with very rare inconsistencies, vector tiles supported
+		& GPU accelerated (WebGL), slightly less performant than deck.gl
+		& Integration possible with a 3rd party wrapper
+		\\
+		\hline
+	\end{tabular}
+\end{table}

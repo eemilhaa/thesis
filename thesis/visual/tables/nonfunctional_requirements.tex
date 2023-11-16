@@ -1,0 +1,54 @@
+\begin{table}[H]
+	\caption{Nonfunctional requirements}
+	\label{tab:nonfunctional requirements}
+	\begin{subtable}[h]{\textwidth}
+		\caption{Quality requirements}
+		\label{tab:quality requirements}
+		\centering
+		\begin{tabular}{ | L{0.2\textwidth} | L{0.7\textwidth} | }
+			\hline
+			Category
+			& Requirements
+			\\
+			\hline
+			\hline
+			Performance
+			& \tabitem Data serving speed allows for real-time interaction \\
+			& \tabitem Map rendering speed allows for real-time interaction \\
+			\hline
+			Maintainability
+			& \tabitem All components are as independent as possible \\
+			& \tabitem The codebase is versioned and documented \\
+			& \tabitem Deploying the application is reproducible \\
+			\hline
+			Usability
+			& \tabitem Using the map is intuitive \\
+			& \tabitem Visual feedback from user interaction is instantaneous \\
+			\hline
+			Scalability
+			& \tabitem The application is scalable to meet different usage loads \\
+			& \tabitem Different application components can be scaled independently \\
+			\hline
+		\end{tabular}
+	\end{subtable}
+	\newline
+	\newline  % https://tex.stackexchange.com/questions/38893/cant-generate-vertical-space-between-tables
+	\newline
+	\begin{subtable}[h]{\textwidth}
+		\caption{The constraints of the application}
+		\label{tab:constraints}
+		\centering
+		\begin{tabular}{ | L{0.2\textwidth} | L{0.7\textwidth} | }
+			\hline
+			Constraint
+			& Description
+			\\
+			\hline
+			\hline
+			Platform
+			& The application runs in a web browser
+			\\
+			\hline
+		\end{tabular}
+	\end{subtable}
+\end{table}

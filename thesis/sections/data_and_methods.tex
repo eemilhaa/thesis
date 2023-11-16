@@ -41,119 +41,13 @@ This visualization is based on the 2023 version of the \acrshort{ttm}
 \parencite{fin2023}.
 The version of the \acrshort{ttm} used in this visualization is at the time of writing the newest one
 
-\begin{table}[H]
-	\caption{Descriptive values of the \acrshort{ttm} \parencite{fin2023}}
-	\label{tab:ttm indicators}
-	\centering
-	\begin{tabular}{ | L{0.4\textwidth} | L{0.5\textwidth} | }
-		\hline
-		Spatial resolution
-		& 250 x 250 m
-		\\
-		\hline
-		Number of grid cells
-		& 13231
-		\\
-		\hline
-		Number of origin-destination pairs
-		& 175 059 361
-		\\
-		\hline
-		Travel modes
-		& \tabitem walking \\
-		& \tabitem cycling \\
-		& \tabitem public transportation \\
-		& \tabitem private car \\
-		\hline
-		Travel mode variations (if applicable)
-		& \tabitem Time of day (rush hour, midday, night) \\
-		& \tabitem Walking speed (average, slow) \\
-		& \tabitem Cycling speed (average, fast, slow) \\
-		\hline
-	\end{tabular}
-\end{table}
+\ref{tab:ttm description}
 
-\begin{table}[H]
-	\caption{The table structure of \acrshort{ttm} data \parencite{fin2023}}
-	\label{tab:ttm table structure}
-	\centering
-	\begin{tabular}{ | L{0.15\textwidth} | L{0.75\textwidth} | }
-		\hline
-		Column name
-		& Description
-		\\
-		\hline
-		\hline
-		from\_id
-		& ID number of the origin grid cell
-		\\
-		\hline
-		to\_id
-		& ID number of the destination grid cell
-		\\
-		\hline
-		walk\_avg
-		& Travel time in minutes from origin to destination by walking at an average speed
-		\\
-		\hline
-		walk\_slo
-		& Travel time in minutes from origin to destination by walking slowly
-		\\
-		\hline
-		bike\_avg
-		& Travel time in minutes from origin to destination by cycling at an average speed; incl. extra time (1 min) to unlock and lock bicycle
-		\\
-		\hline
-		bike\_fst
-		& Travel time in minutes from origin to destination by cycling fast; incl. extra time (1 min) to unlock and lock bicycle
-		\\
-		\hline
-		bike\_slo
-		& Travel time in minutes from origin to destination by cycling slowly; incl. extra time (1 min) to unlock and lock bicycle
-		\\
-		\hline
-		pt\_r\_avg
-		& Travel time in minutes from origin to destination by public transportation in rush hour traffic, walking at an average speed
-		\\
-		\hline
-		pt\_r\_slo
-		& Travel time in minutes from origin to destination by public transportation in rush hour traffic, walking at a slower speed
-		\\
-		\hline
-		pt\_m\_avg
-		& Travel time in minutes from origin to destination by public transportation in midday traffic, walking at an average speed
-		\\
-		\hline
-		pt\_m\_slo
-		& Travel time in minutes from origin to destination by public transportation in midday traffic, walking at a slower speed
-		\\
-		\hline
-		pt\_n\_avg
-		& Travel time in minutes from origin to destination by public transportation in nighttime traffic, walking at an average speed
-		\\
-		\hline
-		pt\_n\_slo
-		& Travel time in minutes from origin to destination by public transportation in nighttime traffic, walking at a lower speed
-		\\
-		\hline
-		car\_r
-		& Travel time in minutes from origin to destination by private car in rush hour traffic
-		\\
-		\hline
-		car\_m
-		& Travel time in minutes from origin to destination by private car in midday traffic
-		\\
-		\hline
-		car\_n
-		& Travel time in minutes from origin to destination by private car in nighttime traffic
-		\\
-		\hline
-		walk\_d
-		& Distance from origin to destination, in metres, on foot
-		\\
-		\hline
-	\end{tabular}
-\end{table}
+\input{visual/tables/ttm_description.tex}
+
+\ref{tab:ttm table structure}
+
+\input{visual/tables/ttm_table_structure.tex}
 
 \subsection{Requirements for the interactive map presentation}
 % What interaction should there be in the map
@@ -187,93 +81,13 @@ Nonfunctional requirements describe the general properties of a system.
 Nonfunctional requirements can be further dividied into quality attributes
 (how the software should be) and constraints (technical limitations)
 
-\begin{table}[H]
-	\caption{The functional requirements of the map application}
-	\label{tab:functional requirements}
-	\centering
-	\begin{tabular}{ | L{0.3\textwidth} | L{0.6\textwidth} | }
-		\hline
-		Requirement
-		& Description
-		\\
-		\hline
-		\hline
-		Location selection by clicking
-		& The user can click on a location and produce an accessibility map of that location
-		\\
-		\hline
-		Location selection by hovering
-		& The user can hover their mouse over the map,
-		and the map shows the accessibility of the location that is under the cursor,
-		updating constantly as the cursor moves
-		\\
-		\hline
-		Toggling between modes of location selection
-		& The user can toggle their mode of interaction by clicking:
-		Clicking while hovering locks the map, clicking while the map is locked resumes hovering
-		\\
-		\hline
-		Interactive selection of travel mode
-		& The user can choose the travel mode for which the travel times shown on the map are calculated
-		\\
-		\hline
-	\end{tabular}
-\end{table}
+\ref{tab:functional requirements}
 
-\begin{table}[H]
-	\caption{Nonfunctional requirements}
-	\label{tab:nonfunctional requirements}
-	\begin{subtable}[h]{\textwidth}
-		\caption{Quality requirements}
-		\label{tab:quality requirements}
-		\centering
-		\begin{tabular}{ | L{0.2\textwidth} | L{0.7\textwidth} | }
-			\hline
-			Category
-			& Requirements
-			\\
-			\hline
-			\hline
-			Performance
-			& \tabitem Data serving speed allows for real-time interaction \\
-			& \tabitem Map rendering speed allows for real-time interaction \\
-			\hline
-			Maintainability
-			& \tabitem All components are as independent as possible \\
-			& \tabitem The codebase is versioned and documented \\
-			& \tabitem Deploying the application is reproducible \\
-			\hline
-			Usability
-			& \tabitem Using the map is intuitive \\
-			& \tabitem Visual feedback from user interaction is instantaneous \\
-			\hline
-			Scalability
-			& \tabitem The application is scalable to meet different usage loads \\
-			& \tabitem Different application components can be scaled independently \\
-			\hline
-		\end{tabular}
-	\end{subtable}
-	\newline
-	\newline  % https://tex.stackexchange.com/questions/38893/cant-generate-vertical-space-between-tables
-	\newline
-	\begin{subtable}[h]{\textwidth}
-		\caption{The constraints of the application}
-		\label{tab:constraints}
-		\centering
-		\begin{tabular}{ | L{0.2\textwidth} | L{0.7\textwidth} | }
-			\hline
-			Constraint
-			& Description
-			\\
-			\hline
-			\hline
-			Platform
-			& The application runs in a web browser
-			\\
-			\hline
-		\end{tabular}
-	\end{subtable}
-\end{table}
+\input{visual/tables/functional_requirements.tex}
+
+\ref{tab:nonfunctional requirements}
+
+\input{visual/tables/nonfunctional_requirements}
 
 \subsection{Evaluation of data processing approaches}
 In order to map the 
@@ -296,7 +110,7 @@ See figure \ref{fig:architechture} for an idea of the architecture.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{visual/architechture}
+	\includegraphics[width=\textwidth]{visual/figures/architechture}
 	\caption{Architecture}
 	\label{fig:architechture}
 \end{figure}
