@@ -89,10 +89,21 @@ Nonfunctional requirements can be further dividied into quality attributes
 
 \input{visual/tables/nonfunctional_requirements}
 
+See figure \ref{fig:architechture} for the architecture.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{visual/figures/diagrams/architechture.png}
+	\caption{Architecture}
+	\label{fig:architechture}
+\end{figure}
+
 \subsection{Data preprocessing}
 In order to map the 
 
-% The need for preprocessing - what would raw data be like?
+% The need for preprocessing
+% - what would raw data be like?
+% - why as much as possible should be precalculated
 % && the requirements preprocessing must satisfy
 
 % Different approaches
@@ -101,11 +112,20 @@ In order to map the
 
 % Describe how it was done
 
+See figure \ref{fig:preprocessing} for preprocessing.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{visual/figures/diagrams/preprocessing.png}
+	\caption{Preprocessing}
+	\label{fig:preprocessing}
+\end{figure}
 
 \subsection{Data serving}
 server approach
 
 % The need for serving (backend)
+% - why data must be decoupled
 % && the requirements serving must satisfy
 
 % Different approaches
@@ -127,15 +147,6 @@ mapping approach
 % Describe how it was done
 
 
-
-See figure \ref{fig:architechture} for an idea of the architecture.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\textwidth]{visual/figures/architechture}
-	\caption{Architecture}
-	\label{fig:architechture}
-\end{figure}
 
 % I see the methods necessary to implement the visualisation belonging to two themes:
 % Methods for figuring out how the map should be
