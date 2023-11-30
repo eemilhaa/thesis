@@ -127,46 +127,61 @@ and lacking in interactivity and flexibility.
 
 In this thesis I focus on
 how cartographic interaction can be utilized in presenting accessibility.
-I approach this topic through two sub-topics, each connected to a research goal.
-The first sub-topic deals with
-the more technical aspects of producing an interactive accessibility visualization.
-My goal here is to develop a framework for interactively presenting
-a massive accessibility dataset, the Helsinki region travel time matrix,
+My research has two main goals.
+The first is to produce an interactive accessibility visualization -- %
+a system for interactively presenting a massive accessibility dataset,
+the Helsinki region travel time matrix \parencite{fin2023},
 on the web.  % TODO introduce the matrix somewhere, maybe here?
 Interactivity in this context means that
 the map user should be able to
 explore the whole dataset in real-time
 and with as little restrictions as possible.
-When describing the presentation I use the word framework.
+When describing the presentation I use the word system.
 This is because crafting such a presentation
-requires the mapmaker to make much more than a map -
-It means designing, implementing and optimizing many different components
-that must all function together
+requires the mapmaker to make much more than a map --
+It means designing, implementing and optimizing
+many different pieces of software that must all function together
 to meet the requirements real-time interactivity entails.
+
+Maps as well as the process of making them are ultimately qualitative
+\parencite{cop2009}.
+As the overarching topic of this thesis
+cannot be fully grasped with only the technical implementation
+I laid out as my first research goal,
+I concentrate my second goal on the human aspect of map use.
+Utilizing my interactive accessibility map,
+I aim to find out how
+people use and understand an interactive presentation of accessibility.
+To reach this goal I combine
+the interactive map presentation with a survey.
+I carry out the survey using a semi-structured online questionnaire
+that asks the map user about how they use the map for different tasks.
+
+My research questions reflect the structure of the goals of this study.  % TODO
 The research questions that must be answered to
 enable this particular map presentation,
 and to reach my first goal, are:
+The research questions I aim to answer are:
 \begin{enumerate}
-	% \item What data processing steps are needed to make a massive accessibility dataset explorable in real-time over the internet?
+	\item How to simplify a massive accessibility dataset to be explorable in real-time over the internet?
+\end{enumerate}
+
+I further divide this question into two sub questions:
+
+% What are the bottlenecks? What type of simplification is most effective?
+% What are the pros and cons of different approaches and levels of simplification?
+To answer this question, I will divide
+\begin{enumerate}
 	\item Is isochronal representation of accessibility sufficient for real-time web-based map interaction? What are its pros and cons?
 	\item What kind of application design should be employed to serve and render geographical data fast enough to enable instantaneous interaction?
 \end{enumerate}
 
-Maps as well as the process of making them are ultimately qualitative.
-Thus, the overarching topic of this thesis, being cartographical at its core,
-cannot be grasped fully with only a technical approach.
-My second sub-topic is concerned with the human aspect of map use - 
-the goal is to find out how people use and understand
-an interactive map presentation of accessibility.
-I approach this goal by
-combining the interactive map presentation introduced earlier with a survey.
-The survey is carried out as a semi-structured questionnaire
-that asks the map user about how they use the map for different tasks.
-The research questions I aim to answer are:
 \begin{enumerate}
 	\item What types of map interaction do people use and prefer in different types of usage scenarios?
 	\item Does map interaction change the map user's perception and understanding of the concept of accessibility? If it does, how?
 \end{enumerate}
+
+Additionally, the questionnaire allow
 
 % where participants, after being prompted to complete a task with the interactive map,  % TODO
 
