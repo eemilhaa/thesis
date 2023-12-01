@@ -8,6 +8,8 @@
 % Accessibility from a cartographical angle
 % challenges in presenting
 
+\subsection{Motivation}
+
 Maps are ubiquitous and essential to human civilization.
 In addition to depicting our geographical surroundings,
 they help us reveal and understand new patterns and phenomena,
@@ -125,11 +127,13 @@ and lacking in interactivity and flexibility.
 % Communicating accessibility instead of analyzing it
 % How to utilize interactive mapping in communicating accessibility
 
+\subsection{Goals of the work}
+
 In this thesis I focus on
 how cartographic interaction can be utilized in presenting accessibility.
 My research has two main goals.
-The first is to produce an interactive accessibility visualization -- %
-a system for interactively presenting a massive accessibility dataset,
+The first is to produce an interactive accessibility visualization: %
+More precisely, a system for interactively presenting a massive accessibility dataset,
 the Helsinki region travel time matrix \parencite{fin2023},
 on the web.  % TODO introduce the matrix somewhere, maybe here?
 Interactivity in this context means that
@@ -157,7 +161,40 @@ the interactive map presentation with a survey.
 I carry out the survey using a semi-structured online questionnaire
 that asks the map user about how they use the map for different tasks.
 
-My research questions reflect the structure of the goals of this study.  % TODO
+\subsection{Research questions}
+
+My research questions reflect the goals of this study.  % TODO
+The first goal, being the technical implementation,
+necessitates research questions more technical in their nature.
+As real-time interactivity is a priority of the map presentation,
+responsiveness and performance of the software is
+a key aspect to consider at all stages of the implementation.
+In regard to the performance of the map application,
+there are three stages at which optimizations can be made:
+\begin{enumerate}
+	\item Preprocessing the dataset (the \acrlong{ttm})
+	\item Storing and serving the data, i.e. the backend
+	\item Visualizing the data, i.e. the frontend
+\end{enumerate}
+
+It must also be noted that while important,
+software performance is not the only thing to consider.
+This is especially true for the parts of the system
+that are visible to the user, i.e. the map application, or frontend.
+Thus, the research questions I ask are:
+
+\begin{enumerate}
+	\item What are the bottlenecks? What type of simplification is most effective? 
+\end{enumerate}
+
+While the preprocessing of the data and the backend solution
+impact the user experience mainly through software performance,
+the map application has additional, equally important requirements.
+
+In addition to performance,
+a goal is also to produce software that has some real value
+
+  There are two main  To make the interactive map happen I must first set the expectations
 The research questions that must be answered to
 enable this particular map presentation,
 and to reach my first goal, are:
@@ -170,6 +207,8 @@ I further divide this question into two sub questions:
 
 % What are the bottlenecks? What type of simplification is most effective?
 % What are the pros and cons of different approaches and levels of simplification?
+
+% qs: does the map work? Pros and cons?
 To answer this question, I will divide
 \begin{enumerate}
 	\item Is isochronal representation of accessibility sufficient for real-time web-based map interaction? What are its pros and cons?
@@ -180,8 +219,6 @@ To answer this question, I will divide
 	\item What types of map interaction do people use and prefer in different types of usage scenarios?
 	\item Does map interaction change the map user's perception and understanding of the concept of accessibility? If it does, how?
 \end{enumerate}
-
-Additionally, the questionnaire allow
 
 % where participants, after being prompted to complete a task with the interactive map,  % TODO
 
