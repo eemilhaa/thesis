@@ -140,12 +140,20 @@ Interactivity in this context means that
 the map user should be able to
 explore the whole dataset in real-time
 and with as little restrictions as possible.
+
 When describing the presentation I use the word system.
 This is because crafting such a presentation
 requires the mapmaker to make much more than a map --
 It means designing, implementing and optimizing
 many different pieces of software that must all function together
 to meet the requirements real-time interactivity entails.
+So, while being first and foremost a map, this particular presentation
+requires implementing all the following components:
+\begin{enumerate}
+	\item Preprocessing the dataset (the \acrlong{ttm}) to a mappable format
+	\item Storing and serving the data, i.e. the backend
+	\item Visualizing the data, i.e. the frontend
+\end{enumerate}
 
 Maps as well as the process of making them are ultimately qualitative
 \parencite{cop2009}.
@@ -165,34 +173,39 @@ and whether map interaction impacts their understanding of the mapped phenomenon
 \subsection{Research questions}
 
 My research questions reflect the goals of this study.  % TODO
-The first goal, being the implementation of the interactive map,
+The first goal, being the making of the interactive map,
 is at its core a software development project.
-Thus, it necessitates research that is more technical in its nature.
+Thus, it necessitates research on the options and tools
+needed in its implementation.
+The way I approach this research is through qualities
+that the resulting system should have.
 As real-time interactivity is a priority of the map presentation,
-the performance of the software,
-i.e. the speed at which the software can react to input and display results,
+the performance of the system,
+i.e. the speed at which it can react to input and display results,
 is one key aspect to consider.
 Just as essential is the visual quality of the map
 and the intuitiveness of its use.
-I also stress the importance of \textit{how} the implementation is designed and developed.
-If the software cannot be reasoned or maintained, it has little real value --
-No matter how performant the implementation or how elegant it's user interface.
+I also stress the importance of
+\textit{how} the implementation is designed and developed.
+If the software cannot be understood or maintained,
+it has little real value --
+No matter how performant the implementation or how elegant its user interface.
 
+With these qualities and the aforementioned components of the system in mind,
+I structrure the research.
 
+While the resulting system should have all these qualities,
+their order of importance depends on the part of the system being considered.
+I value them differently depending on the  system With these qualities in mind I can then be applied to 
+the parts of the system
+that are visible to the user, i.e. the map application, or frontend.
+Thus, the research questions I ask are:
 at all stages of the implementation.
 In regard to the performance of the map application,
 there are three main components stages at which implementation decisions must be made:  % TODO
-\begin{enumerate}
-	\item Preprocessing the dataset (the \acrlong{ttm})
-	\item Storing and serving the data, i.e. the backend
-	\item Visualizing the data, i.e. the frontend
-\end{enumerate}
 
 It must also be noted that while important,
 software performance is not the only thing to consider.
-This is especially true for the parts of the system
-that are visible to the user, i.e. the map application, or frontend.
-Thus, the research questions I ask are:
 
 \begin{enumerate}
 	\item What are the bottlenecks? What type of simplification is most effective? 
@@ -230,6 +243,14 @@ To answer this question, I will divide
 	\item What types of map interaction do people use and prefer in different types of usage scenarios?
 	\item Does map interaction change the map user's perception and understanding of the concept of accessibility? If it does, how?
 \end{enumerate}
+
+\subsection{Outputs}
+
+\begin{itemize}
+	\item The map application
+	\item The bottlenecks of 
+	\item Does map interaction change the map user's perception and understanding of the concept of accessibility? If it does, how?
+\end{itemize}
 
 % where participants, after being prompted to complete a task with the interactive map,  % TODO
 
