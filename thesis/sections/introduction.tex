@@ -133,7 +133,7 @@ In this thesis I focus on
 how cartographic interaction can be utilized in presenting accessibility.
 My research has two main goals.
 The first is to produce an interactive accessibility visualization: %
-More precisely, a system for interactively presenting a massive accessibility dataset,
+I develop a system for interactively presenting a massive accessibility dataset,
 the Helsinki region travel time matrix \parencite{fin2023},
 on the web.  % TODO introduce the matrix somewhere, maybe here?
 Interactivity in this context means that
@@ -159,18 +159,29 @@ people use and understand an interactive presentation of accessibility.
 To reach this goal I combine
 the interactive map presentation with a survey.
 I carry out the survey using a semi-structured online questionnaire
-that asks the map user about how they use the map for different tasks.
+that asks the map user about how they use the map for different tasks,
+and whether map interaction impacts their understanding of the mapped phenomenon.
 
 \subsection{Research questions}
 
 My research questions reflect the goals of this study.  % TODO
-The first goal, being the technical implementation,
-necessitates research questions more technical in their nature.
+The first goal, being the implementation of the interactive map,
+is at its core a software development project.
+Thus, it necessitates research that is more technical in its nature.
 As real-time interactivity is a priority of the map presentation,
-responsiveness and performance of the software is
-a key aspect to consider at all stages of the implementation.
+the performance of the software,
+i.e. the speed at which the software can react to input and display results,
+is one key aspect to consider.
+Just as essential is the visual quality of the map
+and the intuitiveness of its use.
+I also stress the importance of \textit{how} the implementation is designed and developed.
+If the software can not be reasoned or maintained, it has little real value --
+No matter how performant the implementation or how elegant it's user interface.
+
+
+at all stages of the implementation.
 In regard to the performance of the map application,
-there are three stages at which implementation decisions must be made:  % TODO
+there are three main components stages at which implementation decisions must be made:  % TODO
 \begin{enumerate}
 	\item Preprocessing the dataset (the \acrlong{ttm})
 	\item Storing and serving the data, i.e. the backend
