@@ -120,7 +120,8 @@ real-time interactivity between the map and the map user.
 they should be as flexible and dynamic as possible.
 However, \textcite{but2018} also note that
 these qualities are often missing in accessibility visualizations.
-Along the same lines, \textcite{paj2021} find modern accessibility visualizations often complicated,
+Along the same lines,
+\textcite{paj2021} find modern accessibility visualizations often complicated,
 and lacking in interactivity and flexibility.
 
 % research questions
@@ -134,51 +135,70 @@ how cartographic interaction can be utilized in presenting accessibility.
 My research has two main goals.
 The first is to produce an interactive accessibility visualization: %
 I develop a system for interactively presenting a massive accessibility dataset,
-the Helsinki region travel time matrix \parencite{fin2023},
+the \acrlong{ttm} (\acrshort{ttm}) \parencite{fin2023},
 on the web.  % TODO introduce the matrix somewhere, maybe here?
-Interactivity in this context means that
-the map user should be able to
-explore the whole dataset with instant visual feedback,
-i.e. in real-time,
-and, in general, with as little restrictions as possible.
+The \acrshort{ttm} is a dataset containing travel times for
+over a 175 million unique routes, by a multitude of travel modes,
+in the Helsinki region, southern Finland.
+The sheer size and detail of the dataset allows for endless options
+in its presentation, and, from the context of this thesis,
+a real opportunity and a need to take advantage of interactivity in visualizing it.
+By using cartographic interaction
+I aim to extend the multi-location and multi-modal nature of the dataset
+to its presentation:
+The map user should be able to explore, on a map,
+travel times to all locations included in the dataset,
+by all travel modes.
+However, interaction alone does not yet enable this.
+Considering the number of different combinations of location and travel mode,
+interaction with the map must happen in real-time,
+i.e. with instant visual feedback.
+Only with this quality is it possible for the map user to
+explore any meaningful portion of the \acrshort{ttm}
+in a reasonable amount of time.
 
 When describing the presentation I use the word system.
 This is because crafting such a presentation
 requires the mapmaker to make much more than a map --
 It means designing, implementing and optimizing
-many different pieces of software that must all function together
-to meet the requirements real-time interactivity entails.
-So, while being a map first and foremost, this particular presentation
+a whole that consists of multiple components.
+These components all have their distinct purposes yet must function together
+to meet the requirements placed upon the whole.
+While being a map first and foremost, this particular presentation
 requires implementing all the following components:
 \begin{itemize}
-	\item Preprocessing the dataset (the \acrlong{ttm}) to a mappable format,
+	\item Preprocessing the dataset (the \acrshort{ttm}) to a mappable format,
 	and simplifying it to enable its interactive exploration over the internet
 	\item Storing and serving the data, i.e. the backend
-	\item Visualizing the data, i.e. the frontend
+	\item Visualizing the data in a web-browser, i.e. the frontend
 \end{itemize}
 
 Maps as well as the process of making them are ultimately qualitative
 \parencite{cop2009}.
 Thus, the overarching topic of this thesis
 cannot be fully grasped with only the technical implementation
-I laid out as my first research goal.
+I laid out as my first goal.
 In an attempt to better understand the perspective of the map user,
-I focus my second goal on the human aspect of map use.
+I focus my second research goal on the human aspect of map use.
 Utilizing my interactive accessibility map,
 I aim to find out how
 people use and understand an interactive presentation of accessibility.
 To reach this goal I combine
 the interactive map presentation with a survey.
 I carry out the survey using a semi-structured online questionnaire
-that asks the map user about how they use the map for different tasks,
-and whether map interaction impacts their understanding of the mapped phenomenon.
+that is structured to:
+\begin{enumerate}
+	\item Prompt the participant to use the map for different tasks
+	\item Ask questions about the participant's experience
+	on using the map on the tasks
+\end{enumerate}
+
 
 \subsection{Research questions}
 
 My research questions reflect the goals of this study.  % TODO
-The first goal, being the making of the interactive map,
-is at its core a software development project.
-This necessitates research on the options and tools
+The first goal, being the interactive map presentation,
+necessitates research on the options and tools
 needed in its implementation.
 The way I approach this research is through qualities
 that the resulting system should have.
@@ -189,6 +209,7 @@ the software receiving input and displaying results of said input,
 is one key aspect to consider.
 Just as essential is the visual quality of the map
 and the intuitiveness of its use.
+% discussion perhaps?
 I also stress the importance of
 \textit{how} the system is designed and developed.
 If the software cannot be understood or maintained,
@@ -212,17 +233,27 @@ my research questions in regard to its implementation are:
 From the perspective of software performance:
 \begin{itemize}
 	% \item What are the performance bottlenecks of web-based interactive cartography? 
-	\item What types of preprocessing steps are most effective at minimizing
-	latency when exploring large volumes of geographic data over the internet?  % Mapping, transfer
+	\item What types of data preprocessing steps are most effective at minimizing
+	latency when
+	\begin{enumerate}
+		\item transfering geographic data over the internet
+		\item rendering said data on a map
+	\end{enumerate}
 	\item What type of data storage and serving approach is most effective at the same goal?
 \end{itemize}
 
-From the perspective of usability:
+From the perspective of user experience:
 \begin{itemize}
-	\item What are the pros and cons of different web-mapping libraries considering
-	1. the visual quality and 2. the rendering speed of the map when mapping geometrically complex data
+	\item What differences are there between web-mapping libraries when considering the
+	\begin{enumerate}
+		\item Visual quality of the map
+		\item Rendering performance of the map
+		\item User interface capabilities for interacting with the map
+	\end{enumerate}
+	when rendering rapidly changing, geometrically complex data?
 \end{itemize}
 
+% and whether map interaction impacts their understanding of the mapped phenomenon.
 
 their order of importance depends on the part of the system being considered.
 I value them differently depending on the  system With these qualities in mind I can then be applied to 
