@@ -97,7 +97,7 @@ and thus dictates what kind of processing should be done on the data.
 Functional requirements define what a system must do, i.e.
 what its features and functions are.
 Nonfunctional requirements describe the general properties of a system.
-Nonfunctional requirements can be further dividied into quality attributes,
+Nonfunctional requirements can be further divided into quality attributes,
 (how the software should be) and constraints (technical limitations)
 
 \ref{tab:functional requirements}
@@ -154,24 +154,24 @@ server approach
 % Describe how it was done
 
 \subsection{Data visualization}
-mapping approach
 
-% The need for visualization (frontend)
-% && the requirements visualization must satisfy
+The need for visualization (frontend) and the requirements visualization must satisfy
 
-% Different approaches
+Different approaches
 
-% Why react + maplibre?
-
-See table \ref{tab:map library comparison} for comparison of mapping libraries.
-
+Why react? Why not just make a map?
+The map is a map, but it is also a user interface that controls state outside the map.
+Integration with react means more robust code, better developer experience and maintainability.
+Do not reinvent the wheel.
 
 % TODO Describe why these libraries were selected
-% Baseline: FOSS, Actively maintained, usable with UI framework
-% Discarded: Openlayers (no integration to react) Mapbox (closed source)
-% Integration with react -> developer experience & maintainability
+Basis for the map library comparison
 
-\input{visual/tables/map_library_comparison.tex}
+Baseline: FOSS, Actively maintained, usable with UI framework (react)
+
+Initial contenders: Leaflet, Openlayers, Mapbox, Maplibre, Deckgl
+
+Instantly discarded: Openlayers (non-existent integration to react) Mapbox (non-foss)
 
 % Describe how it was done
 
