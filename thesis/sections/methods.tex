@@ -4,7 +4,13 @@ In this section I will describe the development of the interactive visualization
 as well as the process of gathering information on how people use it.
 
 \subsection{Study design}
-The goal of this study
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{visual/figures/diagrams/study_design.png}
+	\caption{The design of the study}
+	\label{fig:study design}
+\end{figure}
 
 \subsection{Helsinki region Travel Time Matrix}
 
@@ -67,9 +73,9 @@ The version of the \acrshort{ttm} used in this visualization is at the time of w
 % What requirements do the two above chapters place on the map
 
 % Why this must be considered
-As mentioned earlier, cartographic visualization is often about tradeoffs.
-The interactive map crafted here is no exception.
-In addition to visual composition,  % TODO
+% As mentioned earlier, cartographic visualization is often about tradeoffs.
+% The interactive map crafted here is no exception.  % TODO
+In addition to visual composition,
 many decisions must be made based on more technical basis.
 For example, the sheer scale and detail of the dataset being visualized
 means that instantaneous interaction with the map is not realistic
@@ -79,7 +85,7 @@ because only through them is it possible to specify what
 requirements should, or even could, be placed on the map application.
 
 % Roughly what kind of a map? Why?
-Based on the background study,  % TODO
+% Based on the background study,  % TODO
 I made the decision to prioritize real-time interaction over minute detail in the map.
 The goal of the map is to act as a dynamic overview to the entire travel time matrix,
 and user interaction, whether it is changing the location or travel mode,
@@ -88,10 +94,10 @@ This decision is what ultimately shapes the requirements for the mapped data,
 and thus dictates what kind of processing should be done on the data.
 
 % TODO copypasta
-Functional requirements define what a product must do,
+Functional requirements define what a system must do, i.e.
 what its features and functions are.
 Nonfunctional requirements describe the general properties of a system.
-Nonfunctional requirements can be further dividied into quality attributes
+Nonfunctional requirements can be further dividied into quality attributes,
 (how the software should be) and constraints (technical limitations)
 
 \ref{tab:functional requirements}
@@ -193,5 +199,10 @@ See table \ref{tab:map library comparison} for comparison of mapping libraries.
 % some synthesis could be formed about that too.
 
 \subsection{Survey design}
-structure of the survey,
-analysis of the survey data.
+General reasoning about the survey
+
+\subsection{Questionnaire structure and questions}
+The content of the questionnaire: prompts and questions
+
+\subsection{Survey responeses}
+Descrtiption of the collected data
