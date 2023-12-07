@@ -130,12 +130,12 @@ and lacking in interactivity and flexibility.
 
 \subsection{Goals of the work}
 
-\subsubsection{An interactive travel time map}
+\subsubsection{An interactive accessibility map}
 
 In this thesis I focus on
 how cartographic interaction can be utilized in presenting accessibility.
 My research has two main goals.
-The first is to produce an interactive accessibility visualization: %
+The first is to produce an interactive accessibility visualization --
 I develop a system for interactively presenting a massive accessibility dataset,
 the \acrlong{ttm} (\acrshort{ttm}) \parencite{fin2023},
 on the web.  % TODO introduce the matrix somewhere, maybe here?
@@ -171,29 +171,27 @@ requires implementing all the following components:
 \begin{itemize}
 	\item Preprocessing the dataset (the \acrshort{ttm}) to a mappable format,
 	and simplifying it to enable its interactive exploration over the internet
-	\item Storing and serving the data, i.e. the backend
-	\item Visualizing the data in a web-browser, i.e. the frontend
+	\item A solution for storing and serving the data, i.e. the backend
+	\item A web application for visualizing the data in a web browser, i.e. the frontend
 \end{itemize}
 
 \subsubsection{Understanding how the map conveys information}
 
-The ultimate purpose of the entire system is to enable
-a cartographic presentation -- a map.
-The map, in turn, is a means to represent the mapped phenomenon 
-to the map user.  % TODO
-How, and if, the map works at this goal is impossible to judge based on
-the technical implementation alone.
+The ultimate purpose of the entire system is to enable a map.
+The map, in turn, has a goal of conveying information;
+it is a representation of the mapped phenomenon.
+However, studying how the map works,
+not as a piece of technology but as a representation,
+is impossible based on a technical implementation alone.
 
-My second research goal is to understand how the map works
-as a representation as well as an interface.
-By representation I mean how the map user understands the map and by interface
-how they use the map to explore the mapped phenomenon.
-For this, a user perspective is key.
-Utilizing my interactive accessibility map,
-I aim to find out how
-people use and understand an interactive presentation of accessibility.
-To reach this goal I combine
-the interactive map presentation with a survey.
+My second research goal is to understand how
+this particular representation of accessibility conveys information.
+I aim to find out how the map user understands the map,
+and how they use cartographic interaction to explore the mapped phenomenon.
+To accomplish this, gaining user perspective is of course required.
+Thus, I carry out a survey
+where I combine the interactive map presentation with
+a semi-structured online questionnaire.
 
 
 \subsection{Research questions}
@@ -276,15 +274,19 @@ I base my comparison of web mapping libraries on three criteria:
 
 % The first two criteria I evaluate qualitatively. The third criteria, while an inherent quality of a mapping-library, Is that too ultimately my own view.  % TODO
 
-\subsubsection{The map as a representation and an user interface}
+\subsubsection{The map as a representation}
+
+User interaction is central to the map.
+In order to gain insight on how the map works as representation
+Since the representations is interactive, it is also an interface for the map user to alter the mapped content. % TODO
 To gain insights on how people use the map I ask:  % TODO
 
 \begin{itemize}
-	\item What types of map interaction do people prefer
+	\item What types of map interaction do people use
 	in different types of usage scenarios?
 	% \item Does map interaction change the map user's perception and understanding of the concept of accessibility? If it does, how?
 	\item Does map interaction change
-	the map user's perception of accessibility? If it does, how?
+	the map user's perception of the mapped phenomenon? If it does, how?
 \end{itemize}
 
 I answer these questions with a survey.
