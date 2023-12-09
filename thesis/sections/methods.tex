@@ -5,6 +5,44 @@ as well as the process of gathering information on how people use it.
 
 \subsection{Study design}
 
+The study constitutes two main parts.
+The first is the development of the map presentation.
+While this development process has the primary goal of producing the map presentation,
+it also is a major component of the study --
+I can credibly answer the research questions that are concerned with the implementation of the system
+only by implementing such a system.
+
+The first decision I made in regard to
+how I should carry out the development
+was to approach all the components of the presentation as a whole.  % TODO talk briefly agile here or background?
+Thus, the first step of the study is
+to produce a minimal working state of the entire system.
+My main goal with this approach is twofold:
+\begin{enumerate}
+	\item Gain an understanding of the available tools and see whether such a system is realistic
+	\item Pinpoint major issues and the performance bottlenecks of the system as early as possible
+\end{enumerate}
+
+Acquiring this knowledge as early as possible is essential.
+It makes it possible for me to avoid wasted effort and, most importantly,
+make sure I am developing a system that is valuable to the study.
+
+After producing the minimal working state I utilize an iterative approach
+to the development of the system, but also to the study.
+While I develop the system I gain insights on the research questions, but also insights about web-mapping and interactive cartography as a whole.
+This in turn allows me to further hone the focus my research as I am doing it.
+On things that I actually believe to be valuable.  % TODO discussion
+
+The major output of the development process is the map presentation.
+However, the development process also provides answers to multiple research questions.
+
+The second part of the study is the survey.
+The goal here is to gain insight on
+how the interactive map works as a representation of the mapped phenomenon.
+The survey process has the main goal of collecting data on map usage,
+which in turn I analyse to answer My research questions related to
+
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{visual/figures/diagrams/study_design.png}
@@ -87,7 +125,7 @@ requirements should, or even could, be placed on the map application.
 % Roughly what kind of a map? Why?
 % Based on the background study,  % TODO
 I made the decision to prioritize real-time interaction over minute detail in the map.
-The goal of the map is to act as a dynamic overview to the entire travel time matrix,
+The goal of the map is to act as a dynamic overview to the entire \acrshort{ttm},
 and user interaction, whether it is changing the location or travel mode,
 should result in instant visual feedback on the map.
 This decision is what ultimately shapes the requirements for the mapped data,
@@ -118,7 +156,9 @@ See figure \ref{fig:architechture} for the architecture.
 \end{figure}
 
 \subsection{Data preprocessing}
-In order to map the 
+Considering the requirements, the \acrshort{ttm}
+To make the \acrshort{ttm} mappable, it must be at some point of the
+To enable real-time interactivity with the map the travel time
 
 % The need for preprocessing
 % - what would raw data be like?
