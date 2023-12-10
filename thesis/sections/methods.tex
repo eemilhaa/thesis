@@ -106,7 +106,11 @@ The version of the \acrshort{ttm} used in this visualization is at the time of w
 
 \input{visual/tables/ttm_table_structure.tex}
 
-\subsection{Requirements for the interactive map presentation}
+\subsection{Implementation of the map presentation}
+
+\subsubsection{Architechture}
+
+\subsubsection{Software requirements}
 % What interaction should there be in the map
 % What requirements do the two above chapters place on the map
 
@@ -116,14 +120,9 @@ The version of the \acrshort{ttm} used in this visualization is at the time of w
 Before describing the development process,
 I specify the requirements the system must meet.
 I base these requirements on the goals of the study,
-especially considering interactive the map presentation:
-In short, I specify what each component of the system should accomplish,
-in order to enable the said presentation.
-With this more detailed look into the system I hope to
-more clearly justify the decisions
-I make in the technical portion of the study.
-
-The requirements of the system are an important aspect to consider.
+especially considering the interactive map presentation.
+The requirements of the system are an essential aspect to consider,
+since they  % TODO
 For example, the sheer scale and detail of the dataset being visualized
 means that instantaneous interaction with the map is not realistic
 if no detail of the mapped data is to be sacrificed.
@@ -131,21 +130,43 @@ These kinds of tradeoffs are important to recognize,
 because only through them is it possible to specify what
 requirements should, or even could, be placed on the map application.
 
+% By clearly stating the requirements I hope to
+% more clearly justify the decisions
+% I make in the technical portion of the study,
+% TODO copypasta
+Software requirements are often divided into
+functional and nonfunctional requirements.
+Functional requirements define the user-facing features of the system
+while nonfunctional requirements describe the properties of a system
+\parencite{chu2009}.
+Nonfunctional requirements can be further divided into
+quality attributes and constraints.
+Quality attributes describe \textit{how} the software should be,
+while constraints mean technical limitations \parencite{chu2009}.
+
 % Roughly what kind of a map? Why?
 % Based on the background study,  % TODO
-I made the decision to prioritize real-time interaction over minute detail in the map.
+The starting point for specifying the requirements of the system
+Was the decision to prioritize real-time interaction over minute detail in the map.
 The goal of the map is to act as a dynamic overview to the entire \acrshort{ttm},
-and user interaction, whether it is changing the location or travel mode,
+and user interaction, whether it is changing the location or travel mode to view,
 should result in instant visual feedback on the map.
+
+This goal immediately placed a number of requirements on the system.
+From the perspective of the user,
+there must be functionalities for interacting with the map to
+select different locations and travel modes.
+A significant quality attribute to consider is that the system should
+support real-time interactivity.
+To achieve this, the latency between user input and
+its visible results must be minimized.
+In this particular system latency is introduced by transferring data over the
+
 This decision is what ultimately shapes the requirements for the mapped data,
 and thus dictates what kind of processing should be done on the data.
 
-% TODO copypasta
-Functional requirements define what a system must do, i.e.
-what its features and functions are.
-Nonfunctional requirements describe the general properties of a system.
-Nonfunctional requirements can be further divided into quality attributes,
-(how the software should be) and constraints (technical limitations)
+After the implementation of the minimal working system, these requirements
+
 
 \ref{tab:functional requirements}
 
@@ -164,7 +185,7 @@ See figure \ref{fig:architechture} for the architecture.
 	\label{fig:architechture}
 \end{figure}
 
-\subsection{Data preprocessing}
+\subsubsection{Data preprocessing}
 Considering the requirements, the \acrshort{ttm}
 To make the \acrshort{ttm} mappable, it must be at some point of the
 To enable real-time interactivity with the map the travel time
@@ -189,7 +210,7 @@ See figure \ref{fig:preprocessing} for preprocessing.
 	\label{fig:preprocessing}
 \end{figure}
 
-\subsection{Data serving}
+\subsubsection{Data serving}
 server approach
 
 % The need for serving (backend)
@@ -202,7 +223,7 @@ server approach
 
 % Describe how it was done
 
-\subsection{Data visualization}
+\subsubsection{Data visualization}
 
 The need for visualization (frontend) and the requirements visualization must satisfy
 
