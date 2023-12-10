@@ -1,0 +1,43 @@
+\begin{table}[H]
+	\caption{The preprocessing methods used}
+	\label{tab:preprocessing methods}
+	\centering
+	\begin{tabular}{ | L{0.2\textwidth} | L{0.35\textwidth} | L{0.35\textwidth} | }
+		\hline
+		Method
+		& Impact on performance
+		& Impact on visual detail
+		\\
+		\hline
+		\hline
+		Aggregation into isochrones (15 min interval)
+		& Large; The isochronal approach is what makes the real-time interaction possible.
+		& Large; Isochrones allow for quick overview but make detailed assessment difficult.
+		\\
+		\hline
+		Limiting the maximum travel time (60 min)
+		& Noticeable; The largest isochrone polygons are more costly to render.
+		Avoiding them improves performance especially on limited hardware.
+		& Noticeable depending on travel mode;
+		The maximum travel time of 60 minutes drops a lot of information for slower travel modes (walk, bike),  % TODO percentages
+		while faster modes (public transit, car) do not lose much information.
+		\\
+		\hline
+		Geometrical simplification
+		& Noticeable with limited download speeds;
+		Reducing the precision of geometry reduces file sizes approximately by (percentage),  % TODO
+		and thus makes data transfer faster.
+		No visible effect on rendering performance on tested hardware.
+		& None; The decreased precision is in no way visible.
+		\\
+		\hline
+		File optimization (minimal file structure, compression)
+		& Noticeable with limited download speeds;
+		This reduces file sizes by (percentage),  % TODO
+		and thus makes data transfer faster.
+		No visible effect on rendering performance on tested hardware.
+		& None; These approaches do not affect the content of the data
+		\\
+		\hline
+	\end{tabular}
+\end{table}
