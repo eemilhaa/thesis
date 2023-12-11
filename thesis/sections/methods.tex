@@ -5,43 +5,57 @@ as well as the process of gathering information on how people use it.
 
 \subsection{Study design}
 
-The study constitutes two main parts.
-The first is the development of the map presentation.
-While this development process has the primary goal of producing the map presentation,
-it also is a major component of the study --
-I can credibly answer the research questions that are concerned with the implementation of the system
-only by implementing such a system.
+The study constitutes two main parts:
+the development of the map presentation and
+the survey on how people use the presentation.
+The purpose of the development process is, of course, to produce the map presentation,
+but just as importantly to enable the survey on how the interactive map is used.
+This means that the development process and the survey are very dependent on each other,
+and, should be approached as such.
 
-The first decision I made in regard to
-how I should carry out the development
-was to approach all the components of the presentation as a whole.  % TODO talk briefly agile here or background?
-Thus, the first step of the study is
-to produce a minimal working state of the entire system.
-My main goal with this approach is twofold:
+This is why the first decision I made in regard to
+the development of the interactive map
+was to approach all its components as a whole.  % TODO talk briefly agile here or background?
+The first step of the study is
+to produce a minimal working state of the entire system,
+where all of its components are integrated and work together.
+My goal with this approach is twofold:
 \begin{enumerate}
-	\item Gain an understanding of the available tools and see whether such a system is realistic
-	\item Pinpoint major issues and the performance bottlenecks of the system as early as possible
+	\item Gain an understanding of the available tools and see whether the system, and by extension, the study, is realistic.
+	\item Pinpoint major issues and the performance bottlenecks of the system as early as possible.
 \end{enumerate}
 
 Acquiring this knowledge as early as possible is essential.
 It makes it possible for me to avoid wasted effort and, most importantly,
 make sure I am developing a system that is valuable to the study.
 
-After producing the minimal working state I utilize an iterative approach
-to the development of the system, but also to the study.
-While I develop the system I gain insights on the research questions, but also insights about web-mapping and interactive cartography as a whole.
-This in turn allows me to further hone the focus my research as I am doing it.
-On things that I actually believe to be valuable.  % TODO discussion
+After producing the minimal implementation I utilize an iterative approach
+in developing the map presentation.
+This means that I gradually improve the system on all of its aspects,
+while constantly maintaining a functional state of the system.
+Perhaps the largest value this approach brings is that it allows for
+gradual improvement on the entire study.
+Firstly, seeing the system take shape as functional whole
+instead of separate components allows me to
+continuously improve the relevancy of my research.
+I say this not only in the context of gaining valuable results to my research questions --
+I want to emphasize that to even know what research questions to ask is impossible with a linear approach.
+Secondly, this kind of approach allows me to consider
+the map and its functionalities from the perspective of the map user as early as possible,
+better integrating the designing process of the survey into the study.
+This is important as the map presentation is simultaneously an output of the development process
+and an input to the design of the survey.
 
-The major output of the development process is the map presentation.
-However, the development process also provides answers to multiple research questions.
-
-The second part of the study is the survey.
-The goal here is to gain insight on
+While the development process and the survey are linked to each other,
+they each have their separate goals and outputs.
+In addition to producing the map presentation,
+the development process has the primary goal of providing the framework
+that allows me to test and answer my research questions
+about the making of an interactive map.
+The goal of the survey is to gain insight on
 how the interactive map works as a representation of the mapped phenomenon.
-The survey process has the main goal of collecting data on map usage,
-which in turn I analyse to answer My research questions related to
-
+With the survey I collect data on map usage,
+which I in turn analyse to answer my research questions related to the map usage.
 
 \begin{figure}[H]
 	\centering
@@ -50,7 +64,9 @@ which in turn I analyse to answer My research questions related to
 	\label{fig:study design}
 \end{figure}
 
-\subsection{Helsinki region Travel Time Matrix}
+\subsection{Implementation of the map presentation}
+
+\subsubsection{Data -- Helsinki region Travel Time Matrix}
 
 The \acrlong{ttm} (\acrshort{ttm}) \parencite{fin2023}
 is a dataset containing information of travel times and distances
@@ -106,9 +122,9 @@ The version of the \acrshort{ttm} used in this visualization is at the time of w
 
 \input{visual/tables/ttm_table_structure.tex}
 
-\subsection{Implementation of the map presentation}
 
-\subsubsection{Architechture}
+\subsubsection{Architecture}
+
 
 \subsubsection{Software requirements}
 % What interaction should there be in the map
