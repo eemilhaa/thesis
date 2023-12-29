@@ -1,5 +1,5 @@
 \begin{table}[H]
-	\caption{The preprocessing methods used}
+	\caption{The preprocessing methods}
 	\label{tab:preprocessing methods}
 	\centering
 	\begin{tabular}{ | L{0.2\textwidth} | L{0.35\textwidth} | L{0.35\textwidth} | }
@@ -26,17 +26,17 @@
 		For a given grid cell the average of all modes is 40\%.
 		\\
 		\hline
-		Geometrical simplification
-		& Noticeable with limited download speeds:
-		Reducing the precision of geometry reduces file sizes approximately by (percentage),  % TODO
+		Limiting coordinate precision
+		& Potentially noticeable with limited download speeds:
+		Reducing the precision of geometries reduces file sizes by 50\% on average,  % TODO
 		and thus makes data transfer faster.
 		No visible effect on rendering performance on tested hardware.
 		& None: The decreased precision is in no way visible.
 		\\
 		\hline
 		File optimization (simplifying GeoJSON structure, compression using gzip)
-		& Noticeable with limited download speeds:
-		This reduces file sizes by (percentage),  % TODO
+		& Potentially noticeable with limited download speeds:
+		This reduces file sizes by 60\% on average,  % TODO
 		and thus makes data transfer faster.
 		No visible effect on rendering performance on tested hardware.
 		& None: These approaches do not affect the content of the data.
