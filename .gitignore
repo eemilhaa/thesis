@@ -1,3 +1,6 @@
+## What even are these
+*.bbl-SAVE-ERROR
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
