@@ -123,7 +123,8 @@ Differences between these datasets exist in the applied methodologies and thus t
 \parencite{ten2020}.
 Also, the underlying city structure is by no means static over the years
 which further introduces differences.
-The map presentation I develop here is based on the 2023 version of the \acrshort{ttm},
+The map presentation I developed in this study
+is based on the 2023 version of the \acrshort{ttm},
 the newest one at the time of writing.
 See table \ref{tab:ttm description} for an overview of the dataset,
 and table \ref{tab:ttm table structure} for all the travel modes in the dataset.
@@ -167,10 +168,11 @@ while constraints mean technical limitations \parencite{chu2009}.
 I based the requirements of this particular system on the goals of the study,
 considering the interactive map presentation.
 The starting point for specifying these requirements
-was my decision to prioritize real-time interaction over minute detail in the map.
-The goal of the map interface was to act as a dynamic overview to the entire \acrshort{ttm}.
-As mentioned above, the spatial dimension of the \acrshort{ttm} is large,
-so, if all of it is to be explored,
+was my decision to prioritize real-time interaction over minute detail in the map,
+the goal of the map interface being to act as a dynamic overview to the entire \acrshort{ttm}.
+As mentioned in the previous section,
+the spatial dimension of the \acrshort{ttm} is large.
+If all of it is to be explored,
 selecting different locations must be effortless and instantaneous.
 The other dimension, travel mode, is much smaller,
 but it should also be interactively selectable.
@@ -181,8 +183,8 @@ there must be functionalities for interacting with the map to
 select different locations, preferably very rapidly,
 and different travel modes.
 A significant quality attribute to consider is that the system should
-support instantaneous real-time interactivity.
-Also at the very start I made the decision to target the web as the platform.
+be responsive enough for instantaneous real-time interactivity.
+At the very start I also made the decision to target the web as the platform.
 This constraint was the starting point for considering the technologies
 for carrying out the implementation.
 % To achieve this, the latency between user input and
