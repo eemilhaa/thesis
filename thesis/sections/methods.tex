@@ -14,7 +14,7 @@ the development process in and of itself was crucial to the study as well.
 Its purpose was to be the framework that
 allows me to test and answer my research questions
 about the more technology-centric aspects of
-making of an interactive map.
+the making of an interactive map.
 
 So, a large part of this study was
 in essence a software development project,
@@ -87,7 +87,7 @@ The grid has a spatial resolution of 250x250m, and it covers the entire Finland.
 Most importantly, however, the part of the \acrshort{ykr} grid that overlaps with
 the Helsinki region provides the spatial component for
 the travel times stored in the \acrshort{ttm}.
-The spatial extent of the dataset is shown in \ref{fig:ttm extent}.
+The spatial extent of the dataset is shown in figure \ref{fig:ttm extent}.
 
 \begin{figure}[H]
 	\centering
@@ -343,62 +343,71 @@ I calculated these values as averages of a random sample of 100 locations, for e
 
 SIDENOTE: I intend to add similar figures of limiting maximum travel time here.
 
-\subsubsection{Constructing the map application}
+\subsubsection{Assessing web mapping libraries}
 
-The need for visualization (frontend) and the requirements visualization must satisfy
+The solution for rendering the data to a map, i.e. the web mapping library,
+was one of the most important decisions of the development process. 
+In addition to rendering data correctly and efficiently,
+the mapping library must allow for user interaction not only with the map,
+but the underlying application.
+Often, interaction with a web map changes only the state of the map,
+for example by zooming,
+and the web-mapping library handles an internal state change like this automatically.
+With the map presentation I developed,
+the map interaction must also change state outside the map.
+For example:
+Location selection should result in the fetching of new data from the backend,
+and the mode of map interaction must be changed by map interaction.
 
-Different approaches
+Controlling state in web-applications is often best done by a specified solution,
+such as a state store or, if applicable, a UI framework.
+For this map presentation I chose to control application state with React,
+as it is the most widely used and documented UI framework,
+and also the only UI framework that many web-mapping libraries have integration capabilities for.
+In general, integration with a framework instead of a self-made solution
+means less room for error in the implementation,
+and better maintainability and extensibility as the amount of code is drastically smaller.
+Also, I used React in implementing the few non-map user-interface elements
+(travel mode selection, legend, tooltip),
+which meant no additional dependencies.
 
-Why react? Why not just make a map?
-The map is a map, but it is also a user interface that controls state outside the map.
-Integration with react means more robust code, better developer experience and maintainability.
-Do not reinvent the wheel.
+I based my assessment of web mapping libraries on three criteria:
+\begin{enumerate}
+	\item Visual quality of the map
+	\item Responsiveness of the map
+	\item Integration with React
+\end{enumerate}
 
-% TODO Describe why these libraries were selected
-Basis for the map library comparison
+When selecting which web mapping libraries to assess, I used the following properties as a baseline:
+\begin{enumerate}
+	\item Free and open source licensing
+	\item Actively maintained
+	\item At least some level of integration with React
+\end{enumerate}
 
-Baseline: FOSS, Actively maintained, usable with UI framework (react)
+With these considerations I arrived at three potential libraries:
+Leaflet, Maplibre and Deck.gl.
+To assess the criteria above,
+I used each library as the map interface with the application.
+I assessed visual quality of the map qualitatively, and, for the reasons I stated in the previous chapter,
+I had to resort to qualitative assessment for rendering performance as well.
+For assessing integration with react additionally I utilized online documentation of potential solutions.
 
-Initial contenders: Leaflet, Openlayers, Mapbox, Maplibre, Deckgl
+% % TODO copypasta
+% Translucent Overlay (OV) is the best technique over-
+% all, which makes it a good choice when only one comparison
+% technique should be provided to user \parencite{lob2015}.
 
-Instantly discarded: Openlayers (non-existent integration to react) Mapbox (non-foss)
-
-% TODO copypasta
-Translucent Overlay (OV) is the best technique over-
-all, which makes it a good choice when only one comparison
-technique should be provided to user \parencite{lob2015}.
-
-% Describe how it was done
-
-
-
-% I see the methods necessary to implement the visualisation belonging to two themes:
-% Methods for figuring out how the map should be
-% and methods for actually making the map be that way.
-
-% For figuring out what the map should be like,
-% I have (hopefully) at this point already formed some ideas from the background section.
-% To complement those, and to keep the qualitative aspect of cartography relevant,
-% interview(s) will be used alongside the development process.
-
-% When developing the visualisation, the priority should be on the map application.
-% However, the development must progress on all components as an iterative process,
-% where producing a minimal working state should be the first goal.
-% Something that, to some extent, works, makes discussion about the map possible,
-% which in turn should keep development progressing towards the right direction.
-
-% It should also be noted that the number of techical options for implementing the map is large.
-% Questions such as which mapping library or UI framework to use,
-% or how to preprocess the matrix data should be covered here too.
-% Depending on the need and extent of comparisons between different technologies,
-% some synthesis could be formed about that too.
 
 \subsubsection{Technical architecture}
-% As instantaneous interaction is a requirement of the presentation,
-% I aimed to make all simplifications to the data precalculated.
-% This means that the map application is computationally lighter,
-% and that all preprocessing must only be done once
-% per any given combination of location and travel mode in a \acrshort{ttm}.  % TO
+
+\begin{itemize}
+	\item Backend: Minimal HTTP sever serving pre-compressed geojson files directly from filesystem
+	\item Scalable Kubernetes / OpenShift deployments → Reproducibility at the level of the entire system
+	\item Containerization → Reproducibility at the level of the components of the system
+	\item Modularity of the design
+	\item the list goes on, I'll have to consider what matters and what doesn't.
+\end{itemize}
 
 \begin{figure}[H]
 	\centering
@@ -406,6 +415,8 @@ technique should be provided to user \parencite{lob2015}.
 	\caption{Architecture}
 	\label{fig:architechture}
 \end{figure}
+
+SIDENOTE: I'll add figures of the components (at least the map application) here as suggested by Pyry.
 
 
 % The need for serving (backend)
@@ -419,13 +430,19 @@ technique should be provided to user \parencite{lob2015}.
 % Describe how it was done
 
 \subsection{Survey}
-General reasoning about the survey
 
 \subsubsection{Questionnaire design and structure}
-The content of the questionnaire: prompts and questions
 
-\subsubsection{Survey process}
-The content of the questionnaire: prompts and questions
+The questionnaire is structured to:
+\begin{enumerate}
+	\item Prompt the participant to use the map for different tasks
+	\item Ask questions about the participant's experience
+	on using the map for completing the tasks
+\end{enumerate}
 
-\subsubsection{Participants}
-Descrtiption of the collected data
+Reasoning about the design: online questionnaire, tasks composed of prompts and questions.
+Descriptions of what the purpose of each task was.
+
+\subsubsection{Survey distribution and participants}
+How the survey was distributed,
+Descrtiption of the sample.
