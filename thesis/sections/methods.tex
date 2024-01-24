@@ -76,8 +76,9 @@ For an overview of the study design see figure \ref{fig:study design}.
 The \acrlong{ttm} (\acrshort{ttm}) \parencite{fin2023}
 is a dataset containing information of travel times and distances
 in the Helsinki region in southern Finland.
-This dataset is crucial to developing the map application,
-as it is the sole source of the travel times shown on the map.
+This dataset was crucial to developing the map application,
+as it was the sole source of the travel times shown on the map.
+The dataset and the set of methods with which it is produced are open-source.
 
 % Describe ttm in general: ykr, origin dest pairs etc (more surface level stuff common to all matrices)
 A significant component of the \acrshort{ttm} is the \acrlong{ykr} (\acrshort{ykr})
@@ -90,13 +91,14 @@ The spatial extent of the dataset is shown in \ref{fig:ttm extent}.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{visual/figures/ttm/ttm_extent.pdf}
+	\includegraphics[width=0.9\textwidth]{visual/figures/ttm/ttm_extent.pdf}
 	\caption{The location and extent of the TTM}
 	\label{fig:ttm extent}
 \end{figure}
 
-The basic idea of the \acrshort{ttm} is that it stores the travel times and distances
-from every \acrshort{ykr} grid cell to every grid cell within the Helsinki region.
+The \acrshort{ttm} stores the travel times and distances
+from every \acrshort{ykr} grid cell to every other  \acrshort{ykr} grid cell
+within the Helsinki region.
 The Helsinki region fits 13231 \acrshort{ykr} grid cells,
 which means that the complete \acrshort{ttm} contains travel times and distances for
 over 175 million routes.
@@ -109,21 +111,24 @@ Time of day is especially relevant to motorized transport
 in the form of the rush hour, for example,
 while walking speed affects any travel mode
 where a significant portion of the trip is covered on foot.
-See table \ref{tab:ttm description} 
+% Modelling the travel times accounts for walking,
+% transfer times based on public transit schedules,
+% and the actual geometries of the routes.
 
 % TODO talk briefly about methodology, open source
 
 % Describe the particular matrix (2023), methodology etc
-There are matrices from many years.
-This visualization is based on the 2023 version of the \acrshort{ttm}
-\parencite{fin2023}.
-The version of the \acrshort{ttm} used in this visualization is at the time of writing the newest one
-
-\ref{tab:ttm description}
+\acrshort{ttm}s have been calculated for multiple years.
+Differences between these datasets exist in the applied methodologies and thus the content
+\parencite{ten2020}.
+Also, the underlying city structure is by no means static over the years
+which further introduces differences.
+The map presentation I develop here is based on the 2023 version of the \acrshort{ttm},
+the newest one at the time of writing.
+See table \ref{tab:ttm description} for an overview of the dataset,
+and table \ref{tab:ttm table structure} for all the travel modes in the dataset.
 
 \input{visual/tables/ttm_description.tex}
-
-\ref{tab:ttm table structure}
 
 \input{visual/tables/ttm_table_structure.tex}
 
@@ -163,15 +168,23 @@ I based the requirements of this particular system on the goals of the study,
 considering the interactive map presentation.
 The starting point for specifying these requirements
 was my decision to prioritize real-time interaction over minute detail in the map.
-The goal of the map interface was to act as a dynamic overview to the entire \acrshort{ttm},
-so user interaction, whether it would be changing the location or travel mode to view,
-should result in instant visual feedback on the map.
-This goal immediately placed a number of requirements on the system.
+The goal of the map interface was to act as a dynamic overview to the entire \acrshort{ttm}.
+As mentioned above, the spatial dimension of the \acrshort{ttm} is large,
+so, if all of it is to be explored,
+selecting different locations must be effortless and instantaneous.
+The other dimension, travel mode, is much smaller,
+but it should also be interactively selectable.
+These two goals, while still quite vague,
+immediately placed a number of requirements on the system.
 From the perspective of the user,
 there must be functionalities for interacting with the map to
-select different locations and travel modes.
+select different locations, preferably very rapidly,
+and different travel modes.
 A significant quality attribute to consider is that the system should
-support real-time interactivity.
+support instantaneous real-time interactivity.
+Also at the very start I made the decision to target the web as the platform.
+This constraint was the starting point for considering the technologies
+for carrying out the implementation.
 % To achieve this, the latency between user input and
 % its visible results must be minimized.
 
@@ -182,21 +195,32 @@ To communicate the development process in an orderly manner,
 and to motivate the design decisions I've made, I present
 the requirements of the final system here.
 Still, I should emphasize that the reality is not this linear.
-In table \ref{tab:functional requirements}
-I specify the desired capabilities of the map interface,
-in table \ref{tab:quality attributes}
-I specify the desired qualities of the system,
-and in table \ref{tab:constraints}
-I specify the relevant constraints.
+
+The functional requirements (table \ref{tab:functional requirements})
+comprise two modes of interaction for selecting locations:
+clicking the map with a pointing device to produce a static map of the clicked location,
+and continuously changing the location by moving the mouse over the map
+(referred to as hovering).
+I also specify that interface capabilities for selecting travel modes
+and changing the mode of location selection should be present.
+For the quality attributes of the system (table \ref{tab:quality attributes})
+performance is an essential consideration,
+both in the sense of software performance
+and the responsiveness of the application as perceived by the user.
+This must be considered in both the front- and backend of the system.
+Other important aspects are that the system can be maintained and deployed,
+and that it can meet different real-world usage loads --
+if these attributes were lacking,
+the work I've carried out would have little real value,
+as it would be left available only to me.
+As mentioned earlier,
+the application is constrained to running in a web browser (table \ref{tab:constraints}).
+Also -- as a general best-practice, as well as a constraint
+necessitated by the available deployment environment --  % ref csc?
+the implementation must be completely containerized (table \ref{tab:constraints}).
 
 \input{visual/tables/functional_requirements.tex}
 \input{visual/tables/nonfunctional_requirements}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{visual/figures/diagrams/architechture.png}
-	\caption{Architecture}
-	\label{fig:architechture}
-\end{figure}
 
 \subsubsection{Data preprocessing}
 Considering the requirements, the \acrshort{ttm}
@@ -275,6 +299,14 @@ technique should be provided to user \parencite{lob2015}.
 % some synthesis could be formed about that too.
 
 \subsubsection{Technical architecture}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{visual/figures/diagrams/architechture.png}
+	\caption{Architecture}
+	\label{fig:architechture}
+\end{figure}
+
 
 % The need for serving (backend)
 % - why data must be decoupled
