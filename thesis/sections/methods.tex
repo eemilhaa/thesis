@@ -18,7 +18,7 @@ making of an interactive map.
 
 So, a large part of this study was
 in essence a software development project,
-and the parts that were not were still reliant on
+and the parts that were not, were still reliant on
 the software development project succeeding.
 This kind of setting,
 combined with the author's limited experience with the relevant technologies,
@@ -33,7 +33,7 @@ to guide the development process:
 \begin{itemize}
 	\item Plan minimally and adapt the plan constantly.
 	\item Prioritize a working state of the entire system over details in single components.
-	\item Adapt to technical realities at the start, not at the end.
+	\item Adapt to technical constraints at the start, not at the end.
 \end{itemize}
 
 By adhering to these principles I could at an early stage see whether the system --
@@ -159,7 +159,7 @@ quality attributes and constraints.
 Quality attributes describe \textit{how} the software should be,
 while constraints mean technical limitations \parencite{chu2009}.
 
-I based the requirements of the system on the goals of the study,
+I based the requirements of this particular system on the goals of the study,
 considering the interactive map presentation.
 The starting point for specifying these requirements
 was my decision to prioritize real-time interaction over minute detail in the map.
@@ -172,27 +172,25 @@ there must be functionalities for interacting with the map to
 select different locations and travel modes.
 A significant quality attribute to consider is that the system should
 support real-time interactivity.
-To achieve this, the latency between user input and
-its visible results must be minimized.
+% To achieve this, the latency between user input and
+% its visible results must be minimized.
 
 In accordance with the guideline of continuous adaptation
 \parencite{bec2001} I specified the software requirements loosely at first,
 further focusing them as the system took shape.
-To communicate the development process in an orderly manner I present
-the requirements of the final system here,
-but I should emphasize that the reality is not this linear.
-
-
-\ref{tab:functional requirements}
+To communicate the development process in an orderly manner,
+and to motivate the design decisions I've made, I present
+the requirements of the final system here.
+Still, I should emphasize that the reality is not this linear.
+In table \ref{tab:functional requirements}
+I specify the desired capabilities of the map interface,
+in table \ref{tab:quality attributes}
+I specify the desired qualities of the system,
+and in table \ref{tab:constraints}
+I specify the relevant constraints.
 
 \input{visual/tables/functional_requirements.tex}
-
-\ref{tab:nonfunctional requirements}
-
 \input{visual/tables/nonfunctional_requirements}
-
-See figure \ref{fig:architechture} for the architecture.
-
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{visual/figures/diagrams/architechture.png}
