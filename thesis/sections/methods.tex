@@ -1,66 +1,72 @@
 % TODO add tech / software table?
 \section{Materials and methods}
-In this section I will describe the development of the interactive visualization
-as well as the process of gathering information on how people use it.
 
 \subsection{Study design}
 
-The study constitutes two main parts:
+% Brief overview
+At a general level the study constituted two main parts:
 the development of the map presentation and
-the survey on how people use the presentation.
-The purpose of the development process is, of course, to produce the map presentation,
-but just as importantly to enable the survey on how the interactive map is used.
-This means that the development process and the survey are very dependent on each other,
-and, should be approached as such.
+the survey to find out how
+people use and understand the presentation.
+While the primary goal of the development process was
+to produce the map presentation and enable the survey,
+the development process in and of itself was crucial to the study as well.
+Its purpose was to be the framework that
+allows me to test and answer my research questions
+about the more technology-centric aspects of
+making of an interactive map.
 
-This is why the first decision I made in regard to
-the development of the interactive map
-was to approach all its components as a whole.  % TODO talk briefly agile here or background?
-The first step of the study is
-to produce a minimal working state of the entire system,
-where all of its components are integrated and work together.
-My goal with this approach is twofold:
-\begin{enumerate}
-	\item Gain an understanding of the available tools and see whether the system, and by extension, the study, is realistic.
-	\item Pinpoint major issues and the performance bottlenecks of the system as early as possible.
-\end{enumerate}
+So, a large part of this study was
+in essence a software development project,
+and the parts that were not were still reliant on
+the software development project succeeding.
+This kind of setting,
+combined with the author's limited experience with the relevant technologies,
+inherently introduced a high level of risk and uncertainty to the study.
+To minimize these factors,
+I heavily utilized modern software development methodologies
+\parencite{saq2020, bec2001, sha2017} in planning the development process
+and designing the study.
+Based on these,
+I formatted the following points of focus
+to guide the development process:
+\begin{itemize}
+	\item Plan minimally and adapt the plan constantly.
+	\item Prioritize a working state of the entire system over details in single components.
+	\item Adapt to technical realities at the start, not at the end.
+\end{itemize}
 
-Acquiring this knowledge as early as possible is essential.
-It makes it possible for me to avoid wasted effort and, most importantly,
-make sure I am developing a system that is valuable to the study.
-
-After producing the minimal implementation I utilize an iterative approach
-in developing the map presentation.
-This means that I gradually improve the system on all of its aspects,
-while constantly maintaining a functional state of the system.
-Perhaps the largest value this approach brings is that it allows for
-gradual improvement on the entire study.
-Firstly, seeing the system take shape as functional whole
-instead of separate components allows me to
-continuously improve the relevancy of my research.
-I say this not only in the context of gaining valuable results to my research questions --
-I want to emphasize that to even know what research questions to ask is impossible with a linear approach.
-Secondly, this kind of approach allows me to consider
-the map and its functionalities from the perspective of the map user as early as possible,
-better integrating the designing process of the survey into the study.
+By adhering to these principles I could at an early stage see whether the system --
+and, by extension, the entire study -- is realistic.
+It also made it possible for me to avoid wasted effort and, most importantly,
+make sure I am developing a system that is valuable to the entire study.
+Iteratively improving the system as a functional whole
+allowed me to consider the map interface
+from the perspective of the map user as early as possible,
+better integrating the survey into the study.
 This is important as the map presentation is simultaneously an output of the development process
 and an input to the design of the survey.
 
-While the development process and the survey are linked to each other,
-they each have their separate goals and outputs.
-In addition to producing the map presentation,
-the development process has the primary goal of providing the framework
-that allows me to test and answer my research questions
-about the making of an interactive map.
-The goal of the survey is to gain insight on
-how the interactive map works as a representation of the mapped phenomenon.
-With the survey I collect data on map usage,
-which I in turn analyse to answer my research questions related to the map usage.
+For an overview of the study design see figure \ref{fig:study design}.
+% This allowed me to improve the relevancy of my research. TODO Discussion?
+% I say this not only in the context of gaining valuable results to my research questions --
+% I want to emphasize that to even know what research questions to ask is impossible with a linear approach.
+
+% While the development process and the survey were linked to each other,
+% they each had their separate goals and outputs too.
+% In addition to producing the map presentation,
+% the development process had to enable testing and answering my research questions
+% about the making of an interactive map.
+% This placed increased
+% The goal of the survey is to gain insight on
+% how the interactive map works as a representation of the mapped phenomenon.
+% With the survey I collect data on map usage,
+% which I in turn analyse to answer my research questions related to the map usage.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{visual/figures/diagrams/study_design.png}
-	\caption{The design of the study}
+	\caption{An overview of the study design}
 	\label{fig:study design}
 \end{figure}
 
@@ -126,29 +132,23 @@ The version of the \acrshort{ttm} used in this visualization is at the time of w
 \subsection{Implementation of the map presentation}
 
 \subsubsection{Software requirements}
-% What interaction should there be in the map
-% What requirements do the two above chapters place on the map
+% The requirements of the system are an essential aspect to consider,
+% since they
+% For example, the sheer scale and detail of the dataset being visualized
+% means that instantaneous interaction with the map is not realistic
+% if no detail of the mapped data is to be sacrificed.
+% These kinds of tradeoffs are important to recognize,
+% because only through them is it possible to specify what
+% requirements should, or even could, be placed on the map application.
 
-% Why this must be considered
-% As mentioned earlier, cartographic visualization is often about tradeoffs.
-% The interactive map crafted here is no exception.  % TODO
-Before describing the development process,
-I specify the requirements the system must meet.
-I base these requirements on the goals of the study,
-especially considering the interactive map presentation.
-The requirements of the system are an essential aspect to consider,
-since they  % TODO
-For example, the sheer scale and detail of the dataset being visualized
-means that instantaneous interaction with the map is not realistic
-if no detail of the mapped data is to be sacrificed.
-These kinds of tradeoffs are important to recognize,
-because only through them is it possible to specify what
-requirements should, or even could, be placed on the map application.
-
-% By clearly stating the requirements I hope to
-% more clearly justify the decisions
-% I make in the technical portion of the study,
 % TODO copypasta
+
+% Roughly what kind of a map? Why?
+% Based on the background study,  % TODO
+Software requirements are functionalities and properties
+that a given system should have \parencite{chu2009}.
+They are an essential aspect to consider in all software development
+as they dictate much of how any implementation is carried out \parencite{saq2020}.
 Software requirements are often divided into
 functional and nonfunctional requirements.
 Functional requirements define the user-facing features of the system
@@ -159,14 +159,13 @@ quality attributes and constraints.
 Quality attributes describe \textit{how} the software should be,
 while constraints mean technical limitations \parencite{chu2009}.
 
-% Roughly what kind of a map? Why?
-% Based on the background study,  % TODO
-The starting point for specifying the requirements of the system
-Was the decision to prioritize real-time interaction over minute detail in the map.
-The goal of the map is to act as a dynamic overview to the entire \acrshort{ttm},
-and user interaction, whether it is changing the location or travel mode to view,
+I based the requirements of the system on the goals of the study,
+considering the interactive map presentation.
+The starting point for specifying these requirements
+was my decision to prioritize real-time interaction over minute detail in the map.
+The goal of the map interface was to act as a dynamic overview to the entire \acrshort{ttm},
+so user interaction, whether it would be changing the location or travel mode to view,
 should result in instant visual feedback on the map.
-
 This goal immediately placed a number of requirements on the system.
 From the perspective of the user,
 there must be functionalities for interacting with the map to
@@ -175,12 +174,13 @@ A significant quality attribute to consider is that the system should
 support real-time interactivity.
 To achieve this, the latency between user input and
 its visible results must be minimized.
-In this particular system latency is introduced by transferring data over the
 
-This decision is what ultimately shapes the requirements for the mapped data,
-and thus dictates what kind of processing should be done on the data.
-
-After the implementation of the minimal working system, these requirements
+In accordance with the guideline of continuous adaptation
+\parencite{bec2001} I specified the software requirements loosely at first,
+further focusing them as the system took shape.
+To communicate the development process in an orderly manner I present
+the requirements of the final system here,
+but I should emphasize that the reality is not this linear.
 
 
 \ref{tab:functional requirements}
