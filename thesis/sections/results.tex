@@ -2,23 +2,55 @@
 
 \subsection{Data preprocessing and simplification}
 
-\ref{tab:preprocessing methods}
-
 \input{visual/tables/preprocessing_methods.tex}
+
+Based on these results
+I can also reason about the performance bottlenecks,
+but only in the context of this system, i.e. rapid real-time interaction.
+In this context the bottleneck is definitely rendering speed,
+which is most affected by the geometrical complexity.
+For example, the map would in no way work if rendering individual grid cells,
+even with instant data transfer.
 
 \subsection{Mapping libraries}
 
 \input{visual/tables/map_library_comparison.tex}
-See table \ref{tab:map library comparison} for comparison of mapping libraries.
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{visual/figures/bug.png}
+	\caption{https://github.com/visgl/deck.gl/issues/8107}
+	\label{fig:bug}
+\end{figure}
 
 \subsection{Map usage}
 
+(Response plots in appendices)
+
+Most map users preferred as dynamic as possible interaction with the map,
+using the most dynamic mode of interaction when given the choice.
+This was the case regardless of the task type (figures \ref{fig:task 4} and \ref{fig:task 5}).
+
+Map users rated selection of travel mode as the most useful way of
+interacting with the map (figure \ref{fig:general questions}).
+Hovering mode was the second most useful functionality,
+and the clicking mode third.
+
+Map interaction did affect how map users perceived the mapped phenomenon.
+Most users perceived the accessibility of a location differently depending
+on the mode of interaction used (figures \ref{fig:task 2} and \ref{fig:task 3}).
+
+However, most map users did not feel like the map affected
+their understanding of accessibility (figure \ref{fig:general questions}).
+Those that did, mentioned:
+
 \begin{itemize}
-	\item What types of map interaction do people use
-	in different types of usage scenarios?
-	% \item Does map interaction change the map user's perception and understanding of the concept of accessibility? If it does, how?
-	\item Does map interaction change
-	the map user's perception of the mapped phenomenon? If it does, how?
+	\item Gaining new insight on the accessibility of different locations (n = 6)
+	\item Gaining new insight on the differences between travel modes (n = 4)
+	\item Understanding accessibility differently in general (n = 3)
+	\item Understanding the city structure differently (n = 1)
 \end{itemize}
+
+Overall, the responses indicate that the map worked,
+both in the sense of usability and conveying information about the mapped phenomenon.
 
