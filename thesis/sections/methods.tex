@@ -224,23 +224,50 @@ the implementation must be completely containerized (table \ref{tab:constraints}
 \input{visual/tables/functional_requirements.tex}
 \input{visual/tables/nonfunctional_requirements}
 
-\subsubsection{Data preprocessing}
-Considering the requirements, the \acrshort{ttm}
-To make the \acrshort{ttm} mappable, it must be at some point of the
-To enable real-time interactivity with the map the travel time
-
+\subsubsection{Assessing data preprocessing approaches}
 % The need for preprocessing
 % - what would raw data be like?
 % - why as much as possible should be precalculated
 % && the requirements preprocessing must satisfy
+Preprocessing and simplifying the \acrshort{ttm} was a significant part of the study.
+Soon after starting the development,
+it became obvious that using unprocessed \acrshort{ttm} data was not an option
+due to the unresponsiveness of rendering and the large file sizes.
+Because of this, in the initial testing phase of the development
+I formed the hypothesis that either file sizes
+or the geometrical complexity of the data would be
+the major factor limiting the responsiveness of the map,
+i.e. the performance bottleneck.
 
-% Different approaches
+So it was clear that some type and level of simplification of the 
+data was necessary to enable real-time interaction in the map.
+The goal of my assessment of different approaches to data preprocessing, thus,
+was to find the suitable level and types of simplification,
+and to compare the effectiveness of different approaches.
 
-% Why isochrones?
+When assessing the preprocessing approaches, I focused on:
+\begin{enumerate}
+	\item The impact on file size, and thus on the speed of transferring data over internet.
+	\item The impact on rendering speed of the map when mapping the data.
+	\item The impact on the visual detail of data,
+	i.e. how much information is lost.
+\end{enumerate}
 
-% Describe how it was done
+I assessed four preprocessing approaches:
+\begin{enumerate}
+	\item Aggregation of travel time data into isochrones (figure \ref{fig:isochrones})
+	\item Limiting the maximum travel time, i.e. the geographical extent of the results (no figure yet)
+	\item Reducing geometry precision
+	\item File structure optimizations (simplifying GeoJSON structure, compression using gzip)
+\end{enumerate}
 
-See figure \ref{fig:preprocessing} for preprocessing.
+To carry out the assessment
+I constructed a modular Python-based preprocessing pipeline
+(figure \ref{fig:preprocessing}).
+The idea was that the complete pipeline applies all preprocessing approaches,
+but the modular design allows for
+isolated testing of the
+different components of the pipeline, with different parameters.
 
 \begin{figure}[H]
 	\centering
@@ -249,6 +276,72 @@ See figure \ref{fig:preprocessing} for preprocessing.
 	\label{fig:preprocessing}
 \end{figure}
 
+File sizes were the simplest factor to test for.
+I tested each approach on
+a randomly picked set of 100 locations in the \acrshort{ttm},
+for each travel mode.
+I picked a random sample of locations since the
+data is of a different level of complexity based on location.
+To measure the effect on file size I then calculated the mean file size it takes to represent
+all the travel modes for a single cell in the dataset
+when a given approach has been applied.
+
+SIDENOTE: Filesize tests are in a notebook here: https://github.com/eemilhaa/travel-time-matrix-visualisation-preprocessing/blob/cleanup/example.ipynb. @Chris not sure if I should merge this to digigeolab repo as it is very specific to this thesis and not necessarily relevant to the preprocessing code)
+
+I assessed the impact the preprocessing approaches have on rendering speed
+with the finished map application.
+The details of the map application are in the next section.
+The assessment was qualitative,
+as it was based on my own perception of responsiveness when using the map.
+Quantitative testing of rendering speed would have been preferable,
+but it proved to be difficult.
+While tools for profiling rendering speed exist,
+I did not succeed in two main areas
+that would have been necessary for representative results.
+I did not manage to limit the timing to strictly the map
+component of the interface in such a way that
+the test results would be reproducible.
+I also did not find a way to automate a set of renders
+on a sample of locations.
+Averaging the renders of a single location would not suffice
+for reasons stated above.
+The tools I tried were the Firefox profiler
+and the React developer tools browser extension on Firefox and Chromium
+(I'll need to properly refer to these).
+
+I carried out the assessment of the impact on visual detail of the data in two ways:
+Qualitatively for all approaches by observing the simplified data on the map,
+and, in the case of limiting maximum travel time,
+quantitatively by calculating the percentage of the total dataset area that the simplified data covers.
+I calculated these values as averages of a random sample of 100 locations, for each travel mode.
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{visual/figures/ttm/isochrone_interval_10.pdf}
+		\caption{Isochrones with an interval of 10 minutes}
+		\label{fig:interval 10}
+	\end{subfigure}%
+	\hfill
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{visual/figures/ttm/isochrone_interval_20.pdf}
+		\caption{Isochrones with an interval of 20 minutes}
+		\label{fig:interval 20}
+	\end{subfigure}%
+	\hfill
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{visual/figures/ttm/isochrone_interval_30.pdf}
+		\caption{Isochrones with an interval of 30 minutes}
+		\label{fig:interval 30}
+	\end{subfigure}%
+	\caption{Travel time to Helsinki railway station by public transport mapped with isochrones of different intervals}
+	\label{fig:isochrones}
+\end{figure}
+
+SIDENOTE: I intend to add similar figures of limiting maximum travel time here.
 
 \subsubsection{Constructing the map application}
 
@@ -301,6 +394,11 @@ technique should be provided to user \parencite{lob2015}.
 % some synthesis could be formed about that too.
 
 \subsubsection{Technical architecture}
+% As instantaneous interaction is a requirement of the presentation,
+% I aimed to make all simplifications to the data precalculated.
+% This means that the map application is computationally lighter,
+% and that all preprocessing must only be done once
+% per any given combination of location and travel mode in a \acrshort{ttm}.  % TO
 
 \begin{figure}[H]
 	\centering
