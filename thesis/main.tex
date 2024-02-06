@@ -48,7 +48,32 @@
 
 \usepackage{pdfpages}  % pdf appendices
 
-% \usepackage{setspace}  % enable setstrecth on title page
+% Title page / abstract shenanigans
+\usepackage{setspace}
+\usepackage{tabularx}
+
+\usepackage{makecell}
+\usepackage{chngpage}
+\usepackage{longtable}
+\usepackage{cellspace}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage{tablefootnote}
+\setlength{\cellspacetoplimit}{6pt}
+\setlength{\cellspacebottomlimit}{6pt}
+\addparagraphcolumntypes{X}
+\newcolumntype{?}{!{\vrule width 1.5pt}}
+\newcommand{\Tstrut}{\rule{0pt}{2.2ex}}
+\newcommand{\Bstrut}{\rule[-4.0ex]{0pt}{0pt}}
+\newcommand{\TBstrut}{\Tstrut\Bstrut}
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+\newcommand{\greyrule}{\arrayrulecolor{black!30}\midrule\arrayrulecolor{black}}
+\newlength\tbspace
+\setlength\tbspace{0.5cm}
+% \newcolumntype{C}{c<{\hspace{\tbspace}}}%
+% \newcolumntype{L}{l<{\hspace{\tbspace}}}%
+
 
 \raggedright
 \linespread{1.25}
