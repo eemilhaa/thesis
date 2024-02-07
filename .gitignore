@@ -1,5 +1,6 @@
 ## What even are these
 *.bbl-SAVE-ERROR
+*.bcf-SAVE-ERROR
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
