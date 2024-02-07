@@ -1,4 +1,6 @@
 \newcommand{\myabstract}{
+    \noindent\parindent=0pt\parskip=.5\baselineskip plus 2pt
+    \raggedright
     In a world overflowing with information,
     the importance of maps and cartography is only growing.
     Cartographic presentations make it possible to gain insight from
@@ -39,32 +41,66 @@
     is valuable when exploring massive geographical data.
 }
 
-\thispagestyle{empty}
 \begin{spacing}{1}
     \footnotesize
     
     \begin{tabularx}{\linewidth}{|S{X}S{X}|S{X}|S{X}|S{X}|S{X}|}
         \Xhline{3\arrayrulewidth}
-        \multicolumn{3}{?>{\hsize=\dimexpr3\hsize-+3\tabcolsep\relax}S{X}|}{\textsf{Tiedekunta -- Fakultet -- Faculty}\newline } & %
-        \multicolumn{3}{>{\hsize=\dimexpr3\hsize-+3\tabcolsep\relax}S{X}?}{\textsf{Osasto -- Institution -- Department}\newline} \TBstrut \\
+        \multicolumn{3}{?>{\hsize=\dimexpr3\hsize-+3\tabcolsep\relax}S{X}|}{
+            Tiedekunta -- Fakultet -- Faculty \newline
+            Faculty of Science
+        } &
+        \multicolumn{3}{>{\hsize=\dimexpr3\hsize-+3\tabcolsep\relax}S{X}?}{
+            Osasto -- Institution -- Department \newline
+            Department of Geosciences and Geography
+        } \\
         \hline
-        \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Tekijä -- Författare -- Author}\newline} \TBstrut \\
+        \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{
+            Tekijä -- Författare -- Author \newline
+            Eemil Haapanen
+        } \\
         \hline
-        \multicolumn{6}{?>{\hsize=\dimexpr6\hsize+10\tabcolsep\relax}S{X}?}{\textsf{Tutkielman otsikko  --  Avhandlings titel -- Title of thesis}\newline \space TITLE} \TBstrut \\
+        \multicolumn{6}{?>{\hsize=\dimexpr6\hsize+10\tabcolsep\relax}S{X}?}{
+            Tutkielman otsikko  --  Avhandlings titel -- Title of thesis \newline
+            TITLE
+        } \\
         \hline
-        \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax}S{X}?}{\textsf{Oppiaine  -- Läroämne -- Subject}\newline } \TBstrut \\
+        \multicolumn{6}{?>{\hsize=\dimexpr6\hsize+10\tabcolsep\relax}S{X}?}{
+            Koulutusohjelma ja opintosuunta  -- Utbildningsprogram och studieinriktning -- Programme and study track \newline
+            Master's programme in geography, Geoinformatics
+        } \\
         \hline
-        \multicolumn{2}{?>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|}{\textsf{Työn laji -- Arbetets art -- Level}\newline} & %
-        \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}|} {\textsf{Aika -- Datum -- Month and year}\newline DATE} & %
-        \multicolumn{2}{>{\hsize=\dimexpr2\hsize + 2\tabcolsep\relax} S{X}?} {\textsf{Sivumäärä --  Sidoantal -- Number of pages}\newline} \TBstrut \\
+        \multicolumn{2}{?>{\hsize=\dimexpr2\hsize+2\tabcolsep\relax} S{X}|}{
+            Tutkielman taso -- Avhandlings nivå -- Level of the thesis \newline
+            Master's thesis, 30 credits
+        } &
+        \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep\relax} S{X}|} {
+            Aika -- Datum -- Date \newline \newline
+            MONTH / YEAR
+        } &
+        \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep\relax} S{X}?} {
+            Sivumäärä --  Sidoantal -- Number of pages \newline
+            PAGES
+        } \\
         \hline    
-        \multicolumn{6}{?>{\hsize=\dimexpr6\hsize+10\tabcolsep\relax} S{X}?} {\textsf{Tiivistelmä -- Referat -- Abstract}\newline \myabstract} \\ [400pt]
+        \multicolumn{6}{?>{\hsize=\dimexpr6\hsize+10\tabcolsep\relax} S{X}?} {
+            Tiivistelmä -- Referat -- Abstract \newline \newline
+            \myabstract
+        } \\ [400pt]
         \hline
-        \multicolumn{6}{?>{\hsize=\dimexpr6\hsize+10\tabcolsep\relax} S{X}?}{\textsf{Avainsanat -- Nyckelord -- Keywords}\newline} \TBstrut \\
+        \multicolumn{6}{?>{\hsize=\dimexpr6\hsize+10\tabcolsep\relax} S{X}?}{
+            Avainsanat -- Nyckelord -- Keywords \newline
+            KEYWORDS
+        } \\
         \hline
-        \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax} S{X}?}{\textsf{Säilytyspaikka -- Förvaringställe -- Where deposited}\newline} \TBstrut \\
+        \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax} S{X}?}{
+            Säilytyspaikka -- Förvaringställe -- Where deposited \newline
+            University of Helsinki electronic theses library E-thesis/HELDA
+        } \\
         \hline
-        \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax} S{X}?}{\textsf{Muita tietoja -- Övriga uppgifter -- Additional information}\newline} \TBstrut \\
+        \multicolumn{6}{?>{\hsize=\dimexpr6\hsize-+6\tabcolsep\relax} S{X}?}{
+            Muita tietoja -- Övriga uppgifter -- Additional information \newline
+        } \\
         \Xhline{3\arrayrulewidth}
     \end{tabularx}
 \end{spacing}

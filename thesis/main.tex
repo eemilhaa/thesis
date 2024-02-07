@@ -83,9 +83,13 @@
 
 \pagenumbering{gobble}
 
+\sffamily  % sans serif for title page & abstract
+
 \include{sections/title_page}
 \include{sections/abstract}
 % \newpage
+
+\normalfont  % resume normal font for rest of the thesis
 
 \tableofcontents
 % \newpage
@@ -98,7 +102,6 @@
 
 \include{sections/introduction}
 \include{sections/background}
-% \include{sections/study_design}
 \include{sections/methods}
 \include{sections/results}
 \include{sections/discussion}
