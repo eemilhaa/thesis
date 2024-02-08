@@ -2,6 +2,9 @@
 *.bbl-SAVE-ERROR
 *.bcf-SAVE-ERROR
 
+## krita does these
+*.png~
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
