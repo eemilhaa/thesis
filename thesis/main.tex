@@ -18,6 +18,8 @@
 
 \usepackage[acronym,nonumberlist]{glossaries}
 \makenoidxglossaries
+\renewcommand{\glsnamefont}[1]{\textsf{#1}}  % sans serif glossaries
+
 \newacronym{ttm}{TTM}{Helsinki region Travel Time Matrix}
 \newacronym{ica}{ICA}{International Cartography Association}
 \newacronym{ykr}{YKR}{Community structure monitoring system}
@@ -37,9 +39,23 @@
 \usepackage{booktabs}  % lists in tables
 \newcommand{\tabitem}{~~\llap{\textbullet}~~}
 
-\usepackage{caption}
-% \captionsetup{justification=raggedright,singlelinecheck=false}  % left align captions
+% \usepackage{caption}
+\usepackage[font={small, sf}]{caption}  % sans serif captions
+\captionsetup{justification=raggedright}
 \usepackage{subcaption}
+
+% \usepackage{sectsty}  % sans serif headings the easy way
+% \allsectionsfont{\sffamily}
+
+\usepackage{titlesec}  % sans serif headings the hard way (but with exact HY style)
+% \titleformat{<command>}[<shape>]{<format>}{<label>}{<sep>}{<before-code>}[<after-code>]
+\titleformat{\section}{\sffamily\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\sffamily\normalsize\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\sffamily\normalsize}{\thesubsubsection}{1em}{}
+% \titleformat{\subsection}
+%   {\normalfont\normalsize\itshape}{\thesubsection.}{1em}{}
+% \titleformat{\subsubsection}
+%   {\normalfont\normalsize\itshape}{\thesubsubsection.}{1em}{}
 
 \usepackage[style=apa6]{biblatex}
 \addbibresource{references.bib}
@@ -89,13 +105,13 @@
 \include{sections/abstract}
 % \newpage
 
-\normalfont  % resume normal font for rest of the thesis
-
 \tableofcontents
 % \newpage
 \listoffigures
 \listoftables
 \printnoidxglossaries
+
+\normalfont  % resume normal font for rest of the thesis
 
 \cleardoublepage
 \pagenumbering{arabic}
