@@ -26,6 +26,7 @@ Some ideas for discussion:
 % My results showed that...
 \subsection{Real time cartographic interaction and its tradeoffs}
 
+% The map presentation and survey results from cartography perspective
 Implementing something like the hover mode could be worth it in the sense
 that it provides a genuinely different way to explore massive data.
 Depending on the data being visualized,
@@ -38,6 +39,7 @@ now priority is on instant interaction instead of detailed maps.
 
 \subsection{Technical considerations in producing interactive maps}
 
+% The map presentation and survey results from technical perspective
 Too much data / too precise data:
 Scaling this type of approach to even more data could be difficult.
 Can data be too detailed?
@@ -60,17 +62,21 @@ Difficulty in assessing options: Testing the technology or the implementation.
 Not only a dataset, the \acrshort{ttm} is an extensive showcase of open science.
 
 % Not complete without representation
-In many cases, open access to data does not by itself enable the exploration of said data
-\parencite{obr2016}.
+In many cases, open access to data does not by itself enable
+the exploration or understanding of said data \parencite{obr2016}.
 It could be argued that the \acrshort{ttm} is a prime example of this.
 In its raw, unprocessed, form,
-the dataset constitutes gigabytes of data spread over thousands of plain text files.
-Merely comprehending the structure of the data requires expertise,
+the dataset constitutes gigabytes of data spread over thousands of plain text files
+that need to be further combined with an external statistical grid to enable
+geographical representation of the data.
+Merely comprehending the structure of the dataset requires expertise,
 proving to be anything but obvious even to university students specializing in the field
 -- the author included.
-Furthermore, actually mapping the \acrshort{ttm} would require
-desktop \acrshort{gis} software or a programming language,
-coupled with the know-how of using either.
+Even though the latest iteration of the dataset \parencite{fin2023}
+includes an easier-to-map data format with geometries included,
+actually mapping the \acrshort{ttm} would still require
+desktop \acrshort{gis} software or a programming language installation,
+coupled with the know-how of using either option.
 An open representation for open data
 
 % The representation from the angle of access to understanding data, reproducibility and open science
@@ -79,6 +85,9 @@ as every component is completely open-source \& openly available.
 
 
 \subsection{What was not mapped}
+
+A lot. By this I mean that the options in
+conceptualizing, implementing and studying an interactive map presentation are innumerable.
 
 What would the map, and by extension the whole study, look like with different priorities?
 
