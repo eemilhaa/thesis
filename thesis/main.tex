@@ -10,7 +10,7 @@
 
 \usepackage[english]{babel}
 
-\usepackage[a4paper,top=2.5cm,bottom=2.5cm,left=2cm,right=2cm,marginparwidth=1.75cm]{geometry}
+\usepackage[a4paper,top=2.5cm,bottom=2.5cm,left=4cm,right=2.5cm,marginparwidth=1.75cm]{geometry}
 \usepackage{parskip}
 
 \usepackage{graphicx}
@@ -105,18 +105,24 @@
 
 \raggedright
 \linespread{1.25}
+
+\newcommand{\diagramwidth}{0.9\textwidth}
 % ---------------------------------------------------------------------------------
 
 \begin{document}
 
 \pagenumbering{gobble}
 
+\newgeometry{margin=2.5cm}  % same margins everywhere for title & abstract
 \include{sections/title_page}
 \include{sections/abstract}
 % \newpage
 
 \tableofcontents
+
 % \newpage
+\restoregeometry  % back to initially specified geometry
+
 \listoffigures
 \listoftables
 \printnoidxglossary[type=acronym, nogroupskip]
