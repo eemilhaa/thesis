@@ -627,7 +627,7 @@ In the context of \acrshort{hci},
 the ways in which a user can interact with a system are referred to as
 \textit{interaction styles} \parencite{shn1995}
 (sometimes also \textit{interface styles} \parencite{how1996}).
-These are often categorized into 4 main styles:
+These are conventionally categorized into 4 main styles:
 \textit{command language},
 \textit{form fill-in},
 \textit{menu selection} and
@@ -639,7 +639,7 @@ Most of the aforementioned interaction styles are quite self-explanatory,
 but one; direct manipulation, depends on context.
 In the case of cartographic interaction,
 it refers most often to direct interactions with the map \parencite{rot2012}.
-A common example would be a case when the \textit{pan} operator primitive
+A common example would be a case where the \textit{pan} operator primitive
 is executed by dragging the map with a pointing device.
 
 When considering a map interface,
@@ -656,20 +656,25 @@ as interaction style adds yet another dimension to conceptualizing the
 function and form of a map interface.
 One distinction that is often made in this context
 is the amount of direct map manipulation in relation to other interaction styles.
-If map manipulation happens mostly through
-interaction styles other than direct manipulation,
+If direct map manipulation is just part of
+the interaction styles provided by an interface,
 the interface might be called
 a \textit{map-based system} or a \textit{map-based interface}
 instead of, for example,
 an \textit{interactive map} or a \textit{map-interface} \parencite{rot2013b}.
-A desktop \acrshort{gis} software could represent the former type of interface,
-and a simple web map the latter. % TODO add fig
+A desktop \acrshort{gis} software could represent the former type of interface \ref{fig:qgis},
+and a simple web map the latter \ref{fig:simple web map}.
 
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{visual/figures/screenshots/qgis_interface.png}
-	\caption{QGIS}
+	\caption{
+		The UI of the Geographic Information System QGIS \parencite{qgis}.
+		GIS software often supports a wide array of interaction styles:
+		Direct manipulation, menu selection, form-fill in and command language
+		can all be seen in this image.
+	}
 	\label{fig:qgis}
 \end{figure}
 
@@ -677,9 +682,9 @@ and a simple web map the latter. % TODO add fig
 	\centering
 	\includegraphics[width=0.9\textwidth]{visual/figures/screenshots/simple_web_map.png}
 	\caption{
-		An interactive web map with a single interaction style --
-		Direct manipulation of the map.
-		Map source: Deck.gl, \url{deck.gl/examples/geojson-layer-polygons}.
+		An interactive web map with a single interaction style:
+		direct manipulation of the map.
+		Map source: \textcite{deckgl-ex}
 	}
 	\label{fig:simple web map}
 \end{figure}
