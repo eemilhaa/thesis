@@ -601,7 +601,7 @@ This taxonomy is based on \textit{interaction primitives} --
 basic units of interaction that, when combined,
 make up complete interaction exchanges between a map and a map user.
 These interaction primitives are grouped into 4 dimensions:
-\textit{objectives}, \textit{operators} and \textit{operands} as already described above,
+\textit{objectives}, \textit{operators} and \textit{operands}, as already described above,
 with the addition of user \textit{goals} as a broader context of
 an interaction exchange \parencite{rot2013a}.
 As another added level of detail, operator primitives are split into primitives that
@@ -779,7 +779,7 @@ Such an interaction exchange necessitates a computing device for executing the p
 an input device for processing user input into a digital form,
 and an output device for conveying the state of the program to the user.
 From a technological perspective,
-the attributes of these devices both enabling and limiting factors of
+the attributes of these devices are both enabling and limiting factors of
 cartographic interaction as \acrshort{hci}.
 The processing power of the computing device determines the speed at which
 computations can be made, impacting the latency
@@ -799,7 +799,7 @@ to provide a starting point to reasoning about this theme.
 In the case of interactive maps,
 the primary purpose of the map application is
 to provide presentation and an interface,
-in short it acts as a \acrshort{ui} of a system.
+in short it acts as a \acrshort{ui} of a potentially larger system.
 User actions
 (often called \textit{user events} in the context of software development)
 result in computations as defined by the system's rules and algorithms,
@@ -811,49 +811,57 @@ or even be handled by an entirely different program.
 Applications, especially ones concerned with mapping,
 often act on data.
 Storing and accessing data are distinct functionalities, and, again,
-can be carried out by specialized solutions
+can be carried out by separate solutions
 with varying levels of decoupling from presentation and business logic.
-The above components --
-presentation, business logic, and data access and storage --
+The above high-level components --
+\acrshort{ui}, business logic, and data access and storage --
 together with any necessary services that enable their interoperation,
-can be thought to make up a given system.
+can be thought to make up a given interactive system.
 This approach to reasoning about the structure of a system is often connected to
 \textit{layered software architecture},
-but can be utilized in other architectural patterns too. % TODO ref?
+but is utilized in other architectural patterns too. % TODO ref?
 The main point is that
 systems are often structuralized based on the functionalities of their parts,
 which I here applied to help illustrate what the necessary functionalities
 to enable an interactive map system might be.
 
 % (Hardware + software + application) - the application = platform
-The above paragraph showed what a system is made of.
-However, 
-
-
-% Program, library, application
-Such maps are often referred to map applications
-These include, for example, the necessary physical infrastructure
-(such as computer hardware and input and output devices),
-software (computer programs) and digital data.
-
-this technological perspective in addition
-what kinds of interaction and representation digital environments enable,
-as well as what the advantages and restrictions of such environments are.
-As the above chapter provided
-These capabilities would be a list 
-
-Display capabilities
-Computational power
-Technological implications of map interaction,
-technology being an enabling and a limiting factor in map interaction.
+Another key consideration of crafting map interfaces is the
+\textit{computing platform} --
+the execution environment a given program or system requires in order to run.
+Computing platforms can be categorized to
+hardware, operating system (\acrshort{os}) and software level platforms.
+This division can be seen in terms of abstraction layers:
+A software platform runs on an \acrshort{os} platform,
+and an \acrshort{os} platform runs on a hardware platform.
+From the perspective of map applications,
+\acrshort{os} and software platforms
+are the ones to consider since they provide the capabilities,
+such as advanced use of computer graphics,
+needed for cartographic interaction.
+A key factor, especially considering interactivity,
+is that \acrshort{os} platforms are closely tied to
+the devices (hardware) they operate on.
+For example, applications developed for most mobile \acrshort{os}s
+are expected to be operated mainly on relatively small touchscreens and
+with potentially constrained computational capabilities,
+while personal computer (\acrshort{pc}) \acrshort{os}s
+provide an environment usually accessed with larger displays and
+separate input devices, and enabled with more computational power.
+Software platforms are, in practice, software that runs other software.
+There are an innumerable amount of such platforms but,
+to give an example, perhaps the most relevant today is the web browser.
+In general, applications running on a software platform can be run wherever
+the platform can be run, often meaning less dependence on particular devices.
+In turn, they have much less direct access to the operating system or hardware,
+potentially noticeable computational overhead introduced by having to run the platform
+in addition to the application,
+and cannot utilize features that the platform might lack.
 
 % The influence of technology on interactive maps and cartography.
 % Also, the mapmaker is more often a software developer than a cartographer.
 % How much of innovation is more of "this is cool",
 % versus "this is a cartographically informed way to present something".
-
-The platforms on which interactive maps are used:
-Desktop software, mobile, web ...
 
 
 \subsubsection{Web mapping and relevant technologies}
