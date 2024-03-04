@@ -771,13 +771,13 @@ the capabilities of computer programs and other accompanying digital technologie
 From the perspective of interaction, perhaps the most notable of these
 is the ability to receive input from the user and perform computations based on it,
 possibly altering the state of the program.
-The altered state of the program can then be communicated back to the user,
-thus establishing the technological premise for
+The altered state of the program can then be communicated back to the user.
+This establishes the technological premise for
 the process of interaction as two-way communication.
 
 Such an interaction exchange necessitates a computing device for executing the program,
-an input device for processing user input into a digital form, and an output device for
-conveying the state of the program to the user.
+an input device for processing user input into a digital form,
+and an output device for conveying the state of the program to the user.
 From a technological perspective,
 the attributes of these devices are enabling as well as limiting factors of
 cartographic interaction as \acrshort{hci}.
@@ -785,10 +785,49 @@ The processing power of the computing device determines the speed at which
 computations can be made, impacting the latency
 (the delay between user input and its perceivable results)
 of the system.
-This directly contributes to the user's experience of interactivity.  % TODO ref
 The input device plays a major role in what interaction styles
 are usable in the map interface,
 and the output device dictates how the user perceives the interface.
+All these aspects directly contribute to the user's experience of interactivity.  % TODO ref
+
+At the software level, the computer program
+(often referred to as an \textit{application} in the case of user-facing software)
+is ultimately what the user interacts with.
+What exactly an application is, or what it does, is a complex question.
+In the following, I utilize some basic concepts of software architecture
+to provide a starting point to reasoning about this theme.
+In the case of interactive maps,
+the primary purpose of the map application is
+to provide presentation and an interface,
+in short it acts as a \acrshort{ui} of a system.
+User actions
+(often called \textit{user events} in the context of software development)
+result in computations as defined by the system's rules and algorithms,
+\textit{business logic} in a software context.
+In software architecture, such logic is a concern separate from presentation,
+which means that the computation induced by a user event might happen
+in a separate component of the application,
+or even be handled by an entirely different program.
+Applications, especially ones concerned with mapping,
+often act on data.
+Storing and accessing data are distinct functionalities, and, again,
+can be carried out by specialized solutions
+with varying levels of decoupling from presentation and business logic.
+The above components --
+presentation, business logic, and data access and storage --
+together with any necessary services that enable their interoperation,
+can be thought to make up a given system.
+This approach to reasoning about the structure of a system is often connected to
+\textit{layered software architecture},
+but can be utilized in other architectural patterns too. % TODO ref?
+The main point is that
+systems are often structuralized based on the functionalities of their parts,
+which I here applied to help illustrate what the necessary functionalities
+to enable an interactive map system might be.
+
+% (Hardware + software + application) - the application = platform
+The above paragraph showed what a system is made of.
+However, 
 
 
 % Program, library, application
