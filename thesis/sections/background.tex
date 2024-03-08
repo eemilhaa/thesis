@@ -923,31 +923,41 @@ The single most important factor enabling the web's transformation from
 a document sharing framework to a software ecosystem
 was the introduction and standardization of a client-side scripting language,
 \textit{JavaScript} \parencite{cho2014}.
-This provided the basis for \textit{client-side computing} --
-the concept that a client could
+This is a requirement for \textit{client-side computing} --
+the concept that a client can
 receive and execute code,
-turning web pages into dynamic and increasingly interactive pieces of software
+turning web pages from documents
+into dynamic and increasingly interactive pieces of software
 \parencite{jac2019}.
-Additional key factors here are the \emphasizeacr{dom} and
+Today, software built \enquote{for the web} refers most often to client-side applications
+that use the web browser as a computational platform \parencite{tai2017}.
+Client-side technologies are also the main focus in the context of web-mapping,
+since a modern web map is usually a heavily client-side application \parencite{rot2014}.
+
+To understand how modern web applications work, some additional insight is necessary.
+Key factors here are the \emphasizeacr{dom} and
 \emphasizeacr{ajax}.
 The \acrshort{dom} defines a standardized representation of
-the content and structure of a web page,
+the content and structure of a \acrshort{html} page,
 and an \emphasizeacr{api} for its
 programmatic manipulation \parencite{w3cdom}.
 \acrshort{ajax} refers to a set of technologies that
 enable asynchronous computing in client-side applications,
-the key takeaway being that this enables client-server communication
-without the need of re-fetching and re-rendering the entire page from the server
+the key takeaway being that this makes it possible to
+carry out client-server communication
+without the need of re-fetching and re-rendering the entire page on each call.
 \parencite{fin2014}.
+When combined, JavaScript, \acrshort{dom} and \acrshort{ajax} enable
+websites that are fetched only once from the server,
+after which they provide all further manipulation and client-server communication by using
+JavaScript code that the browser executes.
+This type of website, or web application, is called a \emphasizeacr{spa}.
+Such applications can implement complex functionality and a high degree of interactivity,
+remaining responsive due to fetching only what is necessary after the initial page is loaded
+\parencite{mai2017}.
 
-This, coupled with further advances such as asynchronous operations enabled
 
 
-
-Software built \enquote{for the web} refers most often to client-side applications
-that use the web browser as a computational environment \parencite{tai2017}.
-Client-side technologies are also the main focus in the context of web-mapping,
-since a modern web map is most often a client-side application \parencite{rot2014}.
 
 
 At the most essential level are 
