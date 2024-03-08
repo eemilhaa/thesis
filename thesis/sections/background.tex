@@ -875,7 +875,7 @@ A web map, then, is a map that is transferred via the internet,
 usually accessed with a web browser,
 and read and used as a web page \parencite{sac2017}.
 To further understand these terms, it should first be acknowledged that
-the web as a platform has been, and is, a rapidly changing one.
+the web has been, and is, a rapidly changing ecosystem.
 Initially intended for specialist use with the sole purpose of
 sharing static documents through
 interconnected computer networks (the internet) \parencite{ber1994},
@@ -913,16 +913,41 @@ for example, renders a web page based on a received \acrshort{html} file
 A server, also a piece of software,
 runs on another computer or on a distributed computing platform,
 \enquote{listens} for requests,
-and responds to them,
+and responds to them using \acrshort{http},
 potentially sending files that are stored on the computer running the sever
 \parencite{sac2017}.
 
 A web consisting only of static web pages, as described above,
 is hardly reminiscent of the web today.
-The most notable enabling factor
+The single most important factor enabling the web's transformation from
+a document sharing framework to a software ecosystem
+was the introduction and standardization of a client-side scripting language,
+\textit{JavaScript} \parencite{cho2014}.
+This provided the basis for \textit{client-side computing} --
+the concept that a client could
+receive and execute code,
+turning web pages into dynamic and increasingly interactive pieces of software
+\parencite{jac2019}.
+Additional key factors here are the \emphasizeacr{dom} and
+\emphasizeacr{ajax}.
+The \acrshort{dom} defines a standardized representation of
+the content and structure of a web page,
+and an \emphasizeacr{api} for its
+programmatic manipulation \parencite{w3cdom}.
+\acrshort{ajax} refers to a set of technologies that
+enable asynchronous computing in client-side applications,
+the key takeaway being that this enables client-server communication
+without the need of re-fetching and re-rendering the entire page from the server
+\parencite{fin2014}.
 
-Software built \enquote{for the web} refers most often to client-side applications,
+This, coupled with further advances such as asynchronous operations enabled
+
+
+
+Software built \enquote{for the web} refers most often to client-side applications
 that use the web browser as a computational environment \parencite{tai2017}.
+Client-side technologies are also the main focus in the context of web-mapping,
+since a modern web map is most often a client-side application \parencite{rot2014}.
 
 
 At the most essential level are 
