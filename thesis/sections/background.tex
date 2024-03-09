@@ -982,7 +982,7 @@ gets presented a map, and then changes the content of the map.
 	\centering
 	\includegraphics[width=\diagramwidth]{visual/figures/diagrams/server-side-app.png}
 	\caption{
-		An interactive map of traditional, if not outdated, design.
+		An interactive map of traditional website design.
 		All manipulation of the web page and the map happens on the server-side,
 		and each change results in a complete re-fetch and re-render of the page.
 	}
@@ -1002,11 +1002,27 @@ gets presented a map, and then changes the content of the map.
 	\label{fig:spa}
 \end{figure}
 
-% This type of approach is essential to web maps. tiles?
-
-% css
-
-
+As shown above, a \acrshort{spa}-style web map handles mapping,
+web page layout and content, and other possible \acrshort{ui} logic
+on the client browser.
+Also, a \acrshort{spa} manages all application \textit{state},
+in other words it records, updates and acts on information about
+the condition of the application and its components.
+In the system described above \parenfig{spa},
+the data could be an example of such state.
+The server-side, in comparison, is essentially stateless and contains no business logic.
+The main point here is that the client-side of a
+\acrshort{spa}-style web map is potentially a highly complex application,
+and implementing all the needed functionalities from the ground up would be an enormous task.
+Software \textit{libraries}, external modules of reusable code,
+are essential in overcoming this.
+From the perspective of web mapping, two types of libraries are especially important.
+In most cases, the map functionalities are map library.
+Especially if an application gets more complex,
+a general purpose \acrshort{ui} library,
+often called a \textit{framework},
+can be beneficial in constructing and managing
+the general \acrshort{ui} components and state of the application.
 
 % mik2019, tai2021
  
