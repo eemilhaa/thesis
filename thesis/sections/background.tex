@@ -901,9 +901,9 @@ still make up the absolutely necessary building blocks
 of presenting and accessing web pages \parencite{ber1994, tai2017}.
 \acrshort{html} is the markup language of the web,
 primarily designed for the semantic description of documents \parencite{w3chtml},
-and \acrshort{http} refers to a set of protocols for fetching resources over the internet,
+and \acrshort{http} refers to a set of protocols for transferring information over the internet,
 for example \acrshort{html} documents \parencite{ietfhttp1, ietfhttp2, ietfhttp3}.
-These resources are fetched by a client, from a server --
+The information is fetched by a client, from a server --
 the premise of client-server architecture.
 A client in this context is
 a piece of software (most often a web browser) that sends \acrshort{http} requests,
@@ -953,11 +953,20 @@ without the need of re-fetching and re-rendering the entire page on each call.
 When combined, JavaScript, \acrshort{dom} and \acrshort{ajax} enable
 websites that are fetched only once from the server,
 after which they provide all further manipulation and client-server communication by using
-JavaScript code that the browser executes.
-This type of website, or web application, is called a \emphasizeacr{spa}.
-Such applications can implement complex functionality and a high degree of interactivity,
-remaining responsive due to fetching only what is necessary after the initial page is loaded
+JavaScript code that the browser executes. 
+This type of website, or web application,
+is called a \emphasizeacr{spa} \parencite{fin2014}.
+
+\acrshort{spa}s can provide complex functionality and a high degree of interactivity,
+remaining responsive due to fetching and rendering
+only what is necessary after the initial page load.
+This is an essential aspect in crafting web-based map interfaces,
+since almost all interaction with them results in client-server communication,
+for example fetching tiled based maps, or data to be mapped
 \parencite{mai2017}.
+This is further illustrated in REF,
+which compares how a map application implemented as a traditional website (REF)
+and as a \acrshort{spa} (REF) responds when a user changes the content of the map.
 
 % This type of approach is essential to web maps. tiles?
 
@@ -968,7 +977,7 @@ remaining responsive due to fetching only what is necessary after the initial pa
 % mik2019, tai2021
 
 
-
+\input{visual/tables/web_tech.tex}
 
 
 % As internet use has grown, many paper maps have been scanned and published online, and new maps have increasingly been designed for viewing in a web browser or mobile app. Web maps may be static or dynamic, and dynamic maps may either be animated or interactive. Tiled web maps are interactive maps that use tiled images to allow for fast data loading and smooth interaction, while vector web maps support rendering a wide variety of map designs on the client. Web maps follow a client-server architecture, with specialized map servers sometimes used to publish data and maps as geospatial web services. Web maps are composed of data from a database or file on the server, style information rendered on either server or client, and optionally animation or interaction instructions executed on the client. Several graphic web platforms provide user-friendly web mapping solutions, while greater customization is possible through the user of commercial or open source web mapping APIs. When designing web maps, cartographers should consider the map’s purpose on a continuum from exploratory and highly interactive to thematic and less interactive or static, the constraints of desktop and/or mobile web contexts, and accessibility for disabled, elderly, and poorly connected users.% rot2014 conclusions: technologies evaluation is necessary
