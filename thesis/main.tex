@@ -21,23 +21,6 @@
 \usepackage[acronym, nonumberlist]{glossaries}
 \makenoidxglossaries
 
-\newacronym{ttm}{TTM}{Helsinki region Travel Time Matrix}
-\newacronym{ica}{ICA}{International Cartography Association}
-\newacronym{ykr}{YKR}{Community Structure Monitoring system}
-\newacronym{gpu}{GPU}{Graphics Processing Unit}
-\newacronym{cpu}{CPU}{Central Processing Unit}
-\newacronym{gis}{GIS}{Geographic Information System}
-\newacronym{hci}{HCI}{Human-Computer-Interaction}
-\newacronym{ue}{UE}{Usability Engineering}
-\newacronym{ux}{UX}{User Experience}
-\newacronym{ui}{UI}{User Interface}
-\newacronym{os}{OS}{Operating System}
-\newacronym{pc}{PC}{Personal Computer}
-\newacronym{html}{HTML}{HyperText Markup Language}
-\newacronym{http}{HTTP}{HyperText Transfer Protocol}
-\newacronym{dom}{DOM}{Document Object Model (DOM)}
-\newacronym{css}{CSS}{Cascading Style Sheets}
-
 \usepackage{array}
 % https://tex.stackexchange.com/questions/12703/how-to-create-fixed-width-table-columns-with-text-raggedright-centered-raggedlef
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}  % using p instead of m for top-allign
@@ -112,9 +95,30 @@
 \raggedright
 \linespread{1.25}
 
+\newacronym{ttm}{TTM}{Helsinki region Travel Time Matrix}
+\newacronym{ica}{ICA}{International Cartography Association}
+\newacronym{ykr}{YKR}{Community Structure Monitoring system}
+\newacronym{gpu}{GPU}{Graphics Processing Unit}
+\newacronym{cpu}{CPU}{Central Processing Unit}
+\newacronym{gis}{GIS}{Geographic Information System}
+\newacronym{hci}{HCI}{Human-Computer-Interaction}
+\newacronym{ue}{UE}{Usability Engineering}
+\newacronym{ux}{UX}{User Experience}
+\newacronym{ui}{UI}{User Interface}
+\newacronym{os}{OS}{Operating System}
+\newacronym{pc}{PC}{Personal Computer}
+\newacronym{html}{HTML}{HyperText Markup Language}
+\newacronym{http}{HTTP}{HyperText Transfer Protocol}
+\newacronym{dom}{DOM}{Document Object Model}
+\newacronym{css}{CSS}{Cascading Style Sheets}
+\newacronym{api}{API}{Application Programming Interface}
+\newacronym{ajax}{AJAX}{Asynchronous Javascript And Xml}
+\newacronym{spa}{SPA}{Single-Page Application}
+
 \newcommand{\diagramwidth}{0.9\textwidth}
 \newcommand{\posesscite}[1]{\citeauthor{#1}'s (\citeyear{#1})}
 \newcommand{\presentacr}[1]{\acrlong{#1} (\acrshort{#1})}
+\newcommand{\emphasizeacr}[1]{\textit{\acrlong{#1}} (\textit{\acrshort{#1})}}
 % ---------------------------------------------------------------------------------
 
 \begin{document}
