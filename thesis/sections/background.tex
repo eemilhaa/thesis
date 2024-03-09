@@ -867,15 +867,14 @@ and cannot utilize features that the software platform lacks.
 % versus "this is a cartographically informed way to present something".
 
 
-\subsubsection{Web mapping and relevant technologies}
+\subsubsection{Web maps and web technologies}
 
-Web mapping refers to the process of making maps for the web,
-with web technologies.
-A web map, then, is a map that is transferred via the internet,
+A web map is a map that is made with web technologies,
+transferred via the internet,
 usually accessed with a web browser,
 and read and used as a web page \parencite{sac2017}.
-To further understand these terms, it should first be acknowledged that
-none of them are static --
+To further understand what this means,
+it must first be acknowledged that
 the web has been, and is, a rapidly changing ecosystem.
 Initially intended for specialist use with the sole purpose of
 sharing static documents through
@@ -935,7 +934,7 @@ This is the basic requirement for \textit{client-side computing},
 which is the concept that a client can
 receive and execute code,
 turning websites from documents
-into software, often called web applications \parencite{jac2019}.
+into software, often called \textit{web applications} \parencite{jac2019}.
 Today, software built \enquote{for the web} refers most often to
 such client-side applications -- pieces of software
 that use the web browser as a computational platform \parencite{tai2017}.
@@ -971,11 +970,37 @@ This is an essential aspect in crafting web map applications,
 since most user interactions with them result in client-server communication:
 for example fetching tiled base maps or new data to be mapped
 \parencite{mai2017}.
-The importance of \acrshort{spa} design is further illustrated in REF,
-which compares how two map applications,
-one implemented as a server-side dynamic web page (REF)
-and the other as a \acrshort{spa} (REF)
-respond when a user changes the content of the map.
+The importance of \acrshort{spa} design is further illustrated below.
+Figures \ref{fig:server-side app} and \ref{fig:spa} compare
+how two map applications,
+one implemented as a server-side dynamic web page (figure \ref{fig:server-side app})
+and the other as a \acrshort{spa} (figure \ref{fig:spa}),
+respond when a user accesses a web map,
+gets presented a map, and then changes the content of the map.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\diagramwidth]{visual/figures/diagrams/server-side-app.png}
+	\caption{
+		An interactive map of traditional, if not outdated, design.
+		All manipulation of the web page and the map happens on the server-side,
+		and each change results in a complete re-fetch and re-render of the page.
+	}
+	\label{fig:server-side app}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\diagramwidth]{visual/figures/diagrams/spa.png}
+	\caption{
+		A web map as a \acrshort{spa}. Here the initial page load is more complex,
+		but, once the application is running on the client,
+		subsequent interactions with the map are handled on the client side.
+		Instead of fetching entire new pages from the server,
+		updating the map content requires only fetching the necessary data.
+	}
+	\label{fig:spa}
+\end{figure}
 
 % This type of approach is essential to web maps. tiles?
 
