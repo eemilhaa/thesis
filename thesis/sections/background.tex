@@ -920,16 +920,22 @@ potentially sending files that are stored on the computer running the sever
 
 A web consisting only of static web pages, as described above,
 is hardly reminiscent of the web today.
-The single most important factor enabling the web's transformation from
-a document sharing framework to a software ecosystem
+This setting first began to change with
+dynamic website creation using server-side computing,
+where a given \acrshort{html} page could be dynamically created on the server-side,
+based on user input from the client \parencite{jac2019}.
+This was a new degree of interactivity and also enabled the first interactive web maps,
+although interactivity in this case was still
+far from responsive by modern standards \parencite{vee2017}.
+The single most important factor in enabling web maps as they are today,
+also resulting in the web's transformation into a software ecosystem,
 was the introduction and standardization of a client-side scripting language,
-\textit{JavaScript} \parencite{cho2014}.
+\textit{JavaScript} \parencite{cho2014, vee2017}.
 This is the basic requirement for \textit{client-side computing},
 which is the concept that a client can
 receive and execute code,
-turning web pages from documents
-into dynamic and increasingly interactive applications.
-\parencite{jac2019}.
+turning websites from documents
+into software, often called web applications \parencite{jac2019}.
 Today, software built \enquote{for the web} refers most often to
 such client-side applications -- pieces of software
 that use the web browser as a computational platform \parencite{tai2017}.
@@ -951,22 +957,22 @@ carry out client-server communication
 without the need of re-fetching and re-rendering the entire page on each call.
 \parencite{fin2014}.
 When combined, JavaScript, \acrshort{dom} and \acrshort{ajax} enable
-websites that are fetched only once from the server,
+web applications that are fetched only once from the server,
 after which they provide all further manipulation and client-server communication by using
 JavaScript code that the browser executes. 
-This type of website, or web application,
+This type of web application
 is called a \emphasizeacr{spa} \parencite{fin2014}.
 
 \acrshort{spa}s can provide complex functionality and a high degree of interactivity,
 remaining responsive due to fetching and rendering
 only what is necessary after the initial page load.
-This is an essential aspect in crafting web-based map interfaces,
-since almost all interaction with them results in client-server communication,
-for example fetching tiled based maps, or data to be mapped
+This is an essential aspect in crafting web map applications,
+since most user interactions with them result in client-server communication,
+for example fetching tiled base maps, or new data to be mapped
 \parencite{mai2017}.
-This is further illustrated in REF,
-which compares how a map application implemented as a traditional website (REF)
-and as a \acrshort{spa} (REF) responds when a user changes the content of the map.
+The importance of \acrshort{spa} design is further illustrated in REF,
+which compares how map applications implemented as a server-side dynamic web page (REF)
+and as a \acrshort{spa} (REF) respond when a user changes the content of the map.
 
 % This type of approach is essential to web maps. tiles?
 
@@ -975,8 +981,7 @@ and as a \acrshort{spa} (REF) responds when a user changes the content of the ma
 
 
 % mik2019, tai2021
-
-
+ 
 \input{visual/tables/web_tech.tex}
 
 
