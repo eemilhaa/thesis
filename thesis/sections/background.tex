@@ -873,7 +873,7 @@ A web map is a map that is made with web technologies,
 transferred via the internet,
 usually accessed with a web browser,
 and read and used as a web page \parencite{sac2017}.
-To further understand what this means,
+To understand what any of this means,
 it must first be acknowledged that
 the web has been, and is, a rapidly changing ecosystem.
 Initially intended for specialist use with the sole purpose of
@@ -902,7 +902,7 @@ of presenting and accessing web pages \parencite{ber1994, tai2017}.
 primarily designed for the semantic description of documents \parencite{w3chtml},
 and \acrshort{http} refers to a set of protocols for transferring information over the internet,
 for example \acrshort{html} documents \parencite{ietfhttp1, ietfhttp2, ietfhttp3}.
-The information is fetched by a client, from a server --
+This information is fetched by a client, from a server --
 the premise of client-server architecture.
 A client in this context is
 a piece of software (most often a web browser) that sends \acrshort{http} requests,
@@ -919,11 +919,11 @@ potentially sending files that are stored on the computer running the sever
 
 A web consisting only of static web pages, as described above,
 is hardly reminiscent of the web today.
-This setting first began to change with
+The progress towards an interactive web began with
 dynamic website creation using server-side computing,
 where a given \acrshort{html} page could be dynamically created on the server-side,
 based on user input from the client \parencite{jac2019}.
-This was a new degree of interactivity and also enabled the first interactive web maps,
+This also enabled the first interactive web maps,
 although interactivity in this case was still
 far from responsive by modern standards \parencite{vee2017}.
 The single most important factor in enabling web maps as they are today,
@@ -932,8 +932,8 @@ was the introduction and standardization of a client-side scripting language,
 \textit{JavaScript} \parencite{cho2014, vee2017}.
 This is the basic requirement for \textit{client-side computing},
 which is the concept that a client can
-receive and execute code,
-turning websites from documents
+receive and execute code.
+This essentially turned websites from documents
 into software, often called \textit{web applications} \parencite{jac2019}.
 Today, software built \enquote{for the web} refers most often to
 such client-side applications -- pieces of software
@@ -942,17 +942,20 @@ Client-side technologies are also the main focus in the context of web-mapping,
 since a modern web map is usually a heavily client-side application
 \parencite{rot2014}.
 
-To understand how modern web applications work, some additional insight is necessary.
+To understand how a modern web application works,
+some additional insight is still necessary.
 Key factors here are the \emphasizeacr{dom} and
 \emphasizeacr{ajax}.
 The \acrshort{dom} defines a standardized representation of
 the content and structure of a \acrshort{html} page,
-and an \emphasizeacr{api} for its
+and, even more importantly, an \emphasizeacr{api} for its
 programmatic manipulation \parencite{w3cdom}.
+This means that a client-side software can
+directly manipulate the content and structure of a web page \parencite{w3cdom}.
 \acrshort{ajax} refers to a set of technologies that
 enable asynchronous computing in client-side applications,
 the key takeaway being that this makes it possible to
-carry out client-server communication
+carry out client-server communication \enquote{in the background},
 without the need of re-fetching and re-rendering the entire page on each call.
 \parencite{gar2005}.
 When combined, JavaScript, \acrshort{dom} and \acrshort{ajax} enable
@@ -963,11 +966,11 @@ This type of web application
 is called a \emphasizeacr{spa} \parencite{fin2014}.
 
 \acrshort{spa}s can provide complex functionality while
-maintaining responsive and uninterrupted user interaction,
+maintaining responsive and uninterrupted user interaction
 as they fetch and re-render only what is necessary
 after the initial page load \parencite{fin2014}.
 This is an essential aspect in crafting web map applications,
-since most user interactions with them result in client-server communication:
+since most user-map interactions result in client-server communication:
 for example fetching tiled base maps or new data to be mapped
 \parencite{mai2017}.
 The importance of \acrshort{spa} design is further illustrated below.
@@ -1034,9 +1037,12 @@ the general, non-map, \acrshort{ui} components of the application
 as well as the application and component state.
 
 This section introduced the necessities for
-implementing modern web map applications.
-Key 
-% mik2019, tai2021
+understanding and crafting interactive maps at a technological level,
+with emphasis on web maps and client-side technologies.
+Key web mapping concepts are assembled to table \ref{tab:web tech}.
+Due to the great breadth of technologies,
+the listing is by no means exhaustive --
+only the concepts indispensable for web maps are included.
  
 \input{visual/tables/web_tech.tex}
 
