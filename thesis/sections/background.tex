@@ -1005,25 +1005,37 @@ gets presented a map, and then changes the content of the map.
 As shown above, a \acrshort{spa}-style web map handles mapping,
 web page layout and content, and other possible \acrshort{ui} logic
 on the client browser.
-Also, a \acrshort{spa} manages all application \textit{state},
+Also, a \acrshort{spa} manages most, if not all,
+application \textit{state},
 in other words it records, updates and acts on information about
 the condition of the application and its components.
 In the system described above \parenfig{spa},
-the data could be an example of such state.
-The server-side, in comparison, is essentially stateless and contains no business logic.
+the mapped data could be an example of such state.
+The server-side, in comparison,
+is essentially stateless and contains no business logic.
 The main point here is that the client-side of a
-\acrshort{spa}-style web map is potentially a highly complex application,
-and implementing all the needed functionalities from the ground up would be an enormous task.
-Software \textit{libraries}, external modules of reusable code,
+web map system that employs a \acrshort{spa} design
+is potentially a very complex piece of software.
+Implementing all the functionalities needed for such an application
+from the ground up would be an enormous task.
+\textit{Software libraries},
+in other words external modules of reusable code,
 are essential in overcoming this.
 From the perspective of web mapping, two types of libraries are especially important.
-In most cases, the map functionalities are map library.
+A \textit{web mapping library} usually contains capabilities for the most common tasks
+that a web map is expected to perform:
+for example zooming and panning, rendering data on the map,
+and downloading and rendering base maps.
 Especially if an application gets more complex,
-a general purpose \acrshort{ui} library,
+a general purpose \textit{\acrshort{ui} library},
 often called a \textit{framework},
 can be beneficial in constructing and managing
-the general \acrshort{ui} components and state of the application.
+the general, non-map, \acrshort{ui} components of the application
+as well as the application and component state.
 
+This section introduced the necessities for
+implementing modern web map applications.
+Key 
 % mik2019, tai2021
  
 \input{visual/tables/web_tech.tex}
