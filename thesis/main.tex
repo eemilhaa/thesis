@@ -18,7 +18,10 @@
 
 \usepackage{float}
 
-\usepackage[acronym, nonumberlist]{glossaries}
+\usepackage[acronym, nopostdot, style=list, nonumberlist, nogroupskip, toc]{glossaries}
+% \setglossarypreamble[acronym]{\vspace*{-\baselineskip}}
+\renewcommand{\glsnamefont}[1]{\textbf{#1}}
+
 \makenoidxglossaries
 
 \usepackage{array}
@@ -115,7 +118,7 @@
 \newacronym{ajax}{AJAX}{Asynchronous Javascript And Xml}
 \newacronym{spa}{SPA}{Single-Page Application}
 
-\newcommand{\diagramwidth}{0.9\textwidth}
+\newcommand{\diagramwidth}{0.95\textwidth}
 \newcommand{\posesscite}[1]{\citeauthor{#1}'s (\citeyear{#1})}
 \newcommand{\presentacr}[1]{\acrlong{#1} (\acrshort{#1})}
 \newcommand{\emphasizeacr}[1]{\textit{\acrlong{#1}} (\textit{\acrshort{#1})}}
@@ -134,17 +137,25 @@
 
 \tableofcontents
 
-% \newpage
 \restoregeometry  % back to initially specified geometry
 
-\listoffigures
-\listoftables
-\printnoidxglossary[type=acronym, nogroupskip]
+\cleardoublepage
+\pagenumbering{roman}  % TODO use arabic everywhere?
 
-\rmfamily  % switch to roman (serif) base font for rest of the thesis
+\newpage
+\addcontentsline{toc}{section}{List of Figures}
+\listoffigures
+\newpage
+\addcontentsline{toc}{section}{List of Tables}
+\listoftables
+\newpage
+% \addcontentsline{toc}{section}{List of Acronyms}
+\printnoidxglossary[type=acronym, title={List of Acronyms}]
 
 \cleardoublepage
 \pagenumbering{arabic}
+
+\rmfamily  % switch to roman (serif) base font for rest of the thesis
 
 \include{sections/introduction}
 \include{sections/background}
