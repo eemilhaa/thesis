@@ -1172,10 +1172,15 @@ for all other locations:
 the ease of accessing the target location, measured in time.
 Mapping a value for every location could,
 depending on how "location" is defined,
-mean a massive amount of information on a map \parenfig{tt surface}.
-One presentation approach way such information overflow can be overcome is to 
-this type of access measure can be represented for example
-as a surface
+result in a massive amount of mapped values and
+an excess of information on a map \parenfig{tt surface}.
+One presentation approach that is often used to overcome
+such information overflow when presenting travel time is
+the \textit{isochrone}.
+Isochrones are lines drawn on a map that
+connect points of equal travel time \parenfig{isochrones}.
+Varying levels of simplification can be carried out with this technique
+depending on the applied interval of travel time between isochrones.
 
 \begin{figure}[H]
 	\centering
@@ -1206,10 +1211,7 @@ as a surface
 	\label{fig:isochrones}
 \end{figure}
 
-
-% what kinda map, then next chap
 When an accessibility measure becomes more complex,
-% for example by accounting for many travel modes and origin-destination pairs,
 representing its every aspect as a separate map becomes difficult,
 if not impossible.
 More complex measures of access, and their mapped representations,
@@ -1218,7 +1220,7 @@ an \textit{accessibility index}:
 a value that can be calculated for a location
 based on a set of factors considered impactful to its accessibility.
 This abstracts a lot of complexity at the presentation stage,
-as the result is again a single value that can be mapped.
+as the result is again a single value that can be mapped.  % TODO ref
 However, what the map means, is now a much more complex question.
 In general, more complex accessibility measures tend to lead to
 difficulty in understanding their mapped representations \parencite{te2014}.
@@ -1236,15 +1238,18 @@ accessibility \textit{in space}.
 When including, for example, the temporal dimension of accessibility,
 the number of relationships increases to
 accessibility \textit{in space} and \textit{in time}.
+When presenting accessibility as a function of time,
+a classically used approach is the space-time-prism:
+a three-dimensional representation where
+time is represented as the third dimension.
+
+
 An important consideration is also the fact that
 many, especially person-based, measures of access can be constructed
 based on qualitative data
 
 Which places different requirements for the map presentation.
 
-A classically used approach is the space-time-prism,
-a three-dimensional representation where
-time is represented as the third dimension.
 
 % generalizing all the locations -> isochrones / areas
 % generalizing all the subjects -> index
