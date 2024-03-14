@@ -1166,9 +1166,33 @@ many, either explicit or implicit, decisions on what the phenomenon is and is no
 So, what actually is being visualized, depends entirely on
 the particular accessibility measure.
 For example, a simple measure of access could be defined as
-travel time in relation to a single location,
-and, a single value of access as travel time could be mapped
-for all other locations.
+travel time in relation to a single location.
+In such a case, a single value of access could be mapped
+for all other locations:
+the ease of accessing the target location, measured in time.
+On a map,
+this type of access measure can be represented for example
+as a surface
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.7\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{visual/figures/ttm/isochrone_lines.pdf}
+		\caption{}
+		\label{fig:isochrone lines}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.7\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{visual/figures/ttm/isochrone_areas.pdf}
+		\caption{}
+		\label{fig:isochrone areas}
+	\end{subfigure}
+	\caption{Isochrones}
+	\label{fig:isochrones}
+\end{figure}
+
+
 % what kinda map, then next chap
 When an accessibility measure becomes more complex,
 % for example by accounting for many travel modes and origin-destination pairs,
@@ -1266,19 +1290,6 @@ High interactivity vs low interactivity.
 
 Isochrones as an example of a simple measure / visualization approach:
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.6\textwidth]{visual/figures/ttm/isochrone_lines.pdf}
-	\caption{Isochrones}
-	\label{fig:isochrone lines}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.6\textwidth]{visual/figures/ttm/isochrone_areas.pdf}
-	\caption{Areas between isochrones}
-	\label{fig:isochrone areas}
-\end{figure}
 
 SIDENOTE: How should I refer to isochrones when I mean the polygons instead of lines?
 
