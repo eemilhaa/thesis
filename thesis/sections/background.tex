@@ -1170,23 +1170,37 @@ travel time in relation to a single location.
 In such a case, a single value of access could be mapped
 for all other locations:
 the ease of accessing the target location, measured in time.
-On a map,
+Mapping a value for every location could,
+depending on how "location" is defined,
+mean a massive amount of information on a map \parenfig{tt surface}.
+One presentation approach way such information overflow can be overcome is to 
 this type of access measure can be represented for example
 as a surface
 
 \begin{figure}[H]
 	\centering
-	\begin{subfigure}[b]{0.7\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{visual/figures/ttm/isochrone_lines.pdf}
+	\includegraphics[width=0.55\textwidth]{visual/figures/ttm/tt_surface.png}
+	\caption{
+		Travel times
+	}
+	\label{fig:tt surface}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.55\textwidth}
+		% \centering
+		\includegraphics[width=\textwidth]{visual/figures/ttm/isochrone_lines}
 		\caption{}
 		\label{fig:isochrone lines}
+		\hfill
 	\end{subfigure}
-	\begin{subfigure}[b]{0.7\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{visual/figures/ttm/isochrone_areas.pdf}
+	\begin{subfigure}[b]{0.55\textwidth}
+		% \centering
+		\includegraphics[width=\textwidth]{visual/figures/ttm/isochrone_areas}
 		\caption{}
 		\label{fig:isochrone areas}
+		\hfill
 	\end{subfigure}
 	\caption{Isochrones}
 	\label{fig:isochrones}
