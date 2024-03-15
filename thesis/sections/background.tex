@@ -1186,7 +1186,9 @@ depending on the applied interval of travel time between isochrones.
 	\centering
 	\includegraphics[width=0.55\textwidth]{visual/figures/ttm/tt_surface.png}
 	\caption{
-		Travel times
+		Travel time to central Helsinki by bike.
+		Mapping a distinct measure for every location leads to a detailed presentation,
+		but such detail could be unnecessary in some situations.
 	}
 	\label{fig:tt surface}
 \end{figure}
@@ -1207,7 +1209,14 @@ depending on the applied interval of travel time between isochrones.
 		\label{fig:isochrone areas}
 		\hfill
 	\end{subfigure}
-	\caption{Isochrones}
+	\caption{
+		The same travel times from figure \ref{fig:tt surface}
+		are mapped here with isochrones.
+		While the term technically refers to the
+		lines connecting locations of equal travel time (\ref{fig:isochrone lines}),
+		isochrone maps often highlight the areas between the isochrones (\ref{fig:isochrone areas}).
+		A 30-minute isochrone interval is used here, resulting in a greatly simplified presentation.
+	}
 	\label{fig:isochrones}
 \end{figure}
 
@@ -1220,7 +1229,7 @@ an \textit{accessibility index}:
 a value that can be calculated for a location
 based on a set of factors considered impactful to its accessibility.
 This abstracts a lot of complexity at the presentation stage,
-as the result is again a single value that can be mapped.  % TODO ref
+as the result is again a single value per location.  % TODO ref
 However, what the map means, is now a much more complex question.
 In general, more complex accessibility measures tend to lead to
 difficulty in understanding their mapped representations \parencite{te2014}.
