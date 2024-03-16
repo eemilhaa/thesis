@@ -554,6 +554,7 @@ in most contexts where maps are present \parencite{fis2021, mei2019, rot2015}.
 
 
 \subsubsection{Deconstructing the map interface}
+\label{deconstructing the map interface}
 
 What exactly an interactive map is,
 or what kind of interaction exchanges a user can carry out with the map,
@@ -1236,7 +1237,7 @@ harder to understand when mapped \parencite{te2014}.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\textwidth]{visual/figures/screenshots/accessibility_index_comparison}
+	\includegraphics[width=0.8\textwidth]{visual/figures/screenshots/accessibility_index_comparison}
 	\caption{
 		Four different accessibility indexes mapped to showcase how
 		accessibility differs when measured based on
@@ -1260,7 +1261,8 @@ Accessibility as a function of time
 has classically been visualized with
 three-dimensional maps, where
 time is represented as the third, vertical, dimension
-\parencite{hag1970, neu2011, kwa1998, hu2019}.
+\parencite{hag1970, neu2011, kwa1998, hu2019}
+\parenfig{accessibility cube}.
 
 \begin{figure}[H]
 	\centering
@@ -1270,7 +1272,7 @@ time is represented as the third, vertical, dimension
 		illustrates how accessibility changes in time
 		\parencite{hu2019}.
 	}
-	\label{fig:accessibility index}
+	\label{fig:accessibility cube}
 \end{figure}
 
 % An important consideration is also the fact that
@@ -1282,63 +1284,57 @@ time is represented as the third, vertical, dimension
 % generalizing all the locations -> isochrones / areas
 % generalizing all the subjects -> index
 
-Because of its composite and dynamic nature,
-constructing representative cartographic visualizations of accessibility is difficult.
-Accessibility visualizations are often constrained
-to displaying access in relation to
-a limited number of pre-selected places (for example \textcite{wei2018}),
-or composing an accessibility index
-that can be calculated and mapped for all locations,
-in relation to potentially many different things and locations
-(for example \textcite{kim2019}).
-However, more complex accessibility measures tend to lead to
-less usable presentations \parencite{te2014},
-while mapping more simple measures could lead to an influx of variations to present.
-For example, separating different travel modes, times of day or target locations
-would multiply the amount of visualizations needed to present accessibility.
+Given the composite and dynamic nature of accessibility,
+cartographic interaction can enable new ways of presenting the phenomenon.
+After all, the defining principle of interactivity in map presentations is
+the map user's ability to manipulate the content of the map \parencite{rot2013b}.
+For visualizing accessibility this enables, in theory,
+the interactive selection of all the numerous factors that make up the phenomenon.
+The options in conceptualizing such a map presentation are vast,
+and most of them I will not detail here as section
+\ref{deconstructing the map interface}
+already covered the theme from a general perspective.
+However, one key distinction to consider
+in the context of interactive accessibility representations
+is whether the map is an interface to analytical methods,
+or to ready-made data on accessibility.
+In the former case, the options in producing and manipulating the accessibility map
+can be highly sophisticated,
+but a delay in user-map-interaction is introduced by
+having to compute the data before it can be mapped.
+The latter case can potentially enable faster interaction exchanges,
+as the data is ready.
+As a tradeoff,
+user control can be limited since the presentation is confined to a pre-made dataset.
 
-% Simple vs complex construction of measure -> understanding the map
+% goat & chronotrains? paj2022
 
-% Number of relations, for example accessibility in space versus accessibility in space and time.
-
-% Unquantifiable accessibility bos2014
-
-Even if visualizing every aspect of accessibility
-from everywhere to everywhere is impossible,
-careful consideration and implementation
-of the cartographic methods we have at our disposal might get us closer.
-Interactive cartography could be one approach with great potential.
-After all, a key principle of interactivity in map presentations is
-the map user's ability to change the content of the map \parencite{rot2013b}.
-For visualizing accessibility this could mean, for example,
-interactive selection of location or travel mode instead of
-a static accessibility index that, to a varying extent,
-tries to account for everything.
-Scientific literature on the topic seems to support the idea of
-interactivity in accessibility visualization,
-even indicating a need for such presentations.
-In a study focusing on the usability of
-different accessibility instruments and visualizations,  % accessibility instrument
-\textcite{te2014} highlight the importance of
-real-time interactivity between the map and the map user.
-\textcite{but2018} state that for maps to efficiently communicate accessibility,
-they should be as flexible and dynamic as possible.
-However, \textcite{but2018} also note that
-these qualities are often missing in accessibility visualizations.
-Along the same lines,
-\textcite{paj2021} find modern accessibility visualizations often complicated,
-and lacking in interactivity and flexibility.
+% that location's accessibility.
+% Scientific literature on the topic seems to support the idea of
+% interactivity in accessibility visualization,
+% even indicating a need for such presentations.
+% In a study focusing on the usability of
+% different accessibility instruments and visualizations,  % accessibility instrument
+% \textcite{te2014} highlight the importance of
+% real-time interactivity between the map and the map user.
+% \textcite{but2018} state that for maps to efficiently communicate accessibility,
+% they should be as flexible and dynamic as possible.
+% However, \textcite{but2018} also note that
+% these qualities are often missing in accessibility visualizations.
+% Along the same lines,
+% \textcite{paj2021} find modern accessibility visualizations often complicated,
+% and lacking in interactivity and flexibility.
 
 
-Approaches in visualizing accessibility:
-Examples of static and interactive accessibility maps.
-Simple measures vs complex measures,
-High interactivity vs low interactivity.
+% Approaches in visualizing accessibility:
+% Examples of static and interactive accessibility maps.
+% Simple measures vs complex measures,
+% High interactivity vs low interactivity.
 
-Isochrones as an example of a simple measure / visualization approach:
+% Isochrones as an example of a simple measure / visualization approach:
 
 
-SIDENOTE: How should I refer to isochrones when I mean the polygons instead of lines?
+% SIDENOTE: How should I refer to isochrones when I mean the polygons instead of lines?
 
 % TODO
 % Mention tradeoffs (detail - speed) -> leads to methods
