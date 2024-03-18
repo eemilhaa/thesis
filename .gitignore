@@ -4,6 +4,7 @@
 
 ## krita does these
 *.png~
+*.kra
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
