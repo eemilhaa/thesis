@@ -176,8 +176,9 @@ their variations included in the dataset.
 % Based on the background study,  % TODO
 Software requirements are functionalities and properties
 that a given system should have \parencite{chu2009}.
-They are an essential aspect to consider in all software development
-as they dictate much of how any implementation is carried out \parencite{saq2020}.
+They are an essential aspect to consider in software development
+as they are a way to explicate the framework
+in which an implementation process is carried out \parencite{saq2020}.
 Software requirements are often divided into
 functional and nonfunctional requirements.
 Functional requirements define the user-facing features of the system
@@ -188,17 +189,16 @@ quality attributes and constraints.
 Quality attributes describe \textit{how} the software should be,
 while constraints mean technical limitations \parencite{chu2009}.
 
-I based the requirements of this particular system on the goals of the study,
-considering the interactive map presentation.
-The starting point for specifying these requirements
-was my decision to prioritize real-time interaction over minute detail in the map,
-the goal of the map interface being to act as a dynamic overview to the entire \acrshort{ttm}.
+The starting point for specifying the requirements of the map interface
+was the decision to prioritize real-time interaction over minute detail in the map.
+The goal of the map interface was to act as a dynamic overview to the entire \acrshort{ttm}.
 As mentioned in the previous section,
 the spatial dimension of the \acrshort{ttm} is large.
 If all of it is to be explored,
-selecting different locations must be effortless and instantaneous.
-The other dimension, travel mode, is much smaller,
-but it should also be interactively selectable.
+an interaction exchange to select and re-select different locations to map
+should be as effortless and instantaneous as possible.
+The other dimension, travel mode, while much smaller,
+should also be interactively selectable.
 These two goals, while still quite vague,
 immediately placed a number of requirements on the system.
 From the perspective of the user,
@@ -207,42 +207,55 @@ select different locations, preferably very rapidly,
 and different travel modes.
 A significant quality attribute to consider is that the system should
 be responsive enough for instantaneous real-time interactivity.
-At the very start I also made the decision to target the web as the platform.
+Another key factor was the decision to target the web as the platform.
 This constraint was the starting point for considering the technologies
 for carrying out the implementation.
-% To achieve this, the latency between user input and
-% its visible results must be minimized.
 
 In accordance with the guideline of continuous adaptation
 \parencite{bec2001} I specified the software requirements loosely at first,
-further focusing them as the system took shape.
-To communicate the development process in an orderly manner,
-and to motivate the design decisions I've made, I present
-the requirements of the final system here.
+further focusing them as the system and the study took shape.
+To communicate the development and study process in an orderly manner,
+and to motivate the design decisions I've made,
+I present the requirements of the final system here.
 Still, I should emphasize that the reality is not this linear.
 
-The functional requirements (table \ref{tab:functional requirements})
+The functional requirements \parentab{functional requirements}
 comprise two modes of interaction for selecting locations:
 clicking the map with a pointing device to produce a static map of the clicked location,
 and continuously changing the location by moving the mouse over the map
 (referred to as hovering).
-I also specify that interface capabilities for selecting travel modes
+Also, interface capabilities for selecting travel modes
 and changing the mode of location selection should be present.
-For the quality attributes of the system (table \ref{tab:quality attributes})
+For the quality attributes of the system \parentab{quality attributes}
 performance is an essential consideration,
 both in the sense of software performance
 and the responsiveness of the application as perceived by the user.
-This must be considered in both the front- and backend of the system.
-Other important aspects are that the system can be maintained and deployed,
-and that it can meet different real-world usage loads --
-if these attributes were lacking,
-the work I've carried out would have little real value,
-as it would be left available only to me.
+This must be considered in both the client- and server side of the system.
+
+% TODO all refs here
+Aspects that are invisible to a user, but still vital,
+are that the system can be maintained and deployed,
+and that it can meet different real-world usage loads \parentab{quality attributes}.
+If these attributes were lacking,
+the system would have little real value.
 As mentioned earlier,
-the application is constrained to running in a web browser (table \ref{tab:constraints}).
-Also -- as a general best-practice, as well as a constraint
-necessitated by the available deployment environment --  % ref csc?
-the implementation must be completely containerized (table \ref{tab:constraints}).
+the client-side application is constrained to running in a web browser \parentab{constraints}.
+The \textit{deployment environment},
+in other words the computing platform onto which the server-side of the system is deployed,
+is the container orchestration platform \textit{Rahti} provided by the \presentacr{csc}.
+In short, containerization refers to a set of technologies
+that enables packaging software and all its necessary components
+into self-contained \textit{container images} that can be run as is,
+regardless of the specifics of the underlying system.
+Rahti is based on the \textit{OpenShift} platform,
+which in turn runs on \textit{Kubernetes}.
+Kubernetes is a container orchestration tool
+that allows for declaratively managing clusters
+of containerized applications and their accompanying services.
+To recap what all this means for the constraints of the application:
+The implementation must be completely containerized,
+and the server-side is managed with the OpenShift flavour of Kubernetes
+\parentab{constraints}.
 
 \input{visual/tables/functional_requirements.tex}
 \input{visual/tables/nonfunctional_requirements}
