@@ -8,7 +8,7 @@ Firstly, I aimed to develop a map interface for
 interactively presenting an extensive spatial dataset on travel times,
 and through the development process assess
 the tools and options available for making such a map.
-More particularly,
+More precisely,
 I focused on the choice of web mapping library
 and on the different approaches in preprocessing the mapped data.
 The goal was to find how,
@@ -19,7 +19,7 @@ and how the interactive map works as a representation.
 Here I employed a survey to find out how
 people use the map when given different tasks to complete with it,
 and whether a highly interactive presentation approach affects
-how map users perceive the mapped phenomenon.
+how map users perceives and interprets the mapped phenomenon.
 These two themes, the development process and the survey,
 make up the two high-level components of the study.
 
@@ -174,8 +174,9 @@ their variations included in the dataset.
 
 % Roughly what kind of a map? Why?
 % Based on the background study,  % TODO
-Software requirements are functionalities and properties
-that a given system should have \parencite{chu2009}.
+Software requirements are the functionalities and properties
+that a given system should have,
+as well as the constraints it must adhere to \parencite{chu2009}.
 They are an essential aspect to consider in software development
 as they are a way to explicate the framework
 in which an implementation process is carried out \parencite{saq2020}.
@@ -197,8 +198,8 @@ the spatial dimension of the \acrshort{ttm} is large.
 If all of it is to be explored,
 an interaction exchange to select and re-select different locations to map
 should be as effortless and instantaneous as possible.
-The other dimension, travel mode, while much smaller,
-should also be interactively selectable.
+The other dimension, travel mode, is much smaller,
+but should also be interactively selectable.
 These two goals, while still quite vague,
 immediately placed a number of requirements on the system.
 From the perspective of the user,
@@ -207,9 +208,14 @@ select different locations, preferably very rapidly,
 and different travel modes.
 A significant quality attribute to consider is that the system should
 be responsive enough for instantaneous real-time interactivity.
+
 Another key factor was the decision to target the web as the platform.
 This constraint was the starting point for considering the technologies
 for carrying out the implementation.
+Also, implementing a web map that visualizes a large dataset required
+a solution for supplying the data to the map application:
+In addition to the map interface that the user interacts with
+a solution for serving data to the map application.
 
 In accordance with the guideline of continuous adaptation
 \parencite{bec2001} I specified the software requirements loosely at first,
