@@ -208,60 +208,65 @@ select different locations, preferably very rapidly,
 and different travel modes.
 A significant quality attribute to consider is that the system should
 be responsive enough for instantaneous real-time interactivity.
-
-Another key factor was the decision to target the web as the platform.
+From a technology-centric perspective an essential factor was
+the decision to target the web as the platform.
 This constraint was the starting point for considering the technologies
-for carrying out the implementation.
-Also, implementing a web map that visualizes a large dataset required
-a solution for supplying the data to the map application:
-In addition to the map interface that the user interacts with
-a solution for serving data to the map application.
+and architecture of the implementation.
+It also meant that implementing both a frontend (the map application) and a backend
+(a solution for getting data to the map application running on the client) was necessary.
 
-In accordance with the guideline of continuous adaptation
-\parencite{bec2001} I specified the software requirements loosely at first,
-further focusing them as the system and the study took shape.
-To communicate the development and study process in an orderly manner,
+I specified the software requirements at this quite non-detailed
+level at first.
+In accordance with the guideline of continuous adaptation,
+\parencite{bec2001} I further focused them only as the system
+and the study took shape.
+However, to communicate the development and study process in an orderly manner,
 and to motivate the design decisions I've made,
 I present the requirements of the final system here.
 Still, I should emphasize that the reality is not this linear.
 
-The functional requirements \parentab{functional requirements}
-comprise two modes of interaction for selecting locations:
-clicking the map with a pointing device to produce a static map of the clicked location,
-and continuously changing the location by moving the mouse over the map
+The functional requirements specify the styles and modes of interaction,
+as well as the set of operations a user can carry out with the map.
+Firstly, the map should have two modes of interaction for selecting locations to be mapped.
+These include clicking the map with a pointing device to produce a static map of the clicked location,
+and continuously changing the location by moving the cursor over the map
 (referred to as hovering).
-Also, interface capabilities for selecting travel modes
-and changing the mode of location selection should be present.
-For the quality attributes of the system \parentab{quality attributes}
-performance is an essential consideration,
+This enables comparing two different levels of interactivity:
+clicking to produce static maps and hovering to produce
+a responsive, \enquote{live},
+representation of the accessibility under the cursor.
+There should also be interface capabilities for selecting travel modes
+and changing the mode of location selection.
+To facilitate the exploration of the mapped area
+at different points of focus and levels of detail,
+the map should support panning and zooming the view.
+The functional requirements are documented in table \ref{tab:functional requirements}.
+
+For the quality attributes of the system,
+performance is an essential consideration --
 both in the sense of software performance
 and the responsiveness of the application as perceived by the user.
-This must be considered in both the client- and server side of the system.
-
-% TODO all refs here
-Aspects that are invisible to a user, but still vital,
+This must be considered in both the front and backend of the system.
+Quality attributes that are invisible to a user, but still vital,
 are that the system can be maintained and deployed,
-and that it can meet different real-world usage loads \parentab{quality attributes}.
+and that it can meet different real-world usage loads.
 If these attributes were lacking,
 the system would have little real value.
-As mentioned earlier,
-the client-side application is constrained to running in a web browser \parentab{constraints}.
 The \textit{deployment environment},
 in other words the computing platform onto which the server-side of the system is deployed,
 is the container orchestration platform \textit{Rahti} provided by the \presentacr{csc}.
-In short, containerization refers to a set of technologies
-that enables packaging software and all its necessary components
-into self-contained \textit{container images} that can be run as is,
-regardless of the specifics of the underlying system.
 Rahti is based on the \textit{OpenShift} platform,
 which in turn runs on \textit{Kubernetes}.
 Kubernetes is a container orchestration tool
 that allows for declaratively managing clusters
 of containerized applications and their accompanying services.
-To recap what all this means for the constraints of the application:
-The implementation must be completely containerized,
-and the server-side is managed with the OpenShift flavour of Kubernetes
-\parentab{constraints}.
+I mention these details because to the application they are constraints:
+Both the front and backend implementations should be completely containerized,
+and they both are deployed with the OpenShift flavour of Kubernetes.
+Also, as is obvious by now,
+the frontend application is constrained to running in a web browser.
+For the nonfunctional requirements of the application,
+see table \ref{tab:nonfunctional requirements}.
 
 \input{visual/tables/functional_requirements.tex}
 \input{visual/tables/nonfunctional_requirements}
@@ -463,6 +468,11 @@ For assessing integration with react additionally I utilized online documentatio
 	\caption{Architecture}
 	\label{fig:architechture}
 \end{figure}
+
+In short, containerization refers to a set of technologies
+that enables packaging software and all its necessary components
+into self-contained \textit{container images} that can be run as is,
+regardless of the specifics of the underlying system.
 
 SIDENOTE: I'll add figures of the components (at least the map application) here as suggested by Pyry.
 
