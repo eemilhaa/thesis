@@ -930,6 +930,7 @@ based on user input from the client \parencite{jac2019}.
 This also enabled the first interactive web maps,
 although interactivity in this case was still
 far from responsive by modern standards \parencite{vee2017}.
+
 The single most important factor in enabling web maps as they are today,
 also resulting in the web's transformation into a software ecosystem,
 was the introduction and standardization of a client-side scripting language,
@@ -938,12 +939,20 @@ This is the basic requirement for \textit{client-side computing},
 which is the concept that a client can
 receive and execute code.
 This essentially turned websites from documents
-into software, often called \textit{web applications} \parencite{jac2019}.
-Today, software built \enquote{for the web} refers most often to
-such client-side applications -- pieces of software
-that use the web browser as a computational platform \parencite{tai2017}.
-Client-side technologies are also the main focus in the context of web-mapping,
-since a modern web map is usually a heavily client-side application
+into dynamic \acrshort{ui}s, enabling them to be used
+in interacting with increasingly complex systems \parencite{jac2019}.
+In the context of web development,
+the client-side \acrshort{ui} that a user sees and interacts with
+is usually called the \textit{frontend}.
+The parts of a system invisible to the user,
+for example data access and more complex business logic,
+are referred to as the \textit{backend} and run mostly server-side.
+A \textit{web application} is most often
+a system consisting of these two high-level components \parencite{tai2017}.
+Frontend software and the client-side can be seen as the main focus
+in the context of web-mapping,
+since a web map application functions as a \acrshort{ui},
+and the mapping happens in the frontend
 \parencite{rot2014}.
 
 To understand how a modern web application works,
@@ -1017,11 +1026,9 @@ application \textit{state} --
 this means that it records, updates and acts on dynamic information about
 the condition of the application and its components.
 In the system described above \parenfig{spa},
-the mapped data could be an example of such state.
-The server-side, in comparison,
-is essentially stateless and contains no business logic.
+the change of mapped data could be an example of such state.
 The main point here is that the client-side of a
-web map system that employs a \acrshort{spa} design
+web map application that employs a \acrshort{spa} design
 is potentially a very complex piece of software, and
 implementing all the functionalities needed for such an application
 from the ground up would be an enormous task \parencite{tai2021}.
