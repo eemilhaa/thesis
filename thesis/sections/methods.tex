@@ -127,27 +127,30 @@ All the routes are calculated for multiple different travel modes.
 The primary travel modes are walking, cycling, public transportation and private car,
 and, when applicable, each mode has variations based on
 time of day and / or walking or cycling speed.
-Time of day is especially relevant to motorized transport
+The time of day is especially relevant to motorized transport
 in the form of the rush hour, for example,
 while walking speed affects any travel mode
 where a significant portion of the trip is covered on foot.
-% Modelling the travel times accounts for walking,
-% transfer times based on public transit schedules,
-% and the actual geometries of the routes.
-
-% TODO talk briefly about methodology, open source
+To be comparable with each other,
+the travel times for all travel modes are
+calculated with a \textit{door-to-door approach}
+which accounts for things such as walking to a bus stop,
+waiting for transfer times based on public transit schedules,
+or locking and unlocking a bike \parencite{ten2020}.
 
 % Describe the particular matrix (2023), methodology etc
 \acrshort{ttm}s have been calculated for multiple years.
-Differences between these datasets exist in the applied methodologies and thus the content
-\parencite{ten2020}.
-Also, the underlying city structure is by no means static over the years
+Differences between these datasets exist in the applied methodologies
+and, thus, also in the content \parencite{ten2020}.
+Also, the underlying city structure as well as the street and public transport networks
+are by no means static over the years
 which further introduces differences.
 The map presentation I developed in this study
 is based on the 2023 version of the \acrshort{ttm},
 the newest one at the time of writing.
 See table \ref{tab:ttm description} for an overview of the dataset,
-and table \ref{tab:ttm table structure} for all the travel modes in the dataset.
+and table \ref{tab:ttm table structure} for all the travel modes and
+their variations included in the dataset.
 
 \input{visual/tables/ttm_description.tex}
 
