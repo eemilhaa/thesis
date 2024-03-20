@@ -215,7 +215,7 @@ the decision to target the web as the platform.
 This constraint was the starting point for considering the technologies
 of the implementation.
 From an architectural standpoint,
-It meant that the application is more specifically a \textit{web application}
+it meant that the application is more specifically a \textit{web application}
 consisting of a frontend (a map interface) and a backend
 (a solution for getting data to the map interface running on the client).
 So, in further references to an \textit{application},
@@ -295,44 +295,82 @@ see table \ref{tab:nonfunctional requirements}.
 % - why as much as possible should be precalculated
 % && the requirements preprocessing must satisfy
 Preprocessing and simplifying the \acrshort{ttm} was a significant part of the study.
-Soon after starting the development,
-it became obvious that using unprocessed \acrshort{ttm} data was not an option
-due to the unresponsiveness of rendering and the large file sizes.
-Because of this, in the initial testing phase of the development
-I formed the hypothesis that either file sizes
+With initial testing,
+it became obvious that
+using unprocessed \acrshort{ttm} data,
+i.e. the complete 13000-cell grid of travel times for every location,
+was not an option due to two issues:
+unresponsiveness of the map interface and the large file sizes.
+Based on this,
+I formed the hypothesis that either the file sizes
 or the geometrical complexity of the data would be
 the major factor limiting the responsiveness of the map,
 i.e. the performance bottleneck.
 
-So it was clear that some type and level of simplification of the 
-data was necessary to enable real-time interaction in the map.
-The goal of my assessment of different approaches to data preprocessing, thus,
+So it was clear that
+some type of preprocessing as well as simplification of the 
+\acrshort{ttm} data was necessary --
+both to test the hypothesis and to enable real-time interaction in the map.
+The goal of assessing different approaches to data preprocessing, thus,
 was to find the suitable level and types of simplification,
 and to compare the effectiveness of different approaches.
 
 When assessing the preprocessing approaches, I focused on:
-\begin{enumerate}
+\begin{itemize}
 	\item The impact on file size, and thus on the speed of transferring data over internet.
 	\item The impact on rendering speed of the map when mapping the data.
-	\item The impact on the visual detail of data,
-	i.e. how much information is lost.
-\end{enumerate}
+	\item The impact on the amount of information on the map,
+	i.e. how much visual information is lost when a given approach is applied.
+\end{itemize}
 
-I assessed four preprocessing approaches:
-\begin{enumerate}
-	\item Aggregation of travel time data into isochrones (figure \ref{fig:isochrone intervals})
+I assessed four types of preprocessing approaches:
+\begin{itemize}
+	\item Aggregation of travel time data into isochrone polygons \parenfig{isochrone intervals}
 	\item Limiting the maximum travel time, i.e. the geographical extent of the results (no figure yet)
-	\item Reducing geometry precision
-	\item File structure optimizations (simplifying GeoJSON structure, compression using gzip)
-\end{enumerate}
+	\item Reducing the coordinate precision of geometries
+	\item Minimizing files (simplifying GeoJSON structure, compression using gzip)
+\end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{visual/figures/ttm/isochrone_interval_10}
+		\caption{Isochrone interval = 10 minutes}
+		\label{fig:interval 10}
+	\end{subfigure}%
+	\hfill
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{visual/figures/ttm/isochrone_interval_20}
+		\caption{Isochrone interval = 20 minutes}
+		\label{fig:interval 20}
+	\end{subfigure}%
+	\hfill
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{visual/figures/ttm/isochrone_interval_30}
+		\caption{Isochrone interval = 30 minutes}
+		\label{fig:interval 30}
+	\end{subfigure}%
+	\caption{Travel time to Helsinki railway station by public transport mapped with isochrones of different intervals}
+	\label{fig:isochrone intervals}
+\end{figure}
 
 To carry out the assessment
 I constructed a modular Python-based preprocessing pipeline
 (figure \ref{fig:preprocessing}).
-The idea was that the complete pipeline applies all preprocessing approaches,
-but the modular design allows for
-isolated testing of the
+Modularity means that,
+while the complete pipeline applies all preprocessing approaches,
+the design also allows for isolated testing of the
 different components of the pipeline, with different parameters.
+When applicable, I tested the preprocessing approaches on
+a randomly picked set of 100 locations in the \acrshort{ttm},
+for each travel mode.
+A random sample of locations is necessary since when either
+isochrone aggregation or a travel time limitation is applied,
+the complexity of the resulting
+data varies greatly based on location.
 
 \begin{figure}[H]
 	\centering
@@ -341,26 +379,20 @@ different components of the pipeline, with different parameters.
 	\label{fig:preprocessing}
 \end{figure}
 
-File sizes were the simplest factor to test for.
-I tested each approach on
-a randomly picked set of 100 locations in the \acrshort{ttm},
-for each travel mode.
-I picked a random sample of locations since the
-data is of a different level of complexity based on location.
-To measure the effect on file size I then calculated the mean file size it takes to represent
+To measure the effects on file sizes,
+I calculated the mean combined file size it takes to represent
 all the travel modes for a single cell in the dataset
 when a given approach has been applied.
-
-SIDENOTE: Filesize tests are in a notebook here: https://github.com/eemilhaa/travel-time-matrix-visualisation-preprocessing/blob/cleanup/example.ipynb.
+I calculated these values as averages of a random sample as described above.
 
 I assessed the impact the preprocessing approaches have on rendering speed
-with the finished map application.
+by using the data with the finished map application.
 The details of the map application are in the next section.
-The assessment was qualitative,
+This assessment was qualitative,
 as it was based on my own perception of responsiveness when using the map.
 Quantitative testing of rendering speed would have been preferable,
 but it proved to be difficult.
-While tools for profiling rendering speed exist,
+While many tools for profiling the rendering speed of web applications exist,
 I did not succeed in two main areas
 that would have been necessary for representative results.
 I did not manage to limit the timing to strictly the map
@@ -369,44 +401,22 @@ the test results would be reproducible.
 I also did not find a way to automate a set of renders
 on a sample of locations.
 Averaging the renders of a single location would not suffice
-for reasons stated above.
+due to the differences of data complexity between locations.
 The tools I tried were the Firefox profiler
 and the React developer tools browser extension on Firefox and Chromium
 (I'll need to properly refer to these).
 
-I carried out the assessment of the impact on visual detail of the data in two ways:
+I carried out the assessment of loss of information in two ways:
 Qualitatively for all approaches by observing the simplified data on the map,
 and, in the case of limiting maximum travel time,
-quantitatively by calculating the percentage of the total dataset area that the simplified data covers.
-I calculated these values as averages of a random sample of 100 locations, for each travel mode.
+quantitatively by calculating the percentage of the total dataset area
+that the simplified data covers.
+These areas are, again, averages of a random sample as described above.
 
-\begin{figure}[H]
-	\centering
-	\begin{subfigure}[b]{0.5\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{visual/figures/ttm/isochrone_interval_10}
-		\caption{Isochrones with an interval of 10 minutes}
-		\label{fig:interval 10}
-	\end{subfigure}%
-	\hfill
-	\begin{subfigure}[b]{0.5\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{visual/figures/ttm/isochrone_interval_20}
-		\caption{Isochrones with an interval of 20 minutes}
-		\label{fig:interval 20}
-	\end{subfigure}%
-	\hfill
-	\begin{subfigure}[b]{0.5\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{visual/figures/ttm/isochrone_interval_30}
-		\caption{Isochrones with an interval of 30 minutes}
-		\label{fig:interval 30}
-	\end{subfigure}%
-	\caption{Travel time to Helsinki railway station by public transport mapped with isochrones of different intervals}
-	\label{fig:isochrone intervals}
-\end{figure}
-
-SIDENOTE: I intend to add similar figures of limiting maximum travel time here.
+Appendix \ref{appendix:repositories} includes a link to the repository
+containing the preprocessing scripts.
+The same repository also holds all the quantitative tests described above
+as an interactive Jupyter Notebook.
 
 \subsubsection{Assessing web mapping libraries}
 
