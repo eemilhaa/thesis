@@ -326,7 +326,7 @@ When assessing the preprocessing approaches, I focused on:
 I assessed four types of preprocessing approaches:
 \begin{itemize}
 	\item Aggregation of travel time data into isochrone polygons \parenfig{isochrone intervals}
-	\item Limiting the maximum travel time, i.e. the geographical extent of the results (no figure yet)
+	\item Limiting the maximum travel time, i.e. the geographical extent of the results \parenfig{tt limits}
 	\item Reducing the coordinate precision of geometries
 	\item Minimizing files (simplifying GeoJSON structure, compression using gzip)
 \end{itemize}
@@ -360,7 +360,13 @@ I assessed four types of preprocessing approaches:
 	\begin{subfigure}[b]{0.4\textwidth}
 		\includegraphics[width=\textwidth]{visual/figures/ttm/isochrone_cbar}
 	\end{subfigure}%
-	\caption{Travel time to Helsinki railway station by public transport mapped with isochrones of different intervals}
+	\caption{
+		Travel time central Helsinki.
+		Different levels of simplification can be achieved by
+		aggregating travel times into isochrone polygons.
+		Four examples are shown here, from no simplification (\ref{fig:interval 1})
+		to a highly simplified presentation (\ref{fig:interval 30}).
+	}
 	\label{fig:isochrone intervals}
 \end{figure}
 
@@ -393,7 +399,12 @@ I assessed four types of preprocessing approaches:
 	\begin{subfigure}[b]{0.55\textwidth}
 		\includegraphics[width=\textwidth]{visual/figures/ttm/tt_limit_legend}
 	\end{subfigure}%
-	\caption{TODO}
+	\caption{
+		The area accessible within an hour of travel from central Helsinki.
+		Limiting the maximum travel time reduces the spatial extent of data,
+		more drastically for walking and biking (\ref{fig:limit walk}--\ref{fig:limit bike}),
+		and less so for public transport and car (\ref{fig:limit pt}--\ref{fig:limit car}).
+	}
 	\label{fig:tt limits}
 \end{figure}
 
@@ -402,7 +413,7 @@ I constructed a modular Python-based preprocessing pipeline
 (figure \ref{fig:preprocessing}).
 Modularity means that,
 while the complete pipeline applies all preprocessing approaches,
-the design also allows for isolated testing of the
+the design allows for isolated testing of the
 different components of the pipeline, with different parameters.
 When applicable, I tested the preprocessing approaches on
 a randomly picked set of 100 locations in the \acrshort{ttm},
