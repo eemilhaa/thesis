@@ -52,7 +52,7 @@ I formatted the following points of focus
 to guide the development process:
 \begin{itemize}
 	\item Plan minimally and adapt the plan constantly.
-	\item Prioritize a working state of the entire system over details in single components.
+	\item Prioritize a working state of the entire application over details in single components.
 	\item Adapt to technical constraints at the start, not at the end.
 \end{itemize}
 
@@ -60,7 +60,7 @@ By adhering to these principles I could at an early stage see
 whether the study was realistic, and,
 especially considering the more technology-centric side of the study,
 hone in on what research questions were actually meaningful.
-Iteratively improving the system as a functional whole
+Iteratively improving the application as a functional whole
 allowed me to consider the map interface
 from the perspective of the map user as early as possible,
 better integrating the survey into the study.
@@ -161,7 +161,7 @@ their variations included in the dataset.
 \subsection{Implementation of the map presentation}
 
 \subsubsection{Software requirements}
-% The requirements of the system are an essential aspect to consider,
+% The requirements of the application are an essential aspect to consider,
 % since they
 % For example, the sheer scale and detail of the dataset being visualized
 % means that instantaneous interaction with the map is not realistic
@@ -178,7 +178,8 @@ Software requirements are the functionalities and properties
 that a given system should have,
 as well as the constraints it must adhere to \parencite{chu2009}.
 They are an essential aspect to consider in software development
-as they are a way to explicate the framework
+as they are a way to explicate
+what is being developed and what exactly is the framework
 in which an implementation process is carried out \parencite{saq2020}.
 Software requirements are often divided into
 functional and nonfunctional requirements.
@@ -188,10 +189,10 @@ while nonfunctional requirements describe the properties of a system
 Nonfunctional requirements can be further divided into
 quality attributes and constraints.
 Quality attributes describe \textit{how} the software should be,
-while constraints mean technical limitations \parencite{chu2009}.
+while constraints most often refer to technical limitations \parencite{chu2009}.
 
-The starting point for specifying the requirements of the map interface
-was the decision to prioritize real-time interaction over minute detail in the map.
+The starting point for specifying the requirements of the map application
+was the decision to prioritize real-time interaction over minute detail in the map interface.
 The goal of the map interface was to act as a dynamic overview to the entire \acrshort{ttm}.
 As mentioned in the previous section,
 the spatial dimension of the \acrshort{ttm} is large.
@@ -201,37 +202,54 @@ should be as effortless and instantaneous as possible.
 The other dimension, travel mode, is much smaller,
 but should also be interactively selectable.
 These two goals, while still quite vague,
-immediately placed a number of requirements on the system.
+immediately placed a number of requirements on the application.
 From the perspective of the user,
 there must be functionalities for interacting with the map to
 select different locations, preferably very rapidly,
-and different travel modes.
-A significant quality attribute to consider is that the system should
+and for selecting different travel modes.
+A significant quality attribute to consider is that the application should
 be responsive enough for instantaneous real-time interactivity.
+
 From a technology-centric perspective an essential factor was
 the decision to target the web as the platform.
 This constraint was the starting point for considering the technologies
-and architecture of the implementation.
-It also meant that implementing both a frontend (the map application) and a backend
-(a solution for getting data to the map application running on the client) was necessary.
+of the implementation.
+From an architectural standpoint,
+It meant that the application is more specifically a \textit{web application}
+consisting of a frontend (a map interface) and a backend
+(a solution for getting data to the map interface running on the client).
+So, in further references to an \textit{application},
+I mean the functional whole made of a map interface (frontend) and data access (backend)
+\parenfig{web map app}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\diagramwidth]{visual/figures/diagrams/web_map_app}
+	\caption{
+		A web map application like the one described above requires
+		a frontend for providing the map interface
+		and a backend for supplying the frontend with data to map.
+	}
+	\label{fig:web map app}
+\end{figure}
 
 I specified the software requirements at this quite non-detailed
 level at first.
 In accordance with the guideline of continuous adaptation,
-\parencite{bec2001} I further focused them only as the system
+\parencite{bec2001} I further focused them only as the application
 and the study took shape.
 However, to communicate the development and study process in an orderly manner,
 and to motivate the design decisions I've made,
-I present the requirements of the final system here.
+I present the requirements of the final application here.
 Still, I should emphasize that the reality is not this linear.
 
 The functional requirements specify the styles and modes of interaction,
 as well as the set of operations a user can carry out with the map.
 Firstly, the map should have two modes of interaction for selecting locations to be mapped.
-These include clicking the map with a pointing device to produce a static map of the clicked location,
-and continuously changing the location by moving the cursor over the map
+These include clicking the map with a pointing device to produce a map of the clicked location,
+and continuously changing the mapped location by moving the cursor over the map
 (referred to as hovering).
-This enables comparing two different levels of interactivity:
+This enables comparing two different levels of interactivity in the study:
 clicking to produce static maps and hovering to produce
 a responsive, \enquote{live},
 representation of the accessibility under the cursor.
@@ -242,18 +260,18 @@ at different points of focus and levels of detail,
 the map should support panning and zooming the view.
 The functional requirements are documented in table \ref{tab:functional requirements}.
 
-For the quality attributes of the system,
+For the quality attributes of the application,
 performance is an essential consideration --
 both in the sense of software performance
 and the responsiveness of the application as perceived by the user.
-This must be considered in both the front and backend of the system.
+This must be considered in both the front and backend of the application.
 Quality attributes that are invisible to a user, but still vital,
-are that the system can be maintained and deployed,
+are that the application can be maintained and deployed,
 and that it can meet different real-world usage loads.
 If these attributes were lacking,
-the system would have little real value.
+the application would have little real value.
 The \textit{deployment environment},
-in other words the computing platform onto which the server-side of the system is deployed,
+in other words the computing platform onto which the server-side of the application is deployed,
 is the container orchestration platform \textit{Rahti} provided by the \presentacr{csc}.
 Rahti is based on the \textit{OpenShift} platform,
 which in turn runs on \textit{Kubernetes}.
@@ -264,7 +282,7 @@ I mention these details because to the application they are constraints:
 Both the front and backend implementations should be completely containerized,
 and they both are deployed with the OpenShift flavour of Kubernetes.
 Also, as is obvious by now,
-the frontend application is constrained to running in a web browser.
+the frontend of the application is constrained to running in a web browser.
 For the nonfunctional requirements of the application,
 see table \ref{tab:nonfunctional requirements}.
 
@@ -456,8 +474,8 @@ For assessing integration with react additionally I utilized online documentatio
 
 \begin{itemize}
 	\item Backend: Minimal HTTP sever serving pre-compressed geojson files directly from filesystem
-	\item Scalable Kubernetes / OpenShift deployments → Reproducibility at the level of the entire system
-	\item Containerization → Reproducibility at the level of the components of the system
+	\item Scalable Kubernetes / OpenShift deployments → Reproducibility at the level of the entire application
+	\item Containerization → Reproducibility at the level of the components of the application
 	\item Modularity of the design
 	\item the list goes on, I'll have to consider what matters and what doesn't.
 \end{itemize}
@@ -503,6 +521,6 @@ Descriptions of what the purpose of each task was.
 
 \subsubsection{Questionnaire distribution and participants}
 How the survey was distributed,
-Descrtiption of the sample.
+Description of the sample.
 
 (Response plots in appendices)
