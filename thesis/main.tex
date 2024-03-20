@@ -85,6 +85,10 @@
 % biblatex bibliography font
 \renewcommand*{\bibfont}{\textrm}
 
+% For appendix title settings
+\usepackage{xpatch}
+\xpretocmd{\appendixpagename}{\large\sffamily\bfseries}{}{}
+
 % small sans serif page numbering
 \usepackage{fancyhdr}
 \fancypagestyle{plain}{
