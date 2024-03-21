@@ -419,6 +419,8 @@ I used Python for implementing most of the preprocessing pipeline,
 relying on the GeoPandas \parencite{jor2024} library for all spatial operations.
 In addition, I carried out file compression with
 the standard GNU utilities bash \parencite{bash} and gzip \parencite{gzip}.
+Gzip compression was the natural choice,
+as it is the ubiquitous approach to file compression on the web. 
 I tested the preprocessing approaches on
 a randomly picked set of 100 locations in the \acrshort{ttm},
 for each travel mode.
@@ -435,7 +437,7 @@ data varies greatly based on location.
 \end{figure}
 
 To measure the effects on file sizes,
-I calculated the mean combined file size it takes to represent
+I calculated the mean combined file size of the all the files needed to represent
 all the travel modes for a single cell in the dataset
 when a given approach has been applied.
 I calculated these values as averages of a random sample as described above.
@@ -469,8 +471,7 @@ that the processed data covers.
 These percentages are, again, averages of a random sample as described above.
 
 Appendix \ref{appendix:repositories} includes a link to the repository
-containing the preprocessing scripts
-and other technical details such as dependencies and documentation.
+containing the preprocessing pipeline.
 The same repository also holds the quantitative tests described above
 as an interactive Jupyter Notebook.
 
@@ -536,7 +537,7 @@ For assessing integration with react additionally I utilized online documentatio
 % technique should be provided to user \parencite{lob2015}.
 
 
-\subsubsection{Technical architecture}
+\subsubsection{Technical architecture and infrastructure}
 
 \begin{itemize}
 	\item Backend: Minimal HTTP sever serving pre-compressed geojson files directly from filesystem
