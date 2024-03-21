@@ -491,6 +491,13 @@ For example:
 Location selection should result in the fetching of new data from the backend,
 and the mode of map interaction must be changed by map interaction.
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\diagramwidth]{visual/figures/diagrams/frontend.png}
+	\caption{Frontend}
+	\label{fig:frontend}
+\end{figure}
+
 Controlling state in web-applications is often best done by a specified solution,
 such as a state store or, if applicable, a UI framework.
 For this map presentation I chose to control application state with React,
@@ -537,7 +544,7 @@ For assessing integration with react additionally I utilized online documentatio
 % technique should be provided to user \parencite{lob2015}.
 
 
-\subsubsection{Technical architecture and infrastructure}
+\subsubsection{Technical infrastructure}
 
 \begin{itemize}
 	\item Backend: Minimal HTTP sever serving pre-compressed geojson files directly from filesystem
