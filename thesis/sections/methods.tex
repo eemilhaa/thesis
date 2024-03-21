@@ -364,8 +364,8 @@ I assessed four types of preprocessing approaches:
 		Travel time central Helsinki.
 		Different levels of simplification can be achieved by
 		aggregating travel times into isochrone polygons.
-		Four examples are shown here, from no simplification (\ref{fig:interval 1})
-		to a highly simplified presentation (\ref{fig:interval 30}).
+		Four examples are shown here, from no simplification
+		to a highly simplified presentation (\ref{fig:interval 1}--\ref{fig:interval 30}).
 	}
 	\label{fig:isochrone intervals}
 \end{figure}
@@ -401,26 +401,30 @@ I assessed four types of preprocessing approaches:
 	\end{subfigure}%
 	\caption{
 		The area accessible within an hour of travel from central Helsinki.
-		Limiting the maximum travel time reduces the spatial extent of data,
+		In general, limiting the maximum travel time reduces the spatial extent of data,
 		more drastically for walking and biking (\ref{fig:limit walk}--\ref{fig:limit bike}),
 		and less so for public transport and car (\ref{fig:limit pt}--\ref{fig:limit car}).
 	}
 	\label{fig:tt limits}
 \end{figure}
 
-To carry out the assessment
-I constructed a modular Python-based preprocessing pipeline
+To enable the assessment
+I constructed a modular preprocessing pipeline
 (figure \ref{fig:preprocessing}).
-Modularity means that,
+By modular I mean that,
 while the complete pipeline applies all preprocessing approaches,
 the design allows for isolated testing of the
 different components of the pipeline, with different parameters.
-When applicable, I tested the preprocessing approaches on
+I used Python for implementing most of the preprocessing pipeline,
+relying on the GeoPandas \parencite{jor2024} library for all spatial operations.
+In addition, I carried out file compression with
+the standard GNU utilities bash \parencite{bash} and gzip \parencite{gzip}.
+I tested the preprocessing approaches on
 a randomly picked set of 100 locations in the \acrshort{ttm},
 for each travel mode.
-A random sample of locations is necessary since when either
+A random sample of locations is necessary when either
 isochrone aggregation or a travel time limitation is applied,
-the complexity of the resulting
+since in these cases the complexity of the resulting
 data varies greatly based on location.
 
 \begin{figure}[H]
@@ -465,8 +469,9 @@ that the processed data covers.
 These percentages are, again, averages of a random sample as described above.
 
 Appendix \ref{appendix:repositories} includes a link to the repository
-containing the preprocessing scripts.
-The same repository also holds all the quantitative tests described above
+containing the preprocessing scripts
+and other technical details such as dependencies and documentation.
+The same repository also holds the quantitative tests described above
 as an interactive Jupyter Notebook.
 
 \subsubsection{Assessing web mapping libraries}
