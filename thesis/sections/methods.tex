@@ -292,6 +292,7 @@ see table \ref{tab:nonfunctional requirements}.
 \input{visual/tables/nonfunctional_requirements}
 
 \subsubsection{Assessing data preprocessing approaches}
+\label{sec:preprocessing}
 % The need for preprocessing
 % - what would raw data be like?
 % - why as much as possible should be precalculated
@@ -363,11 +364,12 @@ I assessed four types of preprocessing approaches:
 		\includegraphics[width=\textwidth]{visual/figures/ttm/isochrone_cbar}
 	\end{subfigure}%
 	\caption{
-		Travel time central Helsinki.
+		Travel time central to central Helsinki by public transport.
 		Different levels of simplification can be achieved by
 		aggregating travel times into isochrone polygons.
 		Four examples are shown here, from no simplification
-		to a highly simplified presentation (\ref{fig:interval 1}--\ref{fig:interval 30}).
+		to a highly simplified presentation
+		(\ref{fig:interval 1}--\ref{fig:interval 30}).
 	}
 	\label{fig:isochrone intervals}
 \end{figure}
@@ -487,7 +489,7 @@ providing the \acrshort{ui} capabilities.
 The web mapping library plays a key part in implementing the interface,
 and in enabling the entire application.
 In addition to rendering data correctly and efficiently,
-the web mapping library must allow for user interactions to be
+the web mapping library must allow for user-map interactions to be
 captured and propagated to the underlying application.
 The underlying application in this case, as mentioned in
 section \ref{software requirements},
@@ -499,49 +501,54 @@ So, an interaction exchange with the map
 must be able to alter application state outside the map.
 For example,
 clicking the map results in the fetching of new data from the backend,
-as well as toggling the mode of interaction.
+as well as toggling the mode of location selection.
 
-Controlling state in web-applications is often best done by a specified solution,
-such as a state store or, if applicable, a UI framework.
-For this map presentation I chose to control application state with React,
-as it is the most widely used and documented UI framework,
-and also the only UI framework that many web-mapping libraries have integration capabilities for.
-In general, integration with a framework instead of a self-made solution
+As mentioned in section \ref{Web maps and web technologies},
+managing state in web-applications can be complex.
+Keeping in mind the requirements specified for this particular application
+(section \ref{software requirements}),
+as well as the necessity of \acrshort{spa} design,
+I considered a general-purpose \acrshort{ui} framework
+essential to provide a robust way of controlling the state of the frontend.
+Also, in general, using a framework instead of a self-made solution
 means less room for error in the implementation,
 and better maintainability and extensibility as the amount of code is drastically smaller.
-Also, I used React in implementing the few non-map user-interface elements
-(travel mode selection, legend, tooltip),
-which meant no additional dependencies.
+In this study I used React \parencite{react} as the \acrshort{ui} framework
+for three reasons:
+It is the framework I am most familiar with,
+it is the most widely used and documented framework,
+and also it is the only framework that
+multiple web-mapping libraries have integration capabilities for.
 
+With the above considerations in mind,
 I based my assessment of web mapping libraries on three criteria:
 \begin{itemize}
 	\item Visual quality of the map
 	\item Responsiveness of the map
-	\item Integration with React
+	\item UI integration capabilities (tested only with React)
 \end{itemize}
 
-SIDENOTE: I don't know if I should be so technology-specific with React.
-React really isn't the point, the point is that a UI framework is sensible
-to not have to do everything from the ground up. React just happens to
-be \textit{the} framework
-(and the only framework pretty much any mapping library integrates with in any way).
+When selecting which web mapping libraries to assess,
+I used three properties as a baseline.
+The library should be licensed as \presentacr{foss},
+It should be actively maintained,
+and it should have capabilities to integrate to a general purpose UI framework.
+As stated above, the third property meant, in practice, React.
+With these considerations I arrived at three web mapping libraries:
+Leaflet \parencite{leaflet}, Maplibre \parencite{maplibre} and Deck.gl \parencite{deckgl}.
 
-When selecting which web mapping libraries to assess, I used the following properties as a baseline:
-\begin{itemize}
-	\item Free and open source licensing
-	\item Actively maintained
-	\item At least some level of integration with React
-\end{itemize}
-
-With these considerations I arrived at three potential libraries:
-Leaflet, Maplibre and Deck.gl.
-To assess the criteria above,
-I used each library as the map interface with the application. % ref frontend fig here?
-To minimize the changes outside of map library, modularity ...
-
-I assessed visual quality of the map qualitatively, and, for the reasons I stated in the previous chapter,
-I had to resort to qualitative assessment for rendering performance as well.
-For assessing integration with react additionally I utilized online documentation of potential solutions.
+To assess these libraries,
+I used each of them as the map interface of the application. % ref frontend fig here?
+To enable such testing in any sensible amount of time,
+I took care to implement the frontend in a highly modular way.
+The UI component responsible for map rendering and interaction
+only required access to the mapped data,
+and a way to alter one piece of application state: the mapped location.
+Aside from these two aspects, the map component was completely encapsulated
+from the other components of the frontend application.
+This meant that swapping the map library
+required no changes to the application outside the map component.
+For an overview of the frontend, see figure \ref{fig:frontend}.
 
 \begin{figure}[H]  % TODO location?
 	\centering
@@ -549,6 +556,12 @@ For assessing integration with react additionally I utilized online documentatio
 	\caption{Frontend}
 	\label{fig:frontend}
 \end{figure}
+
+I assessed visual quality of the map qualitatively, and,
+for the reasons I stated in section \ref{sec:preprocessing},
+I had to resort to qualitative assessment for rendering performance as well.
+For assessing integration with react I utilized online documentation of potential solutions,
+as well as the finished frontend implementation.
 
 % % TODO copypasta
 % Translucent Overlay (OV) is the best technique over-
