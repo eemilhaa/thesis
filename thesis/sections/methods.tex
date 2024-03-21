@@ -500,14 +500,6 @@ must be able to alter application state outside the map.
 For example,
 clicking the map results in the fetching of new data from the backend,
 as well as toggling the mode of interaction.
-Figure \ref{fig:frontend} illustrates this at a general level.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\diagramwidth]{visual/figures/diagrams/frontend.png}
-	\caption{Frontend}
-	\label{fig:frontend}
-\end{figure}
 
 Controlling state in web-applications is often best done by a specified solution,
 such as a state store or, if applicable, a UI framework.
@@ -544,10 +536,19 @@ When selecting which web mapping libraries to assess, I used the following prope
 With these considerations I arrived at three potential libraries:
 Leaflet, Maplibre and Deck.gl.
 To assess the criteria above,
-I used each library as the map interface with the application.
+I used each library as the map interface with the application. % ref frontend fig here?
+To minimize the changes outside of map library, modularity ...
+
 I assessed visual quality of the map qualitatively, and, for the reasons I stated in the previous chapter,
 I had to resort to qualitative assessment for rendering performance as well.
 For assessing integration with react additionally I utilized online documentation of potential solutions.
+
+\begin{figure}[H]  % TODO location?
+	\centering
+	\includegraphics[width=\diagramwidth]{visual/figures/diagrams/frontend.png}
+	\caption{Frontend}
+	\label{fig:frontend}
+\end{figure}
 
 % % TODO copypasta
 % Translucent Overlay (OV) is the best technique over-
