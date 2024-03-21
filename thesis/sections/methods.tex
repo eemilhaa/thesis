@@ -161,6 +161,7 @@ their variations included in the dataset.
 \subsection{Implementation of the map presentation}
 
 \subsubsection{Software requirements}
+\label{software requirements}
 % The requirements of the application are an essential aspect to consider,
 % since they
 % For example, the sheer scale and detail of the dataset being visualized
@@ -218,7 +219,8 @@ From an architectural standpoint,
 it meant that the application is more specifically a \textit{web application}
 consisting of a frontend (a map interface) and a backend
 (a solution for getting data to the map interface running on the client).
-So, in further references to an \textit{application},
+The high interactivity necessitates a \acrshort{spa} design in the frontend.
+In further references to an \textit{application},
 I mean the functional whole made of a map interface (frontend) and data access (backend)
 \parenfig{web map app}.
 
@@ -459,9 +461,9 @@ I also did not find a way to automate a set of renders
 on a sample of locations.
 Averaging the renders of a single location would not suffice
 due to the differences of data complexity between locations.
-The tools I tried were the Firefox profiler
-and the React developer tools browser extension on Firefox and Chromium
-(I'll need to properly refer to these).
+The tools I tried were the Firefox profiler \parencite{firefoxprofiler}
+and the React developer tools browser extension \parencite{reactdevtools}
+on Firefox and Chromium. % TODO
 
 I carried out the assessment of loss of information in two ways:
 Qualitatively for all approaches by observing the processed data on the map,
@@ -475,21 +477,30 @@ containing the preprocessing pipeline.
 The same repository also holds the quantitative tests described above
 as an interactive Jupyter Notebook.
 
+
 \subsubsection{Assessing web mapping libraries}
 
-The solution for rendering the data to a map, i.e. the web mapping library,
-was one of the most important decisions of the development process. 
+Considering this study,
+the map interface is the most crucial component of the application.
+It is the frontend that a user interacts with,
+providing the \acrshort{ui} capabilities.
+The web mapping library plays a key part in implementing the interface,
+and in enabling the entire application.
 In addition to rendering data correctly and efficiently,
-the mapping library must allow for user interaction not only with the map,
-but the underlying application.
-Often, interaction with a web map changes only the state of the map,
-for example by zooming,
-and the web-mapping library handles an internal state change like this automatically.
-With the map presentation I developed,
-the map interaction must also change state outside the map.
-For example:
-Location selection should result in the fetching of new data from the backend,
-and the mode of map interaction must be changed by map interaction.
+the web mapping library must allow for user interactions to be
+captured and propagated to the underlying application.
+The underlying application in this case, as mentioned in
+section \ref{software requirements},
+is a web map application
+that, in addition to mapping,
+handles various modes of interaction,
+\acrshort{http} requests and responses, and data access.
+So, an interaction exchange with the map
+must be able to alter application state outside the map.
+For example,
+clicking the map results in the fetching of new data from the backend,
+as well as toggling the mode of interaction.
+Figure \ref{fig:frontend} illustrates this at a general level.
 
 \begin{figure}[H]
 	\centering
