@@ -161,7 +161,7 @@ their variations included in the dataset.
 \subsection{Implementation of the map presentation}
 
 \subsubsection{Software requirements}
-\label{software requirements}
+\label{sec:software req}
 
 Software requirements are the functionalities and properties
 that a given system should have,
@@ -481,7 +481,7 @@ In addition to rendering data correctly and efficiently,
 the web mapping library needs to enable user-map interactions to be
 captured and propagated to the underlying application.
 The underlying application in this case, as mentioned in
-section \ref{software requirements},
+section \ref{sec:software req},
 is a web map application
 that, in addition to mapping,
 handles various modes of interaction,
@@ -495,7 +495,7 @@ as well as toggling the mode of location selection.
 As mentioned in section \ref{sec:web maps},
 managing state in web-applications can be complex.
 Keeping in mind the requirements specified for this particular application
-(section \ref{software requirements}),
+(section \ref{sec:software req}),
 as well as the necessity of \acrshort{spa} design,
 I considered a general-purpose \acrshort{ui} framework
 essential to provide a robust way of controlling the state of the frontend.
@@ -596,6 +596,28 @@ can be found in appendix \ref{appendix:repositories}.
 
 
 \subsubsection{Application deployment and other technical infrastructure}
+
+This section documents the additional technical infrastructure
+needed to enable and deploy the web map application.
+Being a web application, and a heavily data-reliant one at that,
+a backend was necessary for serving the preprocessed \acrshort{ttm} data
+from the server-side to the client running the frontend.
+The software requirements for the backend
+(section \ref{sec:software req}) mean, in essence,
+that the only functionality required of the backend
+is to respond to requests with TTM data.
+No business logic, state management or data manipulation is necessary.
+From the perspective of the interactivity of the application,
+the backend should respond as quickly as possible.
+Considering the above factors,
+I implemented the backend as minimally as possible,
+as an HTTP server serving the TTM data as static files directly from the server-side filesystem.
+The server software used was Nginx \parencite{nginx},
+as it is designed to be as performant and efficient as possible
+\parencite{dej2020, ree2008}.
+More sophisticated solutions such as a spatial database,
+while more conventional, were not needed in this particular case,
+and would have introduced computational overhead as well as increase the complexity of the application.
 
 \begin{itemize}
 	\item Backend: Minimal HTTP sever serving pre-compressed geojson files directly from filesystem
