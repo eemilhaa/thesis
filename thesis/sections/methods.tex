@@ -540,19 +540,27 @@ Aside from these two aspects,
 the map component and its internal state was completely encapsulated
 from the other components of the frontend application.
 This meant that swapping the map library
-required no changes to the application outside the map component.
+required no changes to the application outside the map component,
+and that as few as possible variables other than the mapping library were changed.
 
 Outside the map component,
 the frontend was extremely minimal.
-It only included a drop-down menu for selecting travel modes, and a legend.
+UI-wise, it only included a drop-down menu for selecting travel modes, and a legend.
+Functionally, a single service for communicating with the backend was needed,
+which I implemented with the Axios \acrshort{http} library \parencite{axios}.
 For a visual overview of the map interface see figure \ref{fig:frontend screenshot},
-and for the architechture of the frontend application see figure \ref{fig:frontend screenshot}.
+and for the architecture of the frontend see figure \ref{fig:frontend architecture}.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{visual/figures/screenshots/frontend.png}
+	\includegraphics[width=\textwidth]{visual/figures/screenshots/frontend.png}
 	\caption{
-		
+		The UI of the map application.
+		In addition to the map and its control buttons,
+		there is a drop-down menu for selecting travel-modes, and a legend.
+		Here, the map has been clicked to toggle the mode of interaction
+		so that the map does not update with cursor movement.
+		Instead, a tooltip with travel time information is displayed under the cursor.
 	}
 	\label{fig:frontend screenshot}
 \end{figure}
@@ -561,7 +569,7 @@ and for the architechture of the frontend application see figure \ref{fig:fronte
 	\centering
 	\includegraphics[width=\diagramwidth]{visual/figures/diagrams/frontend.png}
 	\caption{
-		The frontend application.
+		The frontend architecture.
 		The map component is responsible for map rendering and interaction
 		as well as all map-specific state.
 		All the additional, non-map, UI components are grouped together here,
@@ -570,11 +578,16 @@ and for the architechture of the frontend application see figure \ref{fig:fronte
 	\label{fig:frontend architecture}
 \end{figure}
 
-I assessed visual quality of the map qualitatively, and,
-for the reasons I stated in section \ref{sec:preprocessing},
-I had to resort to qualitative assessment for rendering performance as well.
+I assessed the visual quality of the map qualitatively.
+For the reasons I stated in section \ref{sec:preprocessing},
+I had to resort to qualitative assessment
+for assessing the rendering performance as well.
 For assessing integration with react I utilized online documentation of potential solutions,
 as well as my development experience in implementing the frontend.
+
+A link to the repository containing the code
+and further technical details of the frontend
+can be found in appendix \ref{appendix:repositories}.
 
 % % TODO copypasta
 % Translucent Overlay (OV) is the best technique over-
@@ -582,7 +595,7 @@ as well as my development experience in implementing the frontend.
 % technique should be provided to user \parencite{lob2015}.
 
 
-\subsubsection{Technical infrastructure}
+\subsubsection{Application deployment and other technical infrastructure}
 
 \begin{itemize}
 	\item Backend: Minimal HTTP sever serving pre-compressed geojson files directly from filesystem
