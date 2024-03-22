@@ -582,7 +582,8 @@ I assessed the visual quality of the map qualitatively.
 For the reasons I stated in section \ref{sec:preprocessing},
 I had to resort to qualitative assessment
 for assessing the rendering performance as well.
-For assessing integration with react I utilized online documentation of potential solutions,
+For assessing integration with React
+I utilized online documentation of potential solutions,
 as well as my development experience in implementing the frontend.
 
 A link to the repository containing the code
@@ -610,14 +611,18 @@ No business logic, state management or data manipulation is necessary.
 From the perspective of the interactivity of the application,
 the backend should respond as quickly as possible.
 Considering the above factors,
-I implemented the backend as minimally as possible,
+I implemented the backend
 as an HTTP server serving the TTM data as static files directly from the server-side filesystem.
 The server software used was Nginx \parencite{nginx},
 as it is designed to be as performant and efficient as possible
 \parencite{dej2020, ree2008}.
-More sophisticated solutions such as a spatial database,
-while more conventional, were not needed in this particular case,
-and would have introduced computational overhead as well as increase the complexity of the application.
+More sophisticated solutions, such as a spatial database,
+would have introduced unnecessary complexity
+as well as computational overhead to the application.
+
+In order to produce a deployable frontend application,
+some general frontend tooling is necessary.
+\parencite{vite}
 
 \begin{itemize}
 	\item Backend: Minimal HTTP sever serving pre-compressed geojson files directly from filesystem
