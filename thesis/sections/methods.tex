@@ -599,7 +599,8 @@ can be found in appendix \ref{appendix:repositories}.
 \subsubsection{Application deployment and other technical infrastructure}
 
 This section documents the additional technical infrastructure
-needed to enable and deploy the web map application.
+needed to enable and deploy the web map application as
+a website accessible via the internet.
 Being a web application, and a heavily data-reliant one at that,
 a backend was necessary for serving the preprocessed \acrshort{ttm} data
 from the server-side to the client running the frontend.
@@ -616,13 +617,34 @@ as an HTTP server serving the TTM data as static files directly from the server-
 The server software used was Nginx \parencite{nginx},
 as it is designed to be as performant and efficient as possible
 \parencite{dej2020, ree2008}.
-More sophisticated solutions, such as a spatial database,
+More sophisticated solutions, such as a database,
 would have introduced unnecessary complexity
 as well as computational overhead to the application.
 
 In order to produce a deployable frontend application,
-some general frontend tooling is necessary.
-\parencite{vite}
+some general frontend tooling was necessary.
+I used Vite \parencite{vite} both as a development-time server
+and for bundling the frontend application for production,
+i.e. merging and minimizing the application code into
+a single file optimized for browser execution.
+To serve the bundled frontend, a server is necessary.
+For similar reasons as with the backend,
+I used Nginx \parencite{nginx} as the frontend server.
+
+As detailed in section \ref{sec:software req},
+the deployment environment for both the back- and frontend
+servers was the OpenShift container orchestration platform.
+So, in order to be deployed, both the front- and backend had to be containerized.
+In short, containerization refers to a set of technologies
+that enables packaging software and all its necessary components
+into self-contained \textit{container images} that can be run as is,
+regardless of the specifics of the underlying system.
+For the frontend this was simple,
+as the bundled frontend application and the server can both be included in the container image,
+meaning the container is a completely self-contained server serving the frontend.
+Deploying such
+
+For the backend server
 
 \begin{itemize}
 	\item Backend: Minimal HTTP sever serving pre-compressed geojson files directly from filesystem
@@ -639,10 +661,6 @@ some general frontend tooling is necessary.
 	\label{fig:architechture}
 \end{figure}
 
-In short, containerization refers to a set of technologies
-that enables packaging software and all its necessary components
-into self-contained \textit{container images} that can be run as is,
-regardless of the specifics of the underlying system.
 
 SIDENOTE: I'll add figures of the components (at least the map application) here as suggested by Pyry.
 
