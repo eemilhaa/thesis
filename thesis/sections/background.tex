@@ -284,7 +284,7 @@ and to qualitative and mixed-methods approaches to studying and crafting them
 % Presenting the world (locations) vs presenting data linked to locations (thematic mapping, \parencite{tyn1992})
 
 \subsubsection{Defining \enquote{cartographic interaction} and \enquote{interactive map}}
-\label{defining cartographic interaction and interactive map}
+\label{sec:cartographic interaction}
 
 % What is interactive cartogra
 So far I've referred to any persons viewing maps mostly as map readers.
@@ -619,7 +619,7 @@ In general, interaction primitives
 address the \textit{what} in an interaction exchange:
 for example, what the goal is, what the operation is, or what is operated upon.
 A wider theoretical framework of interaction, such as the one presented in
-section \ref{defining cartographic interaction and interactive map},
+section \ref{sec:cartographic interaction},
 is necessary to understanding \textit{how} interaction works as a whole.
 What I have not yet covered in detail is
 \textit{how} interactions are carried out at the level of the interface, or,
@@ -752,10 +752,10 @@ and a simple web map the latter (figure \ref{fig:simple web map}).
 
 
 \subsubsection{Maps as digital applications}
-\label{maps as digital applications}
+\label{sec:digital maps}
 
 Interactive maps were defined in
-section \ref{defining cartographic interaction and interactive map}
+section \ref{sec:cartographic interaction}
 as digital applications.
 The functionalities and characteristics of an interactive map, then,
 are ultimately dictated by the features and constraints of the technologies
@@ -872,7 +872,7 @@ and cannot utilize features that the software platform lacks.
 
 
 \subsubsection{Web maps and web technologies}
-\label{Web maps and web technologies}
+\label{sec:web maps}
 
 A web map is a map that is made with web technologies,
 transferred via the internet,
@@ -1025,18 +1025,20 @@ on the client browser.
 Also, a \acrshort{spa} manages most, if not all,
 application \textit{state} --
 this means that it records, updates and acts on dynamic information about
-the condition of the application and its components.
+the condition of the application and its components \parencite{fin2014}.
 In the system described above \parenfig{spa},
 the change of mapped data could be an example of such state.
-The main point here is that the client-side of a
-web map application that employs a \acrshort{spa} design
-is potentially a very complex piece of software, and
-implementing all the functionalities needed for such an application
-from the ground up would be an enormous task \parencite{tai2021}.
+
+Simply put, the client-side of a
+web map application employing a \acrshort{spa} design
+is potentially a very complex piece of software.
+From the point of view of the mapmaker,
+implementing all the functionalities needed for such an application,
+from the ground, up would be an enormous task \parencite{tai2021}.
 \textit{Software libraries},
 in other words external modules of reusable code,
 are essential in overcoming this.
-From the perspective of web mapping, two types of libraries are especially important.
+Considering web mapping, two types of libraries are especially important.
 A \textit{web mapping library} usually provides capabilities for the most common tasks
 that a web map is expected to perform:
 for example zooming and panning, rendering data on the map,
