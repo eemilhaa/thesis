@@ -297,12 +297,11 @@ see table \ref{tab:nonfunctional requirements}.
 % - what would raw data be like?
 % - why as much as possible should be precalculated
 % && the requirements preprocessing must satisfy
-Preprocessing and simplifying the \acrshort{ttm} was a significant part of the study.
 With initial testing,
 it became obvious that
-using unprocessed \acrshort{ttm} data,
+visualizing unprocessed \acrshort{ttm} data,
 i.e. the complete 13000-cell grid of travel times for every location,
-was not an option due to two issues:
+was not an option. This was due to two issues:
 unresponsiveness of the map interface and the large file sizes.
 Based on this,
 I formed the hypothesis that either the file sizes
@@ -404,7 +403,7 @@ I assessed four types of preprocessing approaches:
 		\includegraphics[width=\textwidth]{visual/figures/ttm/tt_limit_legend}
 	\end{subfigure}%
 	\caption{
-		The area accessible within an hour of travel from central Helsinki.
+		The area where central Helsinki is reachable within an hour of travel.
 		In general, limiting the maximum travel time reduces the spatial extent of data,
 		more drastically for walking and biking (\ref{fig:limit walk}--\ref{fig:limit bike}),
 		and less so for public transport and car (\ref{fig:limit pt}--\ref{fig:limit car}).
@@ -419,7 +418,7 @@ By modular I mean that,
 while the complete pipeline applies all preprocessing approaches,
 the design allows for isolated testing of the
 different components of the pipeline, with different parameters.
-I used Python for implementing most of the preprocessing pipeline,
+I used Python \parencite{python} for implementing most of the preprocessing pipeline,
 relying on the GeoPandas \parencite{jor2024} library for all spatial operations.
 In addition, I carried out file compression with
 the standard GNU utilities bash \parencite{bash} and gzip \parencite{gzip}.
@@ -489,7 +488,7 @@ providing the \acrshort{ui} capabilities.
 The web mapping library plays a key part in implementing the interface,
 and in enabling the entire application.
 In addition to rendering data correctly and efficiently,
-the web mapping library must allow for user-map interactions to be
+the web mapping library needs to enable user-map interactions to be
 captured and propagated to the underlying application.
 The underlying application in this case, as mentioned in
 section \ref{software requirements},
@@ -536,15 +535,19 @@ and it should have capabilities to integrate to a general purpose UI framework.
 As stated above, the third property meant, in practice, React.
 With these considerations I arrived at three web mapping libraries:
 Leaflet \parencite{leaflet}, Maplibre \parencite{maplibre} and Deck.gl \parencite{deckgl}.
+More precisely, in the case of Maplibre I used the React Map GL wrapper
+\parencite{reactmapgl} for integrating maplibre and react, and in the case of Leaflet
+I used the React Leaflet wrapper \parencite{reactleaflet} for the same purpose.
 
 To assess these libraries,
-I used each of them as the map interface of the application. % ref frontend fig here?
+I used each of them as the map interface of the frontend. % ref frontend fig here?
 To enable such testing in any sensible amount of time,
 I took care to implement the frontend in a highly modular way.
 The UI component responsible for map rendering and interaction
 only required access to the mapped data,
-and a way to alter one piece of application state: the mapped location.
-Aside from these two aspects, the map component was completely encapsulated
+and a way to alter one piece of application-wide state: the mapped location.
+Aside from these two aspects,
+the map component and its internal state was completely encapsulated
 from the other components of the frontend application.
 This meant that swapping the map library
 required no changes to the application outside the map component.
@@ -561,7 +564,7 @@ I assessed visual quality of the map qualitatively, and,
 for the reasons I stated in section \ref{sec:preprocessing},
 I had to resort to qualitative assessment for rendering performance as well.
 For assessing integration with react I utilized online documentation of potential solutions,
-as well as the finished frontend implementation.
+as well as my development experience in implementing the frontend.
 
 % % TODO copypasta
 % Translucent Overlay (OV) is the best technique over-
