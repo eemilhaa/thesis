@@ -495,8 +495,7 @@ as well as toggling the mode of location selection.
 As mentioned in section \ref{sec:web maps},
 managing state in web-applications can be complex.
 Keeping in mind the requirements specified for this particular application
-(section \ref{sec:software req}),
-as well as the necessity of \acrshort{spa} design,
+as well as the necessity of \acrshort{spa} design (section \ref{sec:software req}),
 I considered a general-purpose \acrshort{ui} framework
 essential to provide a robust way of controlling the state of the frontend.
 Also, in general, using a framework instead of a self-made solution
@@ -531,25 +530,36 @@ I used the React Leaflet wrapper \parencite{reactleaflet} for the same purpose.
 
 To assess these libraries,
 I used each of them as the map interface of the frontend. % ref frontend fig here?
-To enable such testing in any sensible amount of time,
-I took care to implement the frontend in a highly modular way.
-The UI component responsible for map rendering and interaction
-only required access to the mapped data,
-and a way to alter the mapped location.
-Aside from these two aspects,
-the map component and its internal state was completely encapsulated
-from the other components of the frontend application.
-This meant that swapping the map library
-required no changes to the application outside the map component,
-and that as few as possible variables other than the mapping library were changed.
+I assessed the visual quality of the map qualitatively.
+For the reasons I stated in section \ref{sec:preprocessing},
+I had to resort to qualitative assessment
+for assessing the rendering performance as well.
+For assessing integration with React
+I utilized online documentation of potential solutions,
+as well as my development experience in implementing the frontend.
 
-Outside the map component,
-the frontend was extremely minimal.
-UI-wise, it only included a drop-down menu for selecting travel modes, and a legend.
-Functionally, a single service for communicating with the backend was needed,
-which I implemented with the Axios \acrshort{http} library \parencite{axios}.
-For a visual overview of the map interface see figure \ref{fig:frontend screenshot},
-and for the architecture of the frontend see figure \ref{fig:frontend architecture}.
+In general, the design of the map interface was intended to be as simple as possible --
+both to enable the comparable assessment of the map libraries,
+and to act as a usable map interface in the survey.
+UI-wise, it included the map and its control buttons (zoom, orientation),
+a drop-down menu for selecting travel modes, and a legend.
+Depending on mode of interaction, a tooltip with travel time information was included.
+The content on the map included
+a low-contrast base map designed for data visualization \parencite{cartopositron},
+and translucent isochrone polygons rendered on top of it.
+I utilized translucent overlay to
+enable the comparison of the base map and the isochrone polygons,
+as it is often the comparison technique
+most intuitive for users to understand when using interactive maps
+\parencite{lob2015}.
+To visualize the travel times of each isochrone polygon,
+I used the cividis colour map \parencite{nun2018}.
+This colour map was my choice since it is designed to enable accurate visual
+interpretation of data through the perceptual uniformity of its colours,
+combined with linearly increasing brightness \parencite{nun2018}.
+Also, it is optimized to work equally well
+for people with and without colour vision deficiencies \parencite{nun2018}.
+For a visual overview of the map interface, see figure \ref{fig:frontend screenshot}.
 
 \begin{figure}[H]
 	\centering
@@ -565,6 +575,27 @@ and for the architecture of the frontend see figure \ref{fig:frontend architectu
 	\label{fig:frontend screenshot}
 \end{figure}
 
+Simplicity was the goal in the technical implementation as well.
+To enable the testing of different mapping libraries,
+I took care to implement the frontend in a highly modular way.
+The UI component responsible for map rendering and interaction
+only required access to the mapped data,
+and a way to alter the mapped location.
+Aside from these two aspects,
+the map component and its internal state was completely encapsulated
+from the other components of the frontend application.
+This meant that swapping the map library
+required no changes to the application outside the map component.
+In addition to the UI components,
+only a single service for communicating with the backend was needed,
+which I implemented with the Axios \acrshort{http} library \parencite{axios}.
+To minimize development-time errors in the implementation,
+I used TypeScript \parencite{typescript} as the language.
+TypeScript still transpiles to plain JavaScript,
+but adds features such as strict typing to overcome JavaScript's known issues
+when it comes to producing error-free and maintainable web applications \parencite{bie2014}.
+See figure \ref{fig:frontend architecture} for the architecture of the frontend.
+
 \begin{figure}[H]  % TODO location?
 	\centering
 	\includegraphics[width=\diagramwidth]{visual/figures/diagrams/frontend.png}
@@ -572,28 +603,17 @@ and for the architecture of the frontend see figure \ref{fig:frontend architectu
 		The frontend architecture.
 		The map component is responsible for map rendering and interaction
 		as well as all map-specific state.
-		All the additional, non-map, UI components are grouped together here,
+		All the additional, non-map, UI components are grouped together in this picture,
 		as functionally they alter the application state in only one way.
 	}
 	\label{fig:frontend architecture}
 \end{figure}
-
-I assessed the visual quality of the map qualitatively.
-For the reasons I stated in section \ref{sec:preprocessing},
-I had to resort to qualitative assessment
-for assessing the rendering performance as well.
-For assessing integration with React
-I utilized online documentation of potential solutions,
-as well as my development experience in implementing the frontend.
 
 A link to the repository containing the code
 and further technical details of the frontend
 can be found in appendix \ref{appendix:repositories}.
 
 % % TODO copypasta
-% Translucent Overlay (OV) is the best technique over-
-% all, which makes it a good choice when only one comparison
-% technique should be provided to user \parencite{lob2015}.
 
 
 \subsubsection{Application deployment and other technical infrastructure}
@@ -642,9 +662,9 @@ regardless of the specifics of the underlying system.
 For the frontend this was simple,
 as the bundled frontend application and the server can both be included in the container image,
 meaning the container is a completely self-contained server serving the frontend.
-Deploying such
+For the backend server harder but back to that later...
 
-For the backend server
+Deployment, pods etc
 
 \begin{itemize}
 	\item Backend: Minimal HTTP sever serving pre-compressed geojson files directly from filesystem
