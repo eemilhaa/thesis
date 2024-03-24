@@ -530,10 +530,18 @@ I used the React Leaflet wrapper \parencite{reactleaflet} for the same purpose.
 
 To assess these libraries,
 I used each of them as the map interface of the frontend. % ref frontend fig here?
-I assessed the visual quality of the map qualitatively.
-For the reasons I stated in section \ref{sec:preprocessing},
+I implemented a feature-complete interface using both
+Deck.gl and Maplibre, but with Leaflet I stopped at a very minimal working example
+as it became clear that the library would not be used in the implementation due
+to performance issues with React-Leaflet.
+Upon further investigation, it would have been possible to
+overcome these issues, to an extent, by utilizing a lower-level, self-made,
+solution to integrating Leaflet into React \parencite{gaj2023}.
+However, I deemed that to be out-of-scope for this study.
+I assessed the visual quality of the map qualitatively, and,
+for the reasons I stated in section \ref{sec:preprocessing},
 I had to resort to qualitative assessment
-for assessing the rendering performance as well.
+for assessing the responsiveness as well.
 For assessing integration with React
 I utilized online documentation of potential solutions,
 as well as my development experience in implementing the frontend.
@@ -575,7 +583,7 @@ For a visual overview of the map interface, see figure \ref{fig:frontend screens
 	\label{fig:frontend screenshot}
 \end{figure}
 
-Simplicity was the goal in the technical implementation as well.
+Simplicity was the goal in the technical side of the frontend as well.
 To enable the testing of different mapping libraries,
 I took care to implement the frontend in a highly modular way.
 The UI component responsible for map rendering and interaction
@@ -612,8 +620,6 @@ See figure \ref{fig:frontend architecture} for the architecture of the frontend.
 A link to the repository containing the code
 and further technical details of the frontend
 can be found in appendix \ref{appendix:repositories}.
-
-% % TODO copypasta
 
 
 \subsubsection{Application deployment and other technical infrastructure}
