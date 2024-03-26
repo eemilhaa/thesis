@@ -601,7 +601,7 @@ required no changes to the application outside the map component.
 In addition to the UI components,
 only a single service for communicating with the backend was needed,
 which I implemented with the Axios \acrshort{http} library \parencite{axios}.
-To minimize developer-induced errors in the implementation,
+To minimize my own errors in the implementation process,
 I used TypeScript \parencite{typescript} as the language.
 TypeScript transpiles to plain JavaScript,
 but adds features such as strict typing to overcome JavaScript's known issues
@@ -665,7 +665,7 @@ I used Nginx \parencite{nginx} as the frontend server.
 As detailed in section \ref{sec:software req},
 the deployment environment for both the back- and frontend
 servers was the OpenShift container orchestration platform.
-So, in order to be deployed, both the front- and backends had to be containerized.
+So, in order to be deployed, both the front- and backend had to be containerized.
 In short, containerization refers to a set of technologies
 that enables packaging software and all its necessary components
 into self-contained \textit{container images} that can be run as is,
@@ -684,18 +684,23 @@ I chose to use separate deployments to further decouple the components,
 and to allow for easier scaling and maintenance as each deployment could be tweaked on its own.
 Since both deployments were on the same platform,
 much of the deployment specifics were identical between both components.
-Both deployments were based around a Deployment object running a set of replicated server pods.
-A pod, in this case, was essentially a singular containerized server (either front- or backend).
-In addition, a Service object was needed to expose
+In the following, I will briefly introduce the structure of the deployments.
+As the deployment tool was, in essence, Kubernetes,
+some platform-specific terminology is used --
+for further insight on the terms and concepts,
+refer to the Kubernetes glossary \parencite{kubernetesglossary}.
+Both deployments were based around a \textit{Deployment} object
+running a set of \textit{replicated} server \textit{pods}.
+A \textit{pod}, in this case,
+was essentially a singular containerized server (either front- or backend).
+In addition, a \textit{Service} object was needed to expose
 the internal deployment network (on which the pods run),
-and a Route object was needed to route traffic from the internet to the Service.
+and a \textit{Route} object was needed to route traffic from the internet to the Service.
 As the single deviation from the above, the backend deployment also defined a
-PersistentVolumeClaim object for storing the TTM data.
+\textit{PersistentVolumeClaim} object for storing the TTM data.
 This data volume was mounted to all replicated pods, granting them data access
 without the need to duplicate data, even when scaling by replicating more pods.
 Both deployments were defined declaratively with a Kubernetes manifest file.
-For further understanding these terms and concepts,
-refer to the Kubernetes glossary \parencite{kubernetesglossary}.
 For a visual high-level overview of the entire web map application deployment,
 see figure \ref{fig:architechture}.
 The deployment manifests for both the front- and backend are found in their respective repositories
@@ -704,7 +709,16 @@ The deployment manifests for both the front- and backend are found in their resp
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\diagramwidth]{visual/figures/diagrams/architecture.png}
-	\caption{Architecture}
+	\caption{
+		In the deployment of the web map application,
+		the front- and backend are managed separately.
+		Once fetched from the server,
+		the frontend runs on the client browser,
+		handling all communication with the backend.
+		The preprocessing of the TTM data is done beforehand, outside any deployments.
+		Only the preprocessed data is uploaded to the server and made available to the
+		backend server pods.
+	}
 	\label{fig:architechture}
 \end{figure}
 
