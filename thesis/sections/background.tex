@@ -556,15 +556,15 @@ in most contexts where maps are present \parencite{fis2021, mei2019, rot2015}.
 \subsubsection{Deconstructing the map interface}
 \label{deconstructing the map interface}
 
-What exactly an interactive map is,
-or what kind of interaction exchanges a user can carry out with the map,
-varies greatly.  % depending on what the purpose of the map is.
+% What exactly an interactive map is,
+% or what kind of interaction exchanges a user can carry out with the map,
+% varies greatly.  % depending on what the purpose of the map is.
 As is clear based on the above,
 the applications of cartographic interaction are immensely diverse,
 and so are the different types of map interfaces.
 Thus, conceptualizing the many forms of
-interactive maps and the interactions they enable
-at a detailed level is no simple task.
+interactive maps and the interaction exchanges they enable,
+at a detailed level, is no simple task.
 Soon to be 20 years ago,
 \textcite{tho2005} considered the comprehensive
 identification, characterization and compilation
@@ -600,7 +600,7 @@ but also by empiric studies with experts in the field of interactive cartography
 \parencite{rot2013a}.
 This taxonomy is based on \textit{interaction primitives} --
 basic units of interaction that, when combined,
-make up complete interaction exchanges between a map and a map user.
+make up interaction exchanges between a map and a map user.
 These interaction primitives are grouped into 4 dimensions:
 \textit{objectives}, \textit{operators} and \textit{operands}, as already described above,
 with the addition of user \textit{goals} as a broader context of
@@ -639,7 +639,7 @@ often employed in audio-based interfaces \parencite{duc2018}.
 Most of the aforementioned interaction styles are quite self-explanatory,
 but one; direct manipulation, depends on context.
 In the case of cartographic interaction,
-it refers most often to direct interactions with the map \parencite{rot2012}.
+it refers to direct interactions with the map \parencite{rot2012}.
 A common example would be a case where the \textit{pan} operator primitive
 is executed by dragging the map with a pointing device.
 
@@ -759,16 +759,16 @@ section \ref{sec:cartographic interaction}
 as digital applications.
 The functionalities and characteristics of an interactive map, then,
 are ultimately dictated by the features and constraints of the technologies
-used in implementing, presenting and interacting with the map.
+used in implementing, presenting and interacting with the map
+\parencite{gah1999}.
 This is why a technological perspective into
 cartographic interaction, as enabled by a digital environment,
 is an essential consideration in crafting any map interface.
-
 % Digital environment, application
-Here, I use the term \textit{digital environment} to refer to
-an ecosystem of digital tools, systems and resources,
-not to be confused with artificial computer-created scenes
-that the word is also often associated with in cartography \parencite{kon2011}.
+% Here, I use the term \textit{digital environment} to refer to
+% an ecosystem of digital tools, systems and resources,
+% not to be confused with artificial computer-created scenes
+% that the word is also often associated with in cartography \parencite{kon2011}.
 In general, a digital environment makes it possible to enable a map interface with
 the capabilities of computer programs and other accompanying digital technologies.
 From the perspective of interaction, perhaps the most notable of these
@@ -776,11 +776,12 @@ is the ability to receive input from the user and perform computations based on 
 possibly altering the state of the program.
 The altered state of the program can then be communicated back to the user.
 This establishes the technological premise for
-the process of interaction as two-way communication.
+the process of interaction as two-way communication \parencite{car1997}.
 
 Such an interaction exchange necessitates a computing device for executing the program,
 an input device for processing user input into a digital form,
-and an output device for conveying the state of the program to the user.
+and an output device for conveying the state of the program to the user
+\parencite{shn2016}.
 From a technological perspective,
 the attributes of these devices are both enabling and limiting factors of
 cartographic interaction as \acrshort{hci}.
@@ -801,30 +802,31 @@ What exactly an application is, or what it does, is a complex question.
 In the following, I utilize some basic concepts of software architecture
 to provide a starting point to reasoning about this theme.
 In the case of interactive maps,
-the primary purpose of the map application is
+the primary purpose of the map is
 to provide presentation and an interface,
 in short, it acts as a \acrshort{ui} of
 a program, or, potentially, of a system consisting of multiple programs.
 User actions
-(usually called \textit{user events} in the context of software development)
 result in computations as defined by the system's rules and algorithms,
 \textit{business logic} in a software context.
-In software architecture, such logic is a concern often separated from presentation,
+In software architecture, such logic is a concern often separated from presentation
+\parencite{mar2009},
 which means that the computation induced by a user event might happen
 in a separate component of the application,
-or even be handled by an entirely different program.
+or even be handled by an entirely different program \parencite{ric2015}.
 Applications, especially ones concerned with mapping,
 often act on data.
 Storing and accessing data are distinct functionalities, and, again,
 can be carried out by separate solutions
-with varying levels of decoupling from presentation and business logic.
+with varying levels of decoupling from presentation and business logic
+\parencite{mar2009}.
 The above high-level components --
 \acrshort{ui}, business logic, and data access and storage --
 together with any necessary services that enable their interoperation,
-can be thought to make up a given interactive system.
+can be thought to make up an interactive system or map \parencite{ric2015, gah1999}.
 This approach to reasoning about the structure of a system is often connected to
 \textit{layered software architecture},
-but is utilized in other architectural patterns too. % TODO ref?
+but is utilized in other architectural patterns too \parencite{ric2015}. % TODO ref?
 The main point is that
 systems are often structuralized based on the functionalities of their parts,
 which I here applied to help illustrate what the necessary functionalities
@@ -834,36 +836,36 @@ to enable an interactive map system might be.
 Another key consideration of crafting map interfaces is the
 \textit{computing platform} --
 the execution environment a given program or system requires in order to run.
-Computing platforms can be categorized to
-hardware, \presentacr{os} and software level platforms.
-This division can be seen in terms of abstraction layers:
-A software platform runs on an \acrshort{os} platform,
-and an \acrshort{os} platform runs on a hardware platform.
-From the perspective of map applications,
-\acrshort{os} and software platforms
-are the ones to consider since they provide the capabilities,
-such as advanced use of computer graphics,
-needed for cartographic interaction.
-
+% Computing platforms can be categorized to
+% hardware, \presentacr{os} and software level platforms.
+% This division can be seen in terms of abstraction layers:
+% A software platform runs on an \acrshort{os} platform,
+% and an \acrshort{os} platform runs on a hardware platform.
+% From the perspective of map applications,
+% \acrshort{os} and software platforms
+% are the ones to consider since they provide the capabilities,
+% such as advanced use of computer graphics,
+% needed for cartographic interaction.
 The characteristics of different computing platforms
 dictate much of the design and functionalities of map interfaces.
-\acrshort{os} platforms are closely tied to
+\presentacr{os}-level platforms are closely tied to
 the devices (hardware) they operate on:
-Applications developed for most mobile \acrshort{os}s
-are expected to be operated mainly on relatively small touchscreens and
-with potentially constrained computational capabilities,
+For example, a map interface developed for a mobile \acrshort{os}
+is expected to be operated mainly on relatively small touchscreens and
+with potentially constrained computational capabilities \parencite{hus2016},
 while \presentacr{pc} \acrshort{os}s
 provide an environment usually accessed with larger displays and
 separate input devices, and enabled with more computational power.
-Software platforms are, in practice, software that runs other software.
-There are an innumerable amount of such platforms but,
-to give an example, perhaps the most relevant today is the web browser.
+A software-level platform is, in essence, a piece of software that runs other software \parencite{tiw2010}.
+There are an innumerable amount of such platforms, but,
+to give an example, perhaps the most relevant today is the web browser
+\parencite{tai2017}.
 In general, applications running on a software platform can be run wherever
-the platform can be run, often meaning less dependence on particular devices.
+the platform can be run, often meaning less dependence on particular devices \parencite{tiw2010}.
 In turn, they have much less direct access to the operating system or hardware,
 potentially noticeable computational overhead introduced by running the platform
 in addition to the application,
-and cannot utilize features that the software platform lacks.
+and cannot utilize features that the software platform lacks \parencite{tiw2010}.
 
 % The influence of technology on interactive maps and cartography.
 % Also, the mapmaker is more often a software developer than a cartographer.
