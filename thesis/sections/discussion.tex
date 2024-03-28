@@ -24,20 +24,24 @@ Some ideas for discussion:
 \end{itemize}
 
 % My results showed that...
-\subsection{Real time cartographic interaction and its tradeoffs}
-
-% The map presentation and survey results from cartography perspective
-Implementing something like the hover mode could be worth it in the sense
-that it provides a genuinely different way to explore massive data.
-Depending on the data being visualized,
-the loss of detail to enable such a presentation could be immense,
-potentially leading to a shallow presentation with little insight to offer.
-
-Tradeoffs in the map:
-now priority is on instant interaction instead of detailed maps.
-
-
 \subsection{Technical considerations and the process of creating cartographic interaction}
+
+a high level of data simplification was needed to enable real-time interaction with the map
+in the context of this particular application.
+
+
+
+Based on these results
+I can also reason about the performance bottlenecks,
+but only in the context of this particular application, i.e. rapid real-time interaction.
+In this context the bottleneck is definitely rendering speed,
+which is most affected by the geometrical complexity.
+For example, the map would in no way work if rendering individual grid cells,
+even with instant data transfer.
+
+While reliably generalizing these findings based on this study alone is impossible,
+I would form the hypothesis that if the file size of a given data consists mostly of geometries,
+rendering performance will limit map responsiveness before file sizes become an issue.
 
 Many of the tradeoffs above are not inherent to cartographic interaction,
 rather they are technical limitations.
@@ -66,6 +70,21 @@ Importance of keeping up with technical change \parencite{rot2014},
 modular software to enable keeping up with change.
 
 % Accessibility? A whole different technology stack and an immense amount of work
+
+
+\subsection{Real time cartographic interaction and its tradeoffs}
+
+% The map presentation and survey results from cartography perspective
+Implementing something like the hover mode could be worth it in the sense
+that it provides a genuinely different way to explore massive data.
+Depending on the data being visualized,
+the loss of detail to enable such a presentation could be immense,
+potentially leading to a shallow presentation with little insight to offer.
+
+Tradeoffs in the map:
+now priority is on instant interaction instead of detailed maps.
+
+
 
 \subsection{Data access}
 % inc2012

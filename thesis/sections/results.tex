@@ -2,15 +2,35 @@
 
 \subsection{Assessment of data preprocessing and simplification approaches}
 
+% \item Considering rapid real-time interaction,
+% what are the performance bottlenecks of
+% an interactive web map application,
+% and what data preprocessing and simplifying approaches
+% are needed to overcome them?
+
+In the following, I will go over the findings in assessing the preprocessing and simplification approaches.
+Of course, all approaches listed here can be applied with varying parameters,
+which would change the results.
+To provide a summary,
+I present the approaches here with the parameters used in processing the data for the finished map application.
+
+The aggregation of travel time values into 15-minute isochrone polygons was the most 
+effective preprocessing step when it came to increasing the responsiveness of the map.
+However, it also reduced the visual detail of the map greatly.
+A travel time maximum of 60 minutes also had a noticeable effect in both these regards,
+but its was dependent on the travel mode.
+Limiting the extent on slower modes of travel, for example walking,
+resulted in much more data being left out than limiting a travel mode such public transportation or car.
+The 15-minute isochrone interval and 60-minute travel time limit
+were the values that I settled on in the development process --
+they produced a responsive enough presentation for exploring all travel modes,
+but still kept the map informative, at least from a macro-scale perspective.
+
+
+
+
 \input{visual/tables/preprocessing_methods.tex}
 
-Based on these results
-I can also reason about the performance bottlenecks,
-but only in the context of this system, i.e. rapid real-time interaction.
-In this context the bottleneck is definitely rendering speed,
-which is most affected by the geometrical complexity.
-For example, the map would in no way work if rendering individual grid cells,
-even with instant data transfer.
 
 \subsection{Assessment of mapping libraries}
 
