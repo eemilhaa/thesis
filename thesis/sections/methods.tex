@@ -529,8 +529,13 @@ Leaflet \parencite{leaflet}, Maplibre \parencite{maplibre} and Deck.gl \parencit
 More precisely, in the case of Maplibre I used the React Map GL wrapper
 \parencite{reactmapgl} for integrating maplibre and react, and in the case of Leaflet
 I used the React Leaflet wrapper \parencite{reactleaflet} for the same purpose.
+When comparing these three libraries, it should be noted that
+both Maplibre and Deck.gl have capabilities for \presentacr{gpu}-accelerated rendering.
+Enabled by a web technology called WebGL, this means that much of the computational load
+of rendering data is off-loaded to the \acrshort{gpu},
+resulting in better rendering performance \parencite{ang2014, mia2017}.
 
-To assess these libraries,
+To assess the web mapping libraries,
 I used each of them as the map interface of the frontend. % ref frontend fig here?
 I implemented a feature-complete map interface using both
 Deck.gl and Maplibre, but with Leaflet I stopped at a very minimal working example
@@ -549,46 +554,14 @@ For assessing integration with React
 I utilized online documentation of potential solutions,
 as well as my development experience in implementing the frontend.
 
-The design of the finished map interface was intended to be as simple as possible --
-both to enable the comparable assessment of the map libraries,
-and to act as a usable map interface in the survey.
-UI-wise, it included the map and its control buttons (zoom, orientation),
-a drop-down menu for selecting travel modes, and a legend.
-Depending on mode of interaction, a tooltip with travel time information was included.
-The content on the map included
-a low-contrast base map designed for data visualization \parencite{cartopositron},
-and translucent isochrone polygons rendered on top of it.
-I utilized translucent overlay to
-enable the comparison of the base map and the isochrone polygons,
-as it is the comparison technique
-often most intuitive for users when using interactive maps
-\parencite{lob2015}.
-To visualize the travel times of the isochrone polygons,
-I applied colour to them, using the cividis colour map \parencite{nun2018}.
-I chose this colour map since it is designed to enable accurate visual
-interpretation of data through the perceptual uniformity of its colours,
-combined with linearly increasing brightness \parencite{nun2018}.
-Just as importantly, it is optimized to work equally well
-for people with and without colour vision deficiencies \parencite{nun2018}.
-For a visual overview of the map interface, see figure \ref{fig:frontend screenshot}.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\textwidth]{visual/figures/screenshots/frontend.png}
-	\caption{
-		The UI of the map application.
-		In addition to the map and its control buttons,
-		there is a drop-down menu for selecting travel-modes, and a legend.
-		Here, the map has been clicked to toggle the mode of interaction
-		so that the map does not update with cursor movement.
-		Instead, a tooltip with travel time information is displayed under the cursor.
-	}
-	\label{fig:frontend screenshot}
-\end{figure}
-
-Simplicity was the goal in the technical side of the frontend as well.
-To enable the testing of different mapping libraries,
-I took care to implement the frontend in a highly modular way.
+On a technical level,
+simplicity and modularity were the main goals of the frontend implementation.
+Simplicity meant including only the functionalities that would be absolutely necessary,
+and modularity meant that any given component of the implementation
+should be customizable without affecting the other components.
+These two factors were a necessity for there to be
+any level of comparability in the testing of different mapping libraries.
+Considering the functionality of the map interface,
 The UI component responsible for map rendering and interaction
 only required access to the mapped data,
 and a way to alter the mapped location.
@@ -622,6 +595,44 @@ can be found in appendix \ref{appendix:repositories}.
 		as functionally they alter the application state in only one way.
 	}
 	\label{fig:frontend architecture}
+\end{figure}
+
+Simplicity was the goal in the UI of the frontend as well --
+both to enable the comparable assessment of the map libraries,
+and to act as a usable map interface in the survey.
+UI components included the map and its control buttons (zoom, orientation),
+a drop-down menu for selecting travel modes, and a legend.
+Depending on mode of interaction,
+a tooltip with travel time information was rendered under the cursor.
+The content on the map included
+a low-contrast base map designed for data visualization \parencite{cartopositron},
+and translucent isochrone polygons rendered on top of it.
+I utilized translucent overlay to
+enable the comparison of the base map and the isochrone polygons,
+as it is the comparison technique
+often most intuitive for users when using interactive maps
+\parencite{lob2015}.
+To visualize the travel times of the isochrone polygons,
+I applied colour to them, using the cividis colour map \parencite{nun2018}.
+I chose this colour map since it is designed to enable accurate visual
+interpretation of data through the perceptual uniformity of its colours,
+combined with linearly increasing brightness \parencite{nun2018}.
+Just as importantly, it is optimized to work equally well
+for people with and without colour vision deficiencies \parencite{nun2018}.
+For a visual overview of the map interface, see figure \ref{fig:frontend screenshot}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{visual/figures/screenshots/frontend.png}
+	\caption{
+		The UI of the map application.
+		In addition to the map and its control buttons,
+		there is a drop-down menu for selecting travel-modes, and a legend.
+		Here, the map has been clicked to toggle the mode of interaction
+		so that the map does not update with cursor movement.
+		Instead, a tooltip with travel time information is displayed under the cursor.
+	}
+	\label{fig:frontend screenshot}
 \end{figure}
 
 
