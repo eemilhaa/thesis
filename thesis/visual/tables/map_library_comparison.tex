@@ -2,31 +2,35 @@
 	\caption{Comparison of mapping libraries}
 	\label{tab:map library comparison}
 	\centering
-	\begin{tabular}{ | L{0.1\textwidth} | L{0.25\textwidth} | L{0.25\textwidth} | L{0.25\textwidth} | }
+	\begin{tabular}{ | L{0.13\textwidth} | L{0.25\textwidth} | L{0.25\textwidth} | L{0.25\textwidth} | }
 		\hline
 		\textbf{Library}
-		& \textbf{Quality of visualization}
-		& \textbf{Rendering performance}
+		& \textbf{Visual quality of the map}
+		& \textbf{Responsiveness of the map}
 		& \textbf{Integration with React}
-		\\ 
+		\\
 		\hline
 		\hline
 		Deck.gl
 		& Inconsistent rendering of complex polygons, vector tiles supported
-		& GPU accelerated (WebGL), most performant of the tested libraries
-		& Designed from ground up to work with React
+		& GPU accelerated (WebGL). Most performant of the tested libraries,
+		highly responsive interface with both modes of interaction.
+		& Native integration with React.
 		\\
 		\hline
-		Leaflet
+		Leaflet + React Leaflet
 		& Correct rendering of polygons, Vector tiles possible through plugins
-		& No GPU acceleration, least performant of the tested libraries
-		& Integration possible with a 3rd party wrapper
+		& No GPU acceleration. Least performant of the tested libraries.
+		& Integration possible and tested only with a 3rd party wrapper.
+		Potentially a cause of decreased rendering performance and responsiveness.
 		\\
 		\hline
-		Maplibre
+		Maplibre + React Map GL
 		& Correct rendering of polygons with very rare inconsistencies, vector tiles supported
-		& GPU accelerated (WebGL), slightly less performant than deck.gl
-		& Integration possible with a 3rd party wrapper
+		& GPU accelerated (WebGL). Slightly less performant than deck.gl,
+		differences perceived only in the hovering mode.
+		& Integration possible with a 3rd party wrapper.
+		No issues in development process.
 		\\
 		\hline
 	\end{tabular}

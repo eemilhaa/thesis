@@ -2,7 +2,7 @@
 	\caption{The preprocessing methods}
 	\label{tab:preprocessing methods}
 	\centering
-	\begin{tabular}{ | L{0.2\textwidth} | L{0.35\textwidth} | L{0.35\textwidth} | }
+	\begin{tabular}{ | L{0.21\textwidth} | L{0.35\textwidth} | L{0.35\textwidth} | }
 		\hline
 		\textbf{Method}
 		& \textbf{Increase in performance}
@@ -10,26 +10,26 @@
 		\\
 		\hline
 		\hline
-		Aggregation into isochrones (15 min interval)
+		Aggregation into isochrone polygons (15-minute interval)
 		& Large: The isochronal approach is what makes the real-time interaction possible.
-		& Large: 15-minunte isochrones allow for quick overview but make detailed assessment impossible.
+		& Large: 15-minute isochrone polygons allow for quick overview but make detailed assessment impossible.
 		\\
 		\hline
-		Limiting the maximum travel time (60 min)
-		& Noticeable--Large: The largest isochrone polygons are more costly to render.
+		Limiting the maximum travel time (60 minutes)
+		& Noticeable: The largest isochrone polygons are more costly to render.
 		Avoiding them improves performance, and on limited hardware / download speed
 		is essential to keep the map performant.
-		& Noticeable depending on travel mode:
+		& Depends on travel mode:
 		For walking a limit of 60 minutes means that, on average,
 		the isochrones cover 3\% of the total area of the dataset.
 		For cycling 30\%, for public transit 27\%, for car 98\%.
-		For a given grid cell the average of all modes is 40\%.
+		For a given grid cell the averaged coverage of all modes is 40\%.
 		\\
 		\hline
 		Limiting coordinate precision
 		& Potentially noticeable with limited download speeds:
-		Reducing the precision of geometries reduces file sizes by 50\% on average,  % TODO
-		and thus makes data transfer faster.
+		Reducing the precision of geometries reduced file sizes by 50\% on average,
+		thus enabling faster data transfer.
 		No visible effect on rendering performance on tested hardware.
 		& None: The decreased precision is in no way visible.
 		\\
@@ -37,7 +37,7 @@
 		File optimization (simplifying GeoJSON structure, compression using gzip)
 		& Potentially noticeable with limited download speeds:
 		This reduces file sizes by 60\% on average,  % TODO
-		and thus makes data transfer faster.
+		thus enabling faster data transfer.
 		No visible effect on rendering performance on tested hardware.
 		& None: These approaches do not affect the content of the data.
 		\\
