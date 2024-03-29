@@ -105,6 +105,23 @@ even when rendering only the base grid of the dataset.
 Both Deck.gl and Maplibre utilized WebGL GPU acceleration,
 while Leaflet did not.
 
+All libraries had some way of integrating with React.
+Deck.gl provided native integration,
+meaning no additional wrapper library was needed,
+and React integration did not affect the map function.
+Leaflet and Maplibre both had wrapper libraries for
+integrating to React applications.
+Integrating Leaflet and React using React Leaflet has previously
+been observed to produce performance issues \parencite{gaj2023}.
+Thus, the performance issues I observed with Leaflet could be an issue of
+the wrapper library instead of the mapping library itself.
+Integrating Maplibre into React with React Map GL
+produced a functional map application,
+without issues in the development process.
+
+For an overview of the assessment of mapping libraries,
+see table \ref{tab:map library comparison}.
+
 
 \input{visual/tables/map_library_comparison.tex}
 
