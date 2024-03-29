@@ -462,11 +462,13 @@ quantitatively by calculating the percentage of the total dataset area
 that the processed data covers.
 These percentages are, again, averages of a random sample as described above.
 
-The level of simplification used for the finished map application was
+The level of simplification used for
+processing the TTM for the finished map application was
 a 15-minute isochrone interval and a 60-minute travel time limit.
 The precision of coordinates was reduced to 5 decimal places
-from the 15-decimal place GeoJSON default \parencite{geojsonspec},
-and maximum gzip compression applied.
+from the 15-decimal place GeoJSON default \parencite{geojsonspec}.
+File minimizing consisted of removing all whitespace from the GeoJSON files
+and applying maximum gzip compression.
 
 Appendix \ref{appendix:repositories} includes a link to the repository
 containing the preprocessing pipeline.
