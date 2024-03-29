@@ -308,8 +308,7 @@ and to compare the effectiveness of different approaches.
 
 When assessing the preprocessing approaches, I focused on:
 \begin{itemize}
-	\item The impact on file size, and thus on the speed of transferring data over internet.
-	\item The impact on rendering speed of the map when mapping the data.
+	\item The impact on the responsiveness of the map when mapping the data.
 	\item The impact on the amount of information on the map,
 	i.e. how much visual information is lost when a given approach is applied.
 \end{itemize}
@@ -321,6 +320,16 @@ I assessed four types of preprocessing approaches:
 	\item Reducing the coordinate precision of geometries
 	\item Minimizing files (simplifying GeoJSON structure, compression using gzip)
 \end{itemize}
+
+Out of these approaches, isochrone aggregation and travel time limitation reduced
+the geometrical complexity of the data, i.e reduced the amount of polygons needed to render the map.
+They either dissolved multiple grid cell geometries into larger polygons \parenfig{isochrone intervals},
+or removed data by discarding geometries based on travel-time values \parenfig{tt limits}.
+Of course, as a result, the file sizes were affected as well.
+Reducing coordinate precision or minimizing files did not affect the number or extent of geometries
+(unless coordinate precision were limited to an extreme).
+In this sense, these approaches did not alter the geometrical complexity of the data,
+solely reducing the file sizes.
 
 \begin{figure}[H]
 	\centering
