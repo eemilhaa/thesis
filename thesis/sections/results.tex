@@ -85,9 +85,25 @@ More specifically, in its underlying triangulation algorithm \parencite{earcutbu
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{visual/figures/screenshots/bug.png}
-	\caption{caption \parencite{deckbug}}
+	\caption{
+		Visual artefacts were occasionally present
+		when rendering complex polygons using Deck.gl.
+		Here, the same isochrone polygon is rendered using Deck.gl (left)
+		and a web based GeoJSON preview tool geojson.io (right).
+	}
 	\label{fig:bug}
 \end{figure}
+
+When assessing the responsiveness of the map interface,
+Deck.gl and Maplibre were very similiar.
+While both enabled real-time interaction with the map,
+I observed Deck.gl to be slightly more responsive when using the hover mode,
+i.e. the most computationally demanding mode of interaction.
+Leaflet was not tested to the same extent here,
+as the map perfofmance degraded noticeably
+even when rendering only the base grid of the dataset.
+Both Deck.gl and Maplibre utilized WebGL GPU acceleration,
+while Leaflet did not.
 
 
 \input{visual/tables/map_library_comparison.tex}
