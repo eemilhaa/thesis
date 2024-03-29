@@ -1,6 +1,6 @@
 \section{Results}
 
-\subsection{Assessment of data preprocessing and simplification approaches}
+\subsection{Assessment of data preprocessing and simplification methods}
 
 % \item Considering rapid real-time interaction,
 % what are the performance bottlenecks of
@@ -8,17 +8,27 @@
 % and what data preprocessing and simplifying approaches
 % are needed to overcome them?
 
-In the following, I will go over the findings in assessing the preprocessing and simplification approaches.
-Of course, all approaches listed here can be applied with varying parameters,
+In the following, I will go over the findings in assessing the preprocessing and simplification methods.
+Of course, all methods listed here can be applied with varying parameters,
 which would change the results.
 To provide a summary,
-I present the approaches here with the parameters used in processing the data for the finished map application.
+I present the methods here with the parameters used in processing the data for the finished map application.
+
+% TODO tab here
+
+The level of simplification used for
+processing the TTM for the finished map application was
+a 15-minute isochrone interval and a 60-minute travel time limit.
+The precision of coordinates was reduced to 5 decimal places
+from the 15-decimal place GeoJSON default \parencite{geojsonspec}.
+File minimizing consisted of removing all whitespace from the GeoJSON files
+and applying maximum gzip compression.
 
 The aggregation of travel time values into 15-minute isochrone polygons was the most 
 effective preprocessing step when it came to increasing the responsiveness of the map.
-However, it also reduced the visual detail of the map greatly.
+However, it also reduced the amount of information on the map greatly.
 A travel time maximum of 60 minutes also had a noticeable effect in both these regards,
-but its was dependent on the travel mode.
+but its was more dependent on the travel mode.
 Limiting the extent on slower modes of travel, for example walking,
 resulted in much more data being left out than limiting a travel mode such public transportation or car.
 The 15-minute isochrone interval and 60-minute travel time limit

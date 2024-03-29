@@ -10,7 +10,7 @@ and through the development process assess
 the tools and options available for making such a map.
 More precisely,
 I focused on the choice of web mapping library
-and on the different approaches in preprocessing the mapped data.
+and on the different methods in preprocessing the mapped data.
 The goal was to find how,
 and to what extent,
 these factors affect the map interface.
@@ -279,7 +279,7 @@ see table \ref{tab:nonfunctional requirements}.
 \input{visual/tables/nonfunctional_requirements}
 
 
-\subsubsection{Assessing data preprocessing approaches and preprocessing the TTM}
+\subsubsection{Assessing data preprocessing methods and preprocessing the TTM}
 
 \label{sec:preprocessing}
 % The need for preprocessing
@@ -302,33 +302,33 @@ So it was clear that
 some type of preprocessing as well as simplification of the 
 \acrshort{ttm} data was necessary --
 both to test the hypothesis and to enable real-time interaction in the map.
-The goal of assessing different approaches to data preprocessing, thus,
+The goal of assessing different methods of data preprocessing, thus,
 was to find the suitable level and types of simplification,
-and to compare the effectiveness of different approaches.
+and to compare the effectiveness of different methods.
 
-When assessing the preprocessing approaches, I focused on:
+When assessing the preprocessing methods, I focused on:
 \begin{itemize}
 	\item The impact on the responsiveness of the map when mapping the data.
 	\item The impact on the amount of information on the map,
-	i.e. how much visual information is lost when a given approach is applied.
+	i.e. how much visual information is lost when a given method is applied.
 \end{itemize}
 
-I assessed four types of preprocessing approaches:
+I assessed four methods of preprocessing the data:
 \begin{itemize}
-	\item Aggregation of travel time data into isochrone polygons \parenfig{isochrone intervals}
-	\item Limiting the maximum travel time, i.e. the geographical extent of the results \parenfig{tt limits}
-	\item Reducing the coordinate precision of geometries
-	\item Minimizing files (simplifying GeoJSON structure, compression using gzip)
+	\item Aggregation of travel time data into isochrone polygons.
+	\item Limiting the maximum travel time, i.e. the geographical extent of the results.
+	\item Reducing the coordinate precision of geometries.
+	\item Minimizing files (simplifying GeoJSON structure, compression using gzip).
 \end{itemize}
 
-Out of these approaches, isochrone aggregation and travel time limitation reduced
-the geometrical complexity of the data, i.e reduced the amount of polygons needed to render the map.
+Out of these methods, isochrone aggregation and travel time limitation reduced
+the geometrical complexity of the data, i.e reduced the amount of polygons needed to render the map:
 They either dissolved multiple grid cell geometries into larger polygons \parenfig{isochrone intervals},
 or removed data by discarding geometries based on travel-time values \parenfig{tt limits}.
 Of course, as a result, the file sizes were affected as well.
 Reducing coordinate precision or minimizing files did not affect the number or extent of geometries
 (unless coordinate precision were limited to an extreme).
-In this sense, these approaches did not alter the geometrical complexity of the data,
+In this sense, these methods did not alter the geometrical complexity of the data,
 solely reducing the file sizes.
 
 \begin{figure}[H]
@@ -413,7 +413,7 @@ To enable the assessment
 I constructed a modular preprocessing pipeline
 (figure \ref{fig:preprocessing}).
 By modular I mean that,
-while the complete pipeline applies all preprocessing approaches,
+while the complete pipeline applies all preprocessing methods,
 the design allows for isolated testing of the
 different components of the pipeline, with different parameters.
 I used Python \parencite{python} for implementing most of the preprocessing pipeline,
@@ -422,7 +422,7 @@ In addition, I carried out file compression with
 the standard GNU utilities bash \parencite{bash} and gzip \parencite{gzip}.
 Gzip compression was the natural choice,
 as it is the ubiquitous approach to file compression on the web. 
-I tested the preprocessing approaches on
+I tested the preprocessing methods on
 a randomly picked set of 100 locations in the \acrshort{ttm},
 for each travel mode.
 A random sample of locations is necessary when either
@@ -440,15 +440,15 @@ data varies greatly based on location.
 To measure the effects on file sizes,
 I calculated the mean combined file size of the all the files needed to represent
 all the travel modes for a single cell in the dataset
-when a given approach has been applied.
+when a given method has been applied.
 I calculated these values as averages of a random sample as described above.
 
-I assessed the impact the preprocessing approaches have on rendering speed
+I assessed the impact the preprocessing methods have on the responsiveness of the map
 by using the data with the finished map application.
 The details of the map application are in the next section.
 This assessment was qualitative,
 as it was based on my own perception of responsiveness when using the map.
-Quantitative testing of rendering speed would have been preferable,
+Quantitative testing of rendering speed would have been highly preferable,
 but it proved to be difficult.
 While many tools for profiling the rendering speed of web applications exist,
 I did not succeed in two main areas
@@ -464,20 +464,29 @@ The tools I tried were the Firefox profiler \parencite{firefoxprofiler}
 and the React developer tools browser extension \parencite{reactdevtools}
 on Firefox and Chromium. % TODO
 
-I carried out the assessment of loss of information in two ways:
-Qualitatively for all approaches by observing the processed data on the map,
+I carried out the assessment of the loss of information in two ways:
+Qualitatively for all methods by observing the processed data on the map,
 and, in the case of limiting maximum travel time,
 quantitatively by calculating the percentage of the total dataset area
 that the processed data covers.
 These percentages are, again, averages of a random sample as described above.
 
-The level of simplification used for
-processing the TTM for the finished map application was
-a 15-minute isochrone interval and a 60-minute travel time limit.
-The precision of coordinates was reduced to 5 decimal places
-from the 15-decimal place GeoJSON default \parencite{geojsonspec}.
-File minimizing consisted of removing all whitespace from the GeoJSON files
-and applying maximum gzip compression.
+It must be noted that the effects of all preprocessing methods listed here
+depend entirely on the parameters with which they are applied.
+For example, a travel time limit of 1 minute would certainly enable
+a responsive map, yet remove all information from the presentation.
+Another consideration is that testing, assessing and reporting every possible combination
+of all preprocessing methods and their parameters is simply unrealistic.
+For these reasons, I carried out the aforementioned assessment in two iterations:
+The first was to find out the suitable parameters for each method,
+the goal being to enable the functionalities required of the map application
+\parentab{functional requirements}.
+This part, being reliant on my perception and judgement,
+was a highly qualitative process.
+After finding the suitable parameters,
+I assessed the effects of each preprocessing method,
+as elaborated above.
+This detailed assessment was done with the parameters found in the first part.
 
 Appendix \ref{appendix:repositories} includes a link to the repository
 containing the preprocessing pipeline.
