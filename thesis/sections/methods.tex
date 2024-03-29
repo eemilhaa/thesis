@@ -525,7 +525,7 @@ I considered a general-purpose \acrshort{ui} framework
 essential to provide a robust way of controlling the state of the frontend.
 Also, in general, using a framework instead of a self-made solution
 means less room for error in the implementation,
-and better maintainability and extensibility as the amount of code is drastically smaller.
+and in, this sense, improves the reliability of results.
 In this study I used React \parencite{react} as the \acrshort{ui} framework
 for three reasons:
 It is the framework I am most familiar with,
@@ -556,12 +556,12 @@ When comparing these three libraries, it should be noted that
 both Maplibre and Deck.gl have capabilities for \presentacr{gpu}-accelerated rendering.
 Enabled by a web technology called WebGL, this means that much of the computational load
 of rendering data is off-loaded to the \acrshort{gpu},
-resulting in better rendering performance \parencite{ang2014, mia2017}.
+often times resulting in better rendering performance \parencite{ang2014, mia2017}.
 
 To assess the web mapping libraries,
 I used each of them as the map interface of the frontend. % ref frontend fig here?
 I implemented a feature-complete map interface using both
-Deck.gl and Maplibre, but with Leaflet I stopped at a very minimal working example
+Deck.gl and Maplibre, but with Leaflet I stopped after very minimal testing
 as it became clear that the library would not be used in the implementation due
 to performance issues with React-Leaflet.
 Upon further investigation, it would have been possible to
@@ -589,7 +589,7 @@ The UI component responsible for map rendering and interaction
 only required access to the mapped data,
 and a way to alter the mapped location.
 Aside from these two aspects,
-the map component and its internal state was completely encapsulated
+the map component along with its internal state was completely encapsulated
 from the other components of the frontend application.
 This meant that swapping the map library
 required no changes to the application outside the map component.

@@ -7,34 +7,32 @@
 % an interactive web map application,
 % and what data preprocessing and simplifying approaches
 % are needed to overcome them?
-
-In the following, I will go over the findings in assessing the preprocessing and simplification methods.
-Of course, all methods listed here can be applied with varying parameters,
-which would change the results.
-To provide a summary,
-I present the methods here with the parameters used in processing the data for the finished map application.
-
-% TODO tab here
-
-The level of simplification used for
-processing the TTM for the finished map application was
+The preprocessing parameters used for
+processing the TTM for the finished map application were
 a 15-minute isochrone interval and a 60-minute travel time limit.
-The precision of coordinates was reduced to 5 decimal places
-from the 15-decimal place GeoJSON default \parencite{geojsonspec}.
+I reduced the coordinate precision as much as
+was possible without impacting the map visually.
+This meant a coordinate precision of 5 decimal places,
+reduced from the 15-decimal-place GeoJSON default \parencite{geojsonspec}.
 File minimizing consisted of removing all whitespace from the GeoJSON files
 and applying maximum gzip compression.
+Preprocessing the data with these parameters
+enabled a responsive enough presentation for exploring all travel modes
+with both modes of interaction,
+but still kept the map informative, at least from a macro-scale perspective.
 
+When assessing these methods in more detail,
 The aggregation of travel time values into 15-minute isochrone polygons was the most 
-effective preprocessing step when it came to increasing the responsiveness of the map.
-However, it also reduced the amount of information on the map greatly.
-A travel time maximum of 60 minutes also had a noticeable effect in both these regards,
+effective method when it came to increasing the responsiveness of the map:
+Without the isochrone approach,
+the hovering mode would not have been realistic to implement.
+However, 15-minute isochrone polygons also reduced the amount of information on the map greatly,
+making detail-oriented analysis of the phenomenon impossible.
+A travel time maximum of 60 minutes also had a noticeable effect
+in both the responsiveness and information loss,
 but its was more dependent on the travel mode.
 Limiting the extent on slower modes of travel, for example walking,
 resulted in much more data being left out than limiting a travel mode such public transportation or car.
-The 15-minute isochrone interval and 60-minute travel time limit
-were the values that I settled on in the development process --
-they produced a responsive enough presentation for exploring all travel modes,
-but still kept the map informative, at least from a macro-scale perspective.
 When reasoning about the performance bottleneck of the map application,
 it should be noted that both these methods reduced the geometrical complexity of the data greatly,
 but also, as a result, affected file-sizes.
