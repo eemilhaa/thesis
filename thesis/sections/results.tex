@@ -1,6 +1,6 @@
 \section{Results}
 
-\subsection{Assessment of data preprocessing and simplification methods}
+\subsection{Assessment of data preprocessing methods}
 
 % \item Considering rapid real-time interaction,
 % what are the performance bottlenecks of
@@ -26,8 +26,9 @@ the aggregation of travel time values into 15-minute isochrone polygons was the 
 effective method when it came to increasing the responsiveness of the map:
 Without the isochrone approach,
 the hovering mode would not have been realistic to implement.
-However, 15-minute isochrone polygons also reduced the amount of information on the map greatly,
-making detail-oriented analysis of the phenomenon impossible.
+However, 15-minute isochrone polygons also
+reduced the amount of information on the map greatly,
+making detail-oriented analysis of the mapped phenomenon impossible.
 Limiting the spatial extent of data based on travel time also had a noticeable effect
 in both the responsiveness and information loss,
 but its was more dependent on the travel mode.
@@ -36,8 +37,26 @@ a travel time maximum of 60 minutes resulted in
 much more data being left out than on a travel mode like public transportation or car.
 Likewise, the gain in responsiveness was larger on slower travel modes.
 When reasoning about the performance bottleneck of the map application,
-it should be noted that both these methods reduced the geometrical complexity of the data greatly,
+it should be noted that both these methods
+reduced the geometrical complexity of the data greatly,
 but also, as a result, affected file-sizes.
+
+Limiting coordinate precision and minimizing the GeoJSON files
+reduced the file sizes,
+but neither method had a visible effect on map responsiveness.
+These methods, with the parameters applied here,
+did not result in any information loss on the map,
+and did not alter the geometrical complexity of data.
+
+In general, the methods with the most geometrical simplification
+resulted in the largest gains in the responsiveness of the map,
+while methods focused solely on file sizes did not affect responsiveness.
+Given this, in the context of this web map application,
+the geometrical complexity of data was the performance bottleneck --
+file minimizing alone was not enough for enabling real-time interaction.
+
+See table \ref{tab:preprocessing methods} for
+an overview of the assessment of preprocessing methods.
 
 \input{visual/tables/preprocessing_methods.tex}
 
