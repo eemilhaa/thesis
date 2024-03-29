@@ -63,7 +63,24 @@ an overview of the assessment of preprocessing methods.
 
 \subsection{Assessment of mapping libraries}
 
-\input{visual/tables/map_library_comparison.tex}
+% \item Visual quality of the map
+% \item Responsiveness of the map
+% \item UI integration capabilities (tested only with React)
+
+Considering its visual quality,
+the map contained two main aspects to assess:
+The base map and the isochrone polygons drawn on top of it.
+When assessing the base map,
+Deck.gl and Maplibre were essentially equal as both utilized vector base maps.
+This meant seamless zooming and less noticeable base map loading.
+Leaflet natively uses raster base maps, which resulted in brief yet noticeable
+blurring when the map is zoomed and a more detailed raster is being fetched.
+When assessing the rendering of the polygons,
+I observed Leaflet and Maplibre producing consistent results,
+while Deck.gl produced some inconsistent visual output \parenfig{bug}.
+Upon further investigating this together with the Deck.gl maintainers,
+the rendering error was reproduced and proven to indeed be an issue with the library \parencite{deckbug} --
+More specifically, in its underlying triangulation algorithm \parencite{earcutbug}.
 
 \begin{figure}[H]
 	\centering
@@ -71,6 +88,9 @@ an overview of the assessment of preprocessing methods.
 	\caption{caption \parencite{deckbug}}
 	\label{fig:bug}
 \end{figure}
+
+
+\input{visual/tables/map_library_comparison.tex}
 
 \subsection{Survey on map use}
 
