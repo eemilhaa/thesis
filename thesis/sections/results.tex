@@ -21,18 +21,19 @@ enabled a responsive enough presentation for exploring all travel modes
 with both modes of interaction,
 but still kept the map informative, at least from a macro-scale perspective.
 
-When assessing these methods in more detail,
-The aggregation of travel time values into 15-minute isochrone polygons was the most 
+Assessing these methods in more detail,
+the aggregation of travel time values into 15-minute isochrone polygons was the most
 effective method when it came to increasing the responsiveness of the map:
 Without the isochrone approach,
 the hovering mode would not have been realistic to implement.
 However, 15-minute isochrone polygons also reduced the amount of information on the map greatly,
 making detail-oriented analysis of the phenomenon impossible.
-A travel time maximum of 60 minutes also had a noticeable effect
+Limiting the spatial extent of data based on travel time also had a noticeable effect
 in both the responsiveness and information loss,
 but its was more dependent on the travel mode.
-Limiting the extent on slower modes of travel, for example walking,
-resulted in much more data being left out than limiting a travel mode such public transportation or car.
+On slower modes of travel, for example walking,
+a travel time maximum of 60 minutes resulted in
+much more data being left out than on a travel mode like public transportation or car.
 Likewise, the gain in responsiveness was larger on slower travel modes.
 When reasoning about the performance bottleneck of the map application,
 it should be noted that both these methods reduced the geometrical complexity of the data greatly,
