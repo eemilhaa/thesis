@@ -234,13 +234,15 @@ Still, I should emphasize that the reality is not this linear.
 
 The functional requirements specify the styles and modes of interaction,
 as well as the set of operations a user can carry out with the map.
-Firstly, the map should have two modes of interaction for selecting locations to be mapped.
-These include clicking the map with a pointing device to produce a map of the clicked location,
+Firstly, the map should have two modes of interaction for selecting locations to be mapped,
+both carried out as direct manipulation of the map.
+These include \textit{clicking} the map with a pointing device to produce a map of the clicked location,
 and continuously changing the mapped location by moving the cursor over the map
-(referred to as hovering).
-This enables comparing two different levels of interactivity in the study:
-clicking to produce static maps and hovering to produce
-a responsive, \enquote{live},
+(referred to as \textit{hovering}).
+This enables comparing two different modes of interaction in the study:
+a \textit{clicking mode} to produce static maps,
+and a \textit{hovering mode} to produce
+an interactive, live,
 representation of the accessibility under the cursor.
 There should also be interface capabilities for selecting travel modes
 and changing the mode of interaction.
@@ -249,10 +251,17 @@ at different points of focus and levels of detail,
 the map should support panning and zooming the view.
 The functional requirements are documented in table \ref{tab:functional requirements}.
 
+\input{visual/tables/functional_requirements.tex}
+
 For the quality attributes of the application,
 performance is an essential consideration --
 both in the sense of software performance
 and the responsiveness of the application as perceived by the user.
+The most important consideration here is
+the aforementioned hovering mode:
+Real-time interaction by hovering the mouse above the map
+can mean tens of data requests and map renders
+per second.
 This must be considered in both the front and backend of the application.
 Quality attributes that are invisible to a user, but still vital,
 are that the application can be maintained and deployed,
@@ -270,12 +279,11 @@ of containerized applications and their accompanying services.
 I mention these details because to the application they are constraints:
 Both the front and backend implementations should be completely containerized,
 and they both are deployed with the OpenShift flavour of Kubernetes.
-Also, as is obvious by now,
+Also, as is clear by now,
 the frontend of the application is constrained to running in a web browser.
 For the nonfunctional requirements of the application,
 see table \ref{tab:nonfunctional requirements}.
 
-\input{visual/tables/functional_requirements.tex}
 \input{visual/tables/nonfunctional_requirements}
 
 
@@ -290,11 +298,11 @@ With initial testing,
 it became obvious that
 visualizing unprocessed \acrshort{ttm} data,
 i.e. the complete 13000-cell grid of travel times for every location,
-was not an option. This was due to two issues:
-unresponsiveness of the map interface and the large file sizes.
-Based on this,
+was not an option. This was due to the
+unresponsiveness of the map interface.
+Based on this, coupled with the characteristics of the TTM data,
 I formed the hypothesis that either the file sizes
-or the geometrical complexity of the data would be
+or the geometrical complexity of the data were
 the major factor limiting the responsiveness of the map,
 i.e. the performance bottleneck.
 
@@ -303,12 +311,12 @@ some type of preprocessing as well as simplification of the
 \acrshort{ttm} data was necessary --
 both to test the hypothesis and to enable real-time interaction in the map.
 The goal of assessing different methods of data preprocessing, thus,
-was to find the suitable level and types of simplification,
-and to compare the effectiveness of different methods.
+was to first find the suitable methods and levels of preprocessing and simplifying the data,
+and then to compare the effectiveness of different methods.
 
 When assessing the preprocessing methods, I focused on:
 \begin{itemize}
-	\item The impact on the responsiveness of the map when mapping the data.
+	\item The impact on the responsiveness of the map interface when mapping the data.
 	\item The impact on the amount of information on the map,
 	i.e. how much visual information is lost when a given method is applied.
 \end{itemize}
@@ -323,7 +331,7 @@ I assessed four methods of preprocessing the data:
 
 Out of these methods, isochrone aggregation and travel time limitation reduced
 the geometrical complexity of the data, i.e reduced the amount of polygons needed to render the map:
-They either dissolved multiple grid cell geometries into larger polygons \parenfig{isochrone intervals},
+They either dissolved multiple grid cells into larger polygons \parenfig{isochrone intervals},
 or removed data by discarding geometries based on travel-time values \parenfig{tt limits}.
 Of course, as a result, the file sizes were affected as well.
 Reducing coordinate precision or minimizing files did not affect the number or extent of geometries
@@ -462,7 +470,7 @@ Averaging the renders of a single location would not suffice
 due to the differences of data complexity between locations.
 The tools I tried were the Firefox profiler \parencite{firefoxprofiler}
 and the React developer tools browser extension \parencite{reactdevtools}
-on Firefox and Chromium. % TODO
+on the Firefox and Chromium web browsers. % TODO
 
 I carried out the assessment of the loss of information in two ways:
 Qualitatively for all methods by observing the processed data on the map,
@@ -477,7 +485,7 @@ For example, a travel time limit of 1 minute would certainly enable
 a responsive map, yet remove all information from the presentation.
 Another consideration is that testing, assessing and reporting every possible combination
 of all preprocessing methods and their parameters is simply unrealistic.
-For these reasons, I carried out the aforementioned assessment in two iterations:
+So, as briefly mentioned before, I carried out the assessment in two iterations:
 The first was to find out the suitable parameters for each method,
 the goal being to enable the functionalities required of the map application
 \parentab{functional requirements}.
