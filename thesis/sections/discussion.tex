@@ -26,25 +26,46 @@ Some ideas for discussion:
 % My results showed that...
 \subsection{Technical considerations and the process of creating cartographic interaction}
 
-a high level of data simplification was needed to enable real-time interaction with the map
-in the context of this particular application.
-
-
-
-Based on these results
-I can also reason about the performance bottlenecks,
-but only in the context of this particular application, i.e. rapid real-time interaction.
-In this context the bottleneck is definitely rendering speed,
-which is most affected by the geometrical complexity.
-For example, the map would in no way work if rendering individual grid cells,
-even with instant data transfer.
-
+With the implementation process, my first goal was to pinpoint
+the performance bottlenecks of
+an interactive web map application.
+I also aimed to find what data preprocessing and simplifying approaches
+were needed to overcome them.
+My assessment of the preprocessing methods showed that, in the case of this particular
+map application, the geometrical complexity of the data was the most limiting factor
+when striving for real-time cartographic interaction.
 While reliably generalizing these findings based on this study alone is impossible,
-I would form the hypothesis that if the file size of a given data consists mostly of geometries,
+I would form the following hypothesis:
+In a web mapping context, If a given data consists mostly of geometries, i.e.
+features that must be drawn and re-drawn on the map in real-time,
 rendering performance will limit map responsiveness before file sizes become an issue.
+Reflecting this,
+the data preprocessing methods that were needed
+to enable a responsive map interface in this study
+consisted of heavy geometrical simplification of the data.
+As a result, much of the detail on the map was lost.
+This is an important consideration for the design of map interfaces in general,
+as such loss of detail could potentially lead to
+a shallow presentation with little insight to offer.
 
-Many of the tradeoffs above are not inherent to cartographic interaction,
-rather they are technical limitations.
+My second technology-centric goal was to assess
+the differences between web mapping libraries
+when used as a platform for real-time cartographic interaction.
+My results showed that such differences do exist,
+and that they do matter from the perspective of the map interface.
+As a general indication,
+
+
+Many of the tradeoffs above in no way inherent to cartographic interaction.
+Rather, they are technical limitations.
+Newer libraries observed more performant and support what is considered essential out of the box.
+
+Importance of keeping up with technical change \parencite{rot2014},
+
+modular software to enable keeping up with change.
+
+Software to support GeoVisual Analytics should be lightweight, easily % and2010 FIXME COPYPASTA
+deployable and usable, rather than huge and complex like current GIS
 
 % The map presentation and survey results from technical perspective
 Too much data / too precise data:
@@ -63,12 +84,7 @@ Generalization of results is difficult if not impossible
 % https://andrejgajdos.com/leaflet-developer-guide-to-high-performance-map-visualizations-in-react/
 Difficulty in assessing options: Testing the technology or the implementation.
 
-Software to support GeoVisual Analytics should be lightweight, easily % and2010 FIXME COPYPASTA
-deployable and usable, rather than huge and complex like current GIS
 
-Importance of keeping up with technical change \parencite{rot2014},
-modular software to enable keeping up with change.
-Newer libraries observed more performant and support what is considered essential out of the box.
 
 % Accessibility? A whole different technology stack and an immense amount of work
 
