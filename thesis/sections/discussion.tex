@@ -24,7 +24,7 @@ Some ideas for discussion:
 \end{itemize}
 
 % My results showed that...
-\subsection{Technical considerations and the process of creating cartographic interaction}
+\subsection{Technological considerations for cartographic interaction on the web}
 
 With the implementation process, my first goal was to pinpoint
 the performance bottlenecks of
@@ -76,9 +76,39 @@ having to keep up with the rapid innovation happening on the platform:
 Depending on the technological choices, the map application implemented in this study
 either works fluidly, or is simply nonfunctional.
 
+A more general discussion can also be raised on the topic of what exactly is
+a \enquote{web cartographer}.
+Making maps for the web can range from simple
+single-purpose maps to extensive web applications with
+client- and server-side components \parencite{vee2017, mai2017}.
+In the first case,
+the map could be seen as something not too far removed from
+what a map is traditionally seen as: for example a communicative
+device intended to get its predetermined message across to the map reader,
+or a single representation of the mapped topic.
+Also, the expertise crafting such a map requires is mostly concerned with
+the cartographic method, only applied to the relevant technologies \parencite{rot2021}.
+In the second case,
+the map is simultaneously a UI, a web application, and, of course, a map.
+Crafting such a map requires knowledge on many topics:
+The cartographer is a UI designer and a usability engineer,
+but also increasingly a developer \parencite{rot2017, mai2017}.
+My study and the development process I carried out to enable it supports this.
+Real-time cartographic interaction was an aspect that had to be considered
+in implementing multiple aspects of a client-server web application, in which the map
+was only a single component.
+Based on this,
+the web cartographer could be theorized as
+someone more akin to the elusive full-stack web developer --
+a term that in general refers to \enquote{covering the responsibility of an entire IT
+department} \parencite[p.~370]{tai2021}.
+Who- or whatever they might be, conceptualizing the role of the web cartographer is important.
+Much like software in general, maps and cartographic interaction
+are more and more often made for the web \parencite{tai2017, rot2021, rot2014, vee2017}.
 
-Many of the tradeoffs above in no way inherent to cartographic interaction.
-Rather, they are technical limitations.
+
+
+
 
 Importance of keeping up with technical change \parencite{rot2014},
 
@@ -102,6 +132,7 @@ that goes into implementing cartographic interaction,
 yet all the other work must be done,
 or the map will not exist.
 Cooperation with developers, map users and cartographers is key.
+
 
 Generalization of results is difficult if not impossible
 
@@ -177,3 +208,6 @@ What would the map, and by extension the whole study, look like with different p
 With different definitions of accessibility?
 
 Further research:
+This highlights the fact that the technical tradeoffs and limitations found in this study
+are in no way inherent to cartographic interaction:
+Rather, they are technical limitations, that change in time.
