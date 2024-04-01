@@ -43,22 +43,42 @@ Reflecting this,
 the data preprocessing methods that were needed
 to enable a responsive map interface in this study
 consisted of heavy geometrical simplification of the data.
-As a result, much of the detail on the map was lost.
-This is an important consideration for the design of map interfaces in general,
-as such loss of detail could potentially lead to
+As a result, much of the detail on the map was lost,
+but the real-time exploration of said data was made possible.
+This is an important factor in the design of
+web-based map interfaces in general,
+as such loss of detail, while providing capabilities for fast exploration,
+could potentially lead to
 a shallow presentation with little insight to offer.
+Considering such tradeoffs will only become more relevant moving forwards,
+as the amount of data to map is only increasing \parencite{kra2017}.
 
 My second technology-centric goal was to assess
 the differences between web mapping libraries
 when used as a platform for real-time cartographic interaction.
 My results showed that such differences do exist,
-and that they do matter from the perspective of the map interface.
-As a general indication,
+and that they do matter from the perspective of the map interface --
+both in terms of using and developing it.
+An important detail is also that
+it was the \textit{newer} web-mapping libraries that I observed most performant,
+enabling real-time cartographic interaction.
+Also, the newer libraries included features and capabilities
+that might today be considered essential,
+without the need for plugins or self-made modifications.
+Depending on the use case, such things might include GPU acceleration,
+vector base maps, or UI framework integration.
+In general, the web is often considered the fastest changing
+software ecosystem \parencite{mik2019, tai2017} --
+a fact also recognized in the web mapping context
+\parencite{rot2014, vee2017}.
+My findings reinforce this, emphasizing the need of the web cartographer
+having to keep up with the rapid innovation happening on the platform:
+Depending on the technological choices, the map application implemented in this study
+either works fluidly, or is simply nonfunctional.
 
 
 Many of the tradeoffs above in no way inherent to cartographic interaction.
 Rather, they are technical limitations.
-Newer libraries observed more performant and support what is considered essential out of the box.
 
 Importance of keeping up with technical change \parencite{rot2014},
 
@@ -66,6 +86,10 @@ modular software to enable keeping up with change.
 
 Software to support GeoVisual Analytics should be lightweight, easily % and2010 FIXME COPYPASTA
 deployable and usable, rather than huge and complex like current GIS
+
+
+In general, the technical implementation showed that
+
 
 % The map presentation and survey results from technical perspective
 Too much data / too precise data:
