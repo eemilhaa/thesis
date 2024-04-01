@@ -26,7 +26,7 @@ Some ideas for discussion:
 % My results showed that...
 \subsection{Technological considerations for cartographic interaction on the web}
 
-With the implementation process, my first goal was to pinpoint
+With the technical side of this study, my first goal was to pinpoint
 the performance bottlenecks of
 an interactive web map application.
 I also aimed to find what data preprocessing and simplifying approaches
@@ -86,8 +86,8 @@ the map could be seen as something not too far removed from
 what a map is traditionally seen as: for example a communicative
 device intended to get its predetermined message across to the map reader,
 or a single representation of the mapped topic.
-Also, the expertise crafting such a map requires is mostly concerned with
-the cartographic method, only applied to the relevant technologies \parencite{rot2021}.
+Also, the expertise required to craft such a map is mostly concerned with
+the cartographic method, only applied with the relevant technologies \parencite{rot2021}.
 In the second case,
 the map is simultaneously a UI, a web application, and, of course, a map.
 Crafting such a map requires knowledge on many topics:
@@ -100,7 +100,7 @@ was only a single component.
 Based on this,
 the web cartographer could be theorized as
 someone more akin to the elusive full-stack web developer --
-a term that in general refers to \enquote{covering the responsibility of an entire IT
+a person that is often connected to \enquote{covering the responsibility of an entire IT
 department} \parencite[p.~370]{tai2021}.
 Who- or whatever they might be, conceptualizing the role of the web cartographer is important.
 Much like software in general, maps and cartographic interaction
@@ -147,6 +147,12 @@ Difficulty in assessing options: Testing the technology or the implementation.
 % \subsection{Real time cartographic interaction and its tradeoffs}
 \subsection{An interactive web map as a representation and an interface}
 
+% \item Which types of interaction available in the map do people use
+% in different types of usage scenarios?
+% \item Does real-time interaction with the map change
+% the map user's perception of the mapped phenomenon? If it does, how?
+With the survey my goal was to
+
 % The map presentation and survey results from cartography perspective
 Implementing something like the hovering mode could be worth it in the sense
 that it provides a genuinely different way to explore massive data.
@@ -154,7 +160,9 @@ Depending on the data being visualized,
 the loss of detail to enable such a presentation could be immense,
 potentially leading to a shallow presentation with little insight to offer.
 
+% as dynamic as possible?
 Hovering mode was favored regardless of task type → dynamic better?
+\parencite{but2018}
 
 Overall, the results of the survey indicate that the map worked,
 both in the sense of usability and conveying information about the mapped phenomenon.
@@ -167,18 +175,20 @@ harder to understand hovering mode →
 more information reflects this particular phenomenon better?
 
 
-\subsection{Data access}
+% \subsection{The value of web-based cartographic interaction}
+\subsection{Open science, data and presentation}
 % inc2012
+The \acrshort{ttm} is an extensive showcase of open science.
 
 
 % Not complete without representation
 In many cases, open access to data does not by itself enable
 the exploration or understanding of said data \parencite{obr2016}.
 It could be argued that the \acrshort{ttm} is a prime example of this.
-In its raw, unprocessed, form,
-the dataset constitutes gigabytes of data spread over thousands of plain text files
+In its raw form,
+the dataset consists of gigabytes of plain text spread over thousands of files
 that need to be further combined with an external statistical grid to enable
-geographical representation of the data.
+geographical presentation of the data.
 Merely comprehending the structure of the dataset requires expertise,
 proving to be anything but obvious even to university students specializing in the field
 -- the author included.
@@ -193,9 +203,7 @@ An open representation for open data
 This work continues on that track,
 as every component is completely open-source \& openly available.
 
-\subsection{Open source}
 % TTM overview: measurements, modelling, dataset
-Not only a dataset, the \acrshort{ttm} is an extensive showcase of open science.
 Scalable Kubernetes / OpenShift deployments → Reproducibility at the level of the entire application
 Containerization → Reproducibility at the level of the components of the application
 
@@ -207,6 +215,8 @@ conceptualizing, implementing and studying an interactive map presentation are i
 What would the map, and by extension the whole study, look like with different priorities?
 
 With different definitions of accessibility?
+
+Sustainability of interaction?
 
 Further research:
 This highlights the fact that the technical tradeoffs and limitations found in this study
