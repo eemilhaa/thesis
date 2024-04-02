@@ -31,6 +31,7 @@ jobs:
         with:
           root_file: main.tex
           working_directory: thesis/
+          texlive_version: 2023
 
       - name: Make release
         uses: softprops/action-gh-release@v1
