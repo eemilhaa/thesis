@@ -149,14 +149,17 @@ Difficulty in assessing options: Testing the technology or the implementation.
 
 
 % \subsection{Real time cartographic interaction and its tradeoffs}
-\subsection{An interactive web map as a representation and an interface}
+% \subsection{An interactive web map as a representation and an interface}
+\subsection{Perception and utilization of the interactive map}
 
 % \item Which types of interaction available in the map do people use
 % in different types of usage scenarios?
 % \item Does dynamic real-time interaction with the map change  % FIXME new term?
 % the map user's perception of the mapped phenomenon? If it does, how?
-By carrying out the survey I firstly aimed to find out what types of interaction
-map users utilize in different scenarios of map use.
+By carrying out the survey I aimed to find out what types of interaction
+map users utilize in different types of usage scenarios
+and whether dynamic real-time cartographic interaction changes the way
+map users perceive the mapped phenomenon.
 My results showed that, in the context of map use \textit{as prompted in the questionnaire},
 the participants preferred as dynamic as possible interaction with the map.
 This was true in two different kinds of tasks,
@@ -178,61 +181,40 @@ participants highlighted different combinations of map interactions as most usef
 and also mentioned how the value of a given type or style of interaction is
 dependent on the usage scenario.  % experienced freedom in interface?
 
-My second goal with the survey was to see if, and how,
-dynamic real-time cartographic interaction changes the way
-map users perceive the mapped phenomenon.
 Based on my results, the participants' perception of the mapped phenomenon did change
 depending on the mode of interaction they used in examining it.
 A key aspect is also that the participants found it harder to decide which one
 of two locations is more accessible
 when using the more dynamic hovering mode to carry out the assessment.
-However, the participants also regarded the map interface as easy to use,
+The increased difficulty of the
+comparison is unlikely to be caused by
+issues in using the particular mode of interaction:
+In general, the participants regarded the map interface as easy to use,
 chose to use the hovering mode when given the chance,
 and rated the hovering mode as the more useful mode
-of interaction with the map in general.
-Based on this, it can be reasoned that the increased difficulty of the
-comparison is unlikely to be caused by
-difficulties in using the mode of interaction,
-but rather a by-product of
-the amount and speed of information that the user is presented with when using it.
-This, combined with the differing results depending on mode of interaction,
-shows that a dynamic, real-time, mode of interaction did provide
-a genuinely different representation of the mapped phenomenon.
-Bringing this into the context of accessibility, i.e. the mapped phenomenon,
-it could also be said that a definitive comparison of the accessibilities of
-two locations is by no means a simple task --
-The difficulty in making such a comparison could reflect the complexity of the phenomenon,
-and, should this be the case, signal that dynamic real-time interaction did provide
-a more accurate way to represent that complexity to the map user.
-
- could be argued to allow for a more reflective
-representation of the mapped phenomenon
-
-
-All this also further highlights the value that more dynamic
-interaction can introduce to map interfaces.
+of interaction with the map.
+Instead, the difficulty in forming a decisive opinion with the hovering mode
+could be a by-product of the amount of information presented to the user when using it.
+All this suggests that a dynamic, real-time, mode of interaction did provide
+a different representation of the mapped phenomenon,
+fitting directly into the wider discussion within geovisual analytics:
+New methods for interfacing with growing spatial datasets are key to the discipline
+\parencite{rob2017b, and2010}.
+Approaching my results from the perspective of accessibility research,
+it should also be noted that making a definitive comparison of accessibility between
+two locations is a complex task \parencite{geu2004, lev2020, hu2019}.
+The difficulty the participants experienced in making such a comparison
+could reflect that a dynamic mode of interaction
+better represented this complexity to the map user.
+Multiple participants also reported gaining new insight to the phenomenon
+having used the interactive map,
+which supports the call for dynamic presentation approaches
+for better understanding accessibility \parencite{but2018, te2014}.
 
 % Identifying the types of tasks where a given mode of interaction if most used.
 
-% The map presentation and survey results from cartography perspective
-Implementing something like the hovering mode could be worth it in the sense
-Depending on the data being visualized,
-the loss of detail to enable such a presentation could be immense,
-potentially leading to a shallow presentation with little insight to offer.
-
-% as dynamic as possible?
-Hovering mode was favored regardless of task type → dynamic better?
-\parencite{but2018}
-
 Overall, the results of the survey indicate that the map worked,
 both in the sense of usability and conveying information about the mapped phenomenon.
-
-Tradeoffs in the map:
-now priority is on instant interaction instead of detailed maps.
-
-Different perception depending on mode of interaction,
-harder to understand hovering mode →
-more information reflects this particular phenomenon better?
 
 
 % \subsection{The value of web-based cartographic interaction}
@@ -257,11 +239,15 @@ includes an easier-to-map data format with geometries included,
 actually mapping the \acrshort{ttm} would still require
 desktop \acrshort{gis} software or a programming environment,
 coupled with the know-how of using either option.
+
 An open representation for open data
 
 % The representation from the angle of access to understanding data, reproducibility and open science
 This work continues on that track,
 as every component is completely open-source \& openly available.
+
+ease of use
+some new understanding
 
 % TTM overview: measurements, modelling, dataset
 Scalable Kubernetes / OpenShift deployments → Reproducibility at the level of the entire application
@@ -271,6 +257,9 @@ Containerization → Reproducibility at the level of the components of the appli
 
 A lot. By this I mean that the options in
 conceptualizing, implementing and studying an interactive map presentation are innumerable.
+
+Tradeoffs in the map:
+now priority is on instant interaction instead of detailed maps.
 
 What would the map, and by extension the whole study, look like with different priorities?
 
