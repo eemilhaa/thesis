@@ -106,32 +106,27 @@ someone more akin to the elusive full-stack web developer,
 department} \parencite[p.~370]{tai2021}.
 Who- or whatever they might be, conceptualizing the role of the web cartographer is important.
 Much like software in general, maps and cartographic interaction
-are more and more often made for the web \parencite{tai2017, rot2021, rot2014, vee2017}.
+are more and more often made for the web \parencite{tai2017, rot2021, vee2017}.
 
 The main limitation of the technical side of this study
 was the lack of quantitative data to back up
 the claims related to the responsiveness of the map interface.
-Also, the qualitative assessments of responsiveness was done
-only as part of the development process, by me.
-Another limitation is that
-when testing software libraries by actively developing something with them,
-a level of uncertainty is always introduced to the results:
+Another limitation is that testing software libraries by
+actively developing something with them introduces
+a level of uncertainty to the results:
 The correctness of a given computer program is difficult to prove
 \parencite{dij1970, amm2016},
-which could mean the results are more related to the particular implementation
-rather than the tools it was made with.
+which could mean the results are more related to the particular program
+instead of the library it was made with.
+Minimizing this uncertainty necessitated
+a highly modular design of the client-side application.
+One output of this study is the notion that such design did allow for
+the relatively rapid and efficient testing of different web mapping libraries,
+providing a concrete example of
+how the recognized need of keeping up with evolving web mapping tools \parencite{rot2014, rot2021}
+could be satisfied at the software level.
 
 
-
-
-
-
-Importance of keeping up with technical change \parencite{rot2014},
-
-modular software to enable keeping up with change.
-
-Software to support GeoVisual Analytics should be lightweight, easily % and2010 FIXME COPYPASTA
-deployable and usable, rather than huge and complex like current GIS
 
 
 In general, the technical implementation showed that
@@ -264,6 +259,17 @@ some new understanding
 % TTM overview: measurements, modelling, dataset
 Scalable Kubernetes / OpenShift deployments → Reproducibility at the level of the entire application
 Containerization → Reproducibility at the level of the components of the application
+In general, to provide reliability to my results and value to the implementation,
+I crafted the technical components of the study in a highly reproducible manner:
+Not only is the application reproducible in the sense of available source code,
+but also in the sense that its components are
+automatically packaged and published as functional container images.
+Also, the deployment of the application is done declaratively,
+meaning that instead of relying on a manual effort,
+it too can be automatically and reliably reproduced.
+
+Software to support GeoVisual Analytics should be lightweight, easily % and2010 FIXME COPYPASTA
+deployable and usable, rather than huge and complex like current GIS
 
 \subsection{What was not mapped}
 
