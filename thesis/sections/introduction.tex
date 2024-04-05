@@ -51,15 +51,14 @@ enabling new ways to solve novel and increasingly complex problems
 In addition to consciously analytical expert use,
 interactive maps and accompanying technologies have found their place
 in the everyday lives of most.
-As such,
-cartographic interaction, for example in the form of online or mobile map applications,
-can be seen to facilitate the access to spatial information
+Cartographic interaction, for example in the form of online and mobile map applications,
+can thus be seen to facilitate the access to spatial information
 for the many rather than the few \parencite{mei2019}.
 
 While cartography has long been considered a highly multidisciplinary science,
 understanding and crafting cartographic interaction necessitates an even
 more diverse set of research themes, questions and methods.
-Transitioning from the map reader to the map user
+The transition from the map reader to the map user
 introduces the cognitive process of map use in addition to map reading
 \parencite{mac2015, liu2010},
 and requires envisioning the map as an interface in addition to a representation
@@ -68,24 +67,28 @@ Gaining insight on how the map interface is used, perceived and reasoned with
 means including the user into the cartographic process,
 and calls for studies designed around map use specifically as enabled by cartographic interaction
 \parencite{rot2017}.
+
 At a technological level,
-the notion of interactive maps as digital applications relates maps to software,
-meaning that the tools of the mapmaker
-more and more resemble those of a software developer \parencite{rot2014}.
+the notion of interactive maps as digital applications relates maps to software.
+More often than not, this software specifically refers to web applications:
+The web has for a while been considered the de-facto software platform \parencite{tai2017, mik2019},
+and a clear majority of interactive maps are being made for the web \parencite{vee2017}.
+This means that the tools of the mapmaker
+frequently resemble those of a web developer \parencite{rot2021}.
 The assessment of these tools is an effort regarded as both necessary
 and topical:
 Necessary since software defines the technological possibilities and limits
 of cartographic interaction,
 and topical due to the rapid pace of technological innovation
 and the equally fast increase of the requirements placed upon map interfaces
-\parencite{rot2021}.
+\parencite{rot2014, rot2021}.
 
 In this study I focus on cartographic interaction from two points of view,
-with two broad goals.
+with two main goals.
 From a technology-centric perspective,
-I aim to find out how cartographic interaction can be utilized in exploring
-massive spatial data,
-and to assess the tradeoffs, limitations and technologies to be considered when
+I aim to find out how web-based cartographic interaction can be utilized in exploring
+massive spatial data by
+assessing the tradeoffs, limitations and technologies to be considered when
 striving for such a presentation. % an interactive, dynamic and responsive display of complex data.
 From a user-centric perspective,
 my goal is to study how
@@ -93,7 +96,37 @@ map users utilize a highly interactive map interface,
 and how they perceive the mapped phenomenon
 through cartographic interaction.
 
-As a date
+The first goal revolves around developing an interactive web map application,
+a map interface for exploring the \presentacr{ttm} \parencite{fin2023}.
+In short, the \acrshort{ttm} is a dataset on spatial accessibility,
+containing travel times for
+over 175 million unique routes by a multitude of travel modes
+in the Helsinki region, southern Finland.
+With the map interface,
+a user should be able to explore travel times to all locations included in the dataset,
+by all travel modes.
+While such an extensive dataset provides endless options in its presentation,
+I base the design around dynamic real-time interaction.
+To allow for this, the basis of interface
+While many interface and interaction styles can
+interaction with the map must happen in real-time,
+i.e. with instant visual feedback.
+
+My research questions are as follows:
+
+\begin{itemize}
+	\item Considering dynamic real-time interaction,
+	what are the performance bottlenecks of
+	a web-based interactive map,
+	and what data preprocessing and simplifying methods
+	are needed to overcome them?
+	\item What differences are there between web mapping libraries
+	when used as a platform for dynamic real-time cartographic interaction?
+	\item Which types of user-map interaction do map users use
+	in different types of usage scenarios when using a map interface?
+	\item Does dynamic real-time interaction with a map change
+	the map user's perception of the mapped phenomenon? If it does, how?
+\end{itemize}
 
 % This thesis applies all this to accessibility
 In this thesis I relate cartography to accessibility.
