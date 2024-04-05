@@ -52,7 +52,7 @@ In addition to consciously analytical expert use,
 interactive maps and accompanying technologies have found their place
 in the everyday lives of most.
 Cartographic interaction, for example in the form of online and mobile map applications,
-can thus be seen to facilitate the access to spatial information
+can in this sense be seen to facilitate the access to spatial information
 for the many rather than the few \parencite{mei2019}.
 
 While cartography has long been considered a highly multidisciplinary science,
@@ -70,11 +70,11 @@ and calls for studies designed around map use specifically as enabled by cartogr
 
 At a technological level,
 the notion of interactive maps as digital applications relates maps to software.
-More often than not, this software specifically refers to web applications:
+Often, this software more particularly refers to web applications:
 The web has for a while been considered the de-facto software platform \parencite{tai2017, mik2019},
 and a clear majority of interactive maps are being made for the web \parencite{vee2017}.
 This means that the tools of the mapmaker
-frequently resemble those of a web developer \parencite{rot2021}.
+increasingly frequently resemble those of a web developer \parencite{rot2021}.
 The assessment of these tools is an effort regarded as both necessary
 and topical:
 Necessary since software defines the technological possibilities and limits
@@ -83,36 +83,44 @@ and topical due to the rapid pace of technological innovation
 and the equally fast increase of the requirements placed upon map interfaces
 \parencite{rot2014, rot2021}.
 
-In this study I focus on cartographic interaction from two points of view,
+In this study I approach cartographic interaction from two points of view,
 with two main goals.
 From a technology-centric perspective,
-I aim to find out how web-based cartographic interaction can be utilized in exploring
-massive spatial data by
-assessing the tradeoffs, limitations and technologies to be considered when
-striving for such a presentation. % an interactive, dynamic and responsive display of complex data.
+I aim to assess the tradeoffs, limitations and technologies to be considered when
+striving for an interactive, dynamic and responsive web map interface to complex data.
+% I aim to find out how web-based cartographic interaction can be utilized in exploring
+% massive geospatial data.
 From a user-centric perspective,
 my goal is to study how
-map users utilize a highly interactive map interface,
+map users utilize a highly interactive map interface
 and how they perceive the mapped phenomenon
 through cartographic interaction.
 
-The first goal revolves around developing an interactive web map application,
+
+Both my goals revolve around developing an interactive web map application --
 a map interface for exploring the \presentacr{ttm} \parencite{fin2023}.
-In short, the \acrshort{ttm} is a dataset on spatial accessibility,
+In short, the \acrshort{ttm} is a large dataset on spatial accessibility,
 containing travel times for
 over 175 million unique routes by a multitude of travel modes
 in the Helsinki region, southern Finland.
-With the map interface,
-a user should be able to explore travel times to all locations included in the dataset,
+Functionally speaking, the goal of the map interface is to enable
+a user to explore travel times to all locations included in the dataset,
 by all travel modes.
-While such an extensive dataset provides endless options in its presentation,
-I base the design around dynamic real-time interaction.
-To allow for this, the basis of interface
-While many interface and interaction styles can
-interaction with the map must happen in real-time,
-i.e. with instant visual feedback.
+Considering the scale of the dataset,
+a dynamic, real-time approach to interaction is necessary
+if any meaningful portion of the data is to be explored.
+More descriptively, the interface should allow for flexible and
+responsive (dynamic) interaction exchanges that happen with as little as possible delay
+perceived by the user (in real-time).
+% The main design factor
+In the context of my technology-centric goal,
+the development process and the map application are the framework
+allowing me to study the technological aspects interactive maps.
+Considering my user-centric goal,
+the development process outputs an interactive map application
+to be used in studying in how such an interface is used and understood by map users.
 
-My research questions are as follows:
+I further delineate the focus of my work with the following research questions:
 
 \begin{itemize}
 	\item Considering dynamic real-time interaction,
@@ -127,6 +135,34 @@ My research questions are as follows:
 	\item Does dynamic real-time interaction with a map change
 	the map user's perception of the mapped phenomenon? If it does, how?
 \end{itemize}
+
+% ------------------------
+When describing the presentation I use the word system.
+This is because crafting such a presentation
+requires the mapmaker to make much more than a map --
+It means designing, implementing and optimizing
+a whole that consists of multiple components.
+These components all have their distinct purposes yet must function together
+to meet the requirements placed upon the whole.
+\begin{itemize}
+	\item Preprocessing the dataset (the \acrshort{ttm}) to a mappable format,
+	and simplifying it to enable its interactive exploration over the internet
+	\item A solution for storing and serving the data, i.e. the backend
+	\item A web application for interactively presenting the data, i.e. the frontend
+\end{itemize}
+
+The ultimate purpose of the entire system is to enable a map.
+The map, in turn, has a goal of conveying information;
+it is a representation of the mapped phenomenon.
+However, studying how the map works,
+not as a piece of technology but as a representation,
+is impossible based on a technical implementation alone.
+
+My second research goal is to understand how
+this particular representation of accessibility conveys information.
+I aim to find out how the map user understands the map,
+and how they use cartographic interaction to explore the mapped phenomenon.
+% ------------------------
 
 % This thesis applies all this to accessibility
 In this thesis I relate cartography to accessibility.
