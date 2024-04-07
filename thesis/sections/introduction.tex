@@ -157,336 +157,344 @@ affects how they perceive the mapped phenomenon.
 In addition, I supplement the task-based structured portion of the questionnaire
 with unstructured questions to gain qualitative insight on map use and perception.
 
+This thesis explores the relevant theory and technology
+needed to craft cartographic interaction on the web,
+also concisely acknowledging the implications that the mapped phenomenon,
+i.e. spatial accessibility, introduces to crafting a map interface.
+Applying all this to practice, this thesis documents the technical implementation
+of a web-map application and the survey process on map use.
+Finally, this thesis relates the results to the wider scientific discussion
+in the context of modern-day web-mapping, interactive cartography and geovisual analytics. 
 
 
-% ------------------------
-When describing the presentation I use the word system.
-This is because crafting such a presentation
-requires the mapmaker to make much more than a map --
-It means designing, implementing and optimizing
-a whole that consists of multiple components.
-These components all have their distinct purposes yet must function together
-to meet the requirements placed upon the whole.
-\begin{itemize}
-	\item Preprocessing the dataset (the \acrshort{ttm}) to a mappable format,
-	and simplifying it to enable its interactive exploration over the internet
-	\item A solution for storing and serving the data, i.e. the backend
-	\item A web application for interactively presenting the data, i.e. the frontend
-\end{itemize}
-
-The ultimate purpose of the entire system is to enable a map.
-The map, in turn, has a goal of conveying information;
-it is a representation of the mapped phenomenon.
-However, studying how the map works,
-not as a piece of technology but as a representation,
-is impossible based on a technical implementation alone.
-
-My second research goal is to understand how
-this particular representation of accessibility conveys information.
-I aim to find out how the map user understands the map,
-and how they use cartographic interaction to explore the mapped phenomenon.
-% ------------------------
-
-% This thesis applies all this to accessibility
-In this thesis I relate cartography to accessibility.
-When referring to accessibility,
-I more specifically mean spatial accessibility, that is,
-the ease of reaching valued destinations in physical space \parencite{lev2020}.
-Understanding accessibility is important,
-as the phenomenon is deeply interlinked in our society.
-Accessibility affects the choices and experiences of individuals \parencite{kwa1998, kwa2003}
-as well as the planning and governance processes
-of much larger entities such as cities \parencite{cur2010, low2015}.
-It is also directly linked to significant and ongoing issues such as
-urban well-being \parencite{zha2011},
-equity and justice \parencite{per2017, che2020}
-and sustainable transport and mobility \parencite{son2017, mah2019}.
-In general, research in accessibility helps us understand
-how societal systems and phenomena function
-in different scales and timeframes, and from different points of view.
-
-% difficulty in defining and measuring access
-However, analysing or even comprehending accessibility
-in a holistic manner is not simple.
-While a common starting point for defining the term is, quite concisely,
-\enquote{potential of opportunities for interaction} \parencite{han1959},  % define interaction in more detail?
-more precise definitions and measurements can be constructed in countless ways
-depending on the factors deemed impactful to that potential
-\parencite{pap2016}.
-For example, even with a simple consideration of travel distance as a measure of access,
-including all the different things this access can be measured in relation to
-would make the amount of variations, i.e. different \enquote{accessibilities},
-to measure grow exponentially \parencite{lev2020}.
-In addition, accessibility is inherently tied not only to location
-but also time \parencite{jar2018},
-meaning every place in every time has a level of access
-in relation to every other place.
-
-% hard to visualise too
-Because of its composite and dynamic nature,
-constructing representative cartographic visualizations of accessibility is difficult.
-Accessibility visualizations are often constrained
-to displaying access in relation to
-a limited number of pre-selected places (for example \textcite{wei2018}),
-or composing an accessibility index
-that can be calculated and mapped for all locations,
-in relation to potentially many different things and locations
-(for example \textcite{kim2019}).
-However, more complex accessibility measures tend to lead to
-less usable presentations \parencite{te2014},
-while mapping more simple measures could lead to an influx of variations to present.
-For example, separating different travel modes, times of day or target locations
-would multiply the amount of visualizations needed to present accessibility.
-
-% Not only methodological but also a cartographical challenge 
-% something that is not a physical feature nor an easily explainable variable
-% ----------------------------------------
-% general stuff about cartography - what types of phenomena / maps
-% how is accessibility different?
-% ----------------------------------------
-% Why is visualising access important?
-% This could be before the preceding chapter too?
-% Leave something for background chapter too
-
-% how interactivity benefits accessibility visualisation (because of how accesibility is)
-Even if visualizing every aspect of accessibility
-from everywhere to everywhere is impossible,
-careful consideration and implementation
-of the cartographic methods we have at our disposal might get us closer.
-Interactive cartography could be one approach with great potential.
-After all, a key principle of interactivity in map presentations is
-the map user's ability to change the content of the map \parencite{rot2013b}.
-For visualizing accessibility this could mean, for example,
-interactive selection of location or travel mode instead of
-a static accessibility index that, to a varying extent,
-tries to account for everything.
-Scientific literature on the topic seems to support the idea of
-interactivity in accessibility visualization,
-even indicating a need for such presentations.
-In a study focusing on the usability of
-different accessibility instruments and visualizations,  % accessibility instrument
-\textcite{te2014} highlight the importance of
-real-time interactivity between the map and the map user.
-\textcite{but2018} state that for maps to efficiently communicate accessibility,
-they should be as flexible and dynamic as possible.
-However, \textcite{but2018} also note that
-these qualities are often missing in accessibility visualizations.
-Along the same lines,
-\textcite{paj2021} find modern accessibility visualizations often complicated,
-and lacking in interactivity and flexibility.
-
-% research questions
-% Communicating accessibility instead of analyzing it
-% How to utilize interactive mapping in communicating accessibility
-
-In this thesis I focus on
-how cartographic interaction can be utilized in presenting accessibility.
-My research has two main goals.
-The first is to produce an interactive accessibility visualization --
-I develop a system for interactively presenting a massive accessibility dataset,
-the \acrlong{ttm} (\acrshort{ttm}) \parencite{fin2023},
-on the web.  % TODO introduce the matrix somewhere, maybe here?
-The \acrshort{ttm} is a dataset containing travel times for
-over a 175 million unique routes, by a multitude of travel modes,
-in the Helsinki region, southern Finland.
-The sheer volume and detail of the dataset allows for endless options
-in its presentation, and, from the perspective of this thesis,
-a real opportunity and a need to take advantage of interactivity in visualizing it.
-By using cartographic interaction
-I aim to extend the multi-location and multi-modal nature of the dataset
-to its presentation.
-The map user should be able to explore, on a map,
-travel times to all locations included in the dataset,
-by all travel modes.
-However, interaction alone does not yet enable this.
-Considering the number of different combinations of location and travel mode,
-interaction with the map must happen in real-time,
-i.e. with instant visual feedback.
-Only with this quality is it possible for the map user to
-explore any meaningful portion of the \acrshort{ttm}
-in a reasonable amount of time.
-
-When describing the presentation I use the word system.
-This is because crafting such a presentation
-requires the mapmaker to make much more than a map --
-It means designing, implementing and optimizing
-a whole that consists of multiple components.
-These components all have their distinct purposes yet must function together
-to meet the requirements placed upon the whole.
-While being a map first and foremost, the complete system
-requires implementing all the following components:
-\begin{itemize}
-	\item Preprocessing the dataset (the \acrshort{ttm}) to a mappable format,
-	and simplifying it to enable its interactive exploration over the internet
-	\item A solution for storing and serving the data, i.e. the backend
-	\item A web application for interactively presenting the data, i.e. the frontend
-\end{itemize}
-
-The ultimate purpose of the entire system is to enable a map.
-The map, in turn, has a goal of conveying information;
-it is a representation of the mapped phenomenon.
-However, studying how the map works,
-not as a piece of technology but as a representation,
-is impossible based on a technical implementation alone.
-
-My second research goal is to understand how
-this particular representation of accessibility conveys information.
-I aim to find out how the map user understands the map,
-and how they use cartographic interaction to explore the mapped phenomenon.
-
-
-My research questions reflect the goals of this study.  % TODO
-The first goal, being the interactive map presentation,
-necessitates research on the options and tools
-needed in its implementation.
-The way I approach this research is through qualities
-that the resulting system should have.
-As real-time interactivity is a priority of the map presentation,
-the performance of the system,
-i.e. minimizing the latency between
-the software receiving input and displaying results of said input,
-is one key aspect to consider.
-Just as essential is the visual quality of the map
-and the intuitiveness of its use.
-% discussion perhaps?
-% I also stress the importance of
-% \textit{how} the system is designed and developed.
-% If the software cannot be understood or maintained,
-% it has little real value,
-% no matter how performant the implementation or how elegant its user interface.
-
-% With these qualities and the aforementioned components of the system in mind,
-% I structrure the research.
-
-% While the resulting system, as a whole, should have all these qualities,
-% each part of the system is ultimately its own entity.
-% This is important to keep in mind when forming research questions,
-% as some qualities are naturally more or less important depending on the component.
-% For example,
-% visual quality has little to do with backend implementation.
-
-Considering the aforementioned components
-and the desired qualities of the system,
-my research questions in regard to its implementation are:
-
-\begin{itemize}
-	\item Considering rapid real-time interaction,
-	what are the performance bottlenecks of
-	a web-based interactive map,
-	and what data preprocessing and simplifying approaches
-	are needed to overcome them?
-	\item What differences are there between web mapping libraries
-	when used as a platform for rapid real-time cartographic interaction?
-\end{itemize}  % TODO maybe list approaches -> which is best? Geometry simplification etc...
-
-% TODO move following to study design?
-
-% I answer the first question by evaluating approaches based on three criteria:
-% \begin{enumerate}
-% 	\item the impact on file size,
-% 	and thus on the time needed to transfer the files over the internet
-% 	\item the impact on rendering speed of the map when mapping the data
-% 	\item the impact on the visual detail of data,
-% 	i.e. how much information is lost
-% \end{enumerate}
-
-% File sizes can be compared quantitatively.
-% When evaluating rendering speed,
-% I combine quantitative tests of rendering speed with
-% my own qualitative assessment of the rendering performance when using the map.
-% I evaluate the visual detail by my own qualitative assessment.
-
-% I choose the most efficient solution for
-% storing and serving the data based on a qualitative assessment of
-% the available options. I define efficient as:
-% \begin{enumerate}
-% 	\item Introducing the least possible performance overhead
-% 	\item Introducing the least possible technical complexity
-% \end{enumerate}
-
-% I base my comparison of web mapping libraries on three criteria:
-% \begin{enumerate}
-% 	\item Visual quality of the map
-% 	\item Responsiveness of the map
-% 	\item User interface capabilities for interacting with the map
-% \end{enumerate}
-
-% The first two criteria I evaluate qualitatively. The third criteria, while an inherent quality of a mapping-library, Is that too ultimately my own view.  % TODO
-
-In order to gain insight on how the map functions as an interface and a representation,
-I focus on how people work with and understand the map.
-My research questions are:  % TODO?
-
-\begin{itemize}
-	\item Which types of interaction available in the map do people use
-	in different types of usage scenarios?
-	\item Does rapid real-time interaction with the map change
-	the map user's perception of the mapped phenomenon? If it does, how?
-\end{itemize}
-
-To answer these questions, user perspective is of course required.
-Thus, I carry out a survey
-where I combine the interactive map presentation with
-a semi-structured online questionnaire.
-
-In addition to directly addressing the aforementioned research questions,
-the survey has an important role in validating the map presentation.
-The complete system can be judged by
-how, and if, it works when used by real people.
-
-% In this sense, the survey brings additional weight to
-% the results of the technical research questions
-% as well as other choices related to the implementation of the map.
-
-% and whether map interaction impacts their understanding of the mapped phenomenon.
-
-% their order of importance depends on the part of the system being considered.
-% I value them differently depending on the  system With these qualities in mind I can then be applied to 
-% the parts of the system
-% that are visible to the user, i.e. the map application, or frontend.
-% Thus, the research questions I ask are:
-% at all stages of the implementation.
-% In regard to the performance of the map application,
-% there are three main components stages at which implementation decisions must be made:  % TODO
-
-% It must also be noted that while important,
-% software performance is not the only thing to consider.
-
-
-% What are the bottlenecks? What type of simplification is most effective?
-% What are the pros and cons of different approaches and levels of simplification?
-
-% qs: does the map work? Pros and cons?
-% To answer this question, I will divide
+% % ------------------------
+% When describing the presentation I use the word system.
+% This is because crafting such a presentation
+% requires the mapmaker to make much more than a map --
+% It means designing, implementing and optimizing
+% a whole that consists of multiple components.
+% These components all have their distinct purposes yet must function together
+% to meet the requirements placed upon the whole.
 % \begin{itemize}
-% 	\item Is isochronal representation of accessibility sufficient for real-time web-based map interaction? What are its pros and cons?
-% 	\item What kind of application design should be employed to serve and render geographical data fast enough to enable instantaneous interaction?
+% 	\item Preprocessing the dataset (the \acrshort{ttm}) to a mappable format,
+% 	and simplifying it to enable its interactive exploration over the internet
+% 	\item A solution for storing and serving the data, i.e. the backend
+% 	\item A web application for interactively presenting the data, i.e. the frontend
 % \end{itemize}
 
-% \subsection{Outputs}
+% The ultimate purpose of the entire system is to enable a map.
+% The map, in turn, has a goal of conveying information;
+% it is a representation of the mapped phenomenon.
+% However, studying how the map works,
+% not as a piece of technology but as a representation,
+% is impossible based on a technical implementation alone.
 
+% My second research goal is to understand how
+% this particular representation of accessibility conveys information.
+% I aim to find out how the map user understands the map,
+% and how they use cartographic interaction to explore the mapped phenomenon.
+% % ------------------------
+
+% % This thesis applies all this to accessibility
+% In this thesis I relate cartography to accessibility.
+% When referring to accessibility,
+% I more specifically mean spatial accessibility, that is,
+% the ease of reaching valued destinations in physical space \parencite{lev2020}.
+% Understanding accessibility is important,
+% as the phenomenon is deeply interlinked in our society.
+% Accessibility affects the choices and experiences of individuals \parencite{kwa1998, kwa2003}
+% as well as the planning and governance processes
+% of much larger entities such as cities \parencite{cur2010, low2015}.
+% It is also directly linked to significant and ongoing issues such as
+% urban well-being \parencite{zha2011},
+% equity and justice \parencite{per2017, che2020}
+% and sustainable transport and mobility \parencite{son2017, mah2019}.
+% In general, research in accessibility helps us understand
+% how societal systems and phenomena function
+% in different scales and timeframes, and from different points of view.
+
+% % difficulty in defining and measuring access
+% However, analysing or even comprehending accessibility
+% in a holistic manner is not simple.
+% While a common starting point for defining the term is, quite concisely,
+% \enquote{potential of opportunities for interaction} \parencite{han1959},  % define interaction in more detail?
+% more precise definitions and measurements can be constructed in countless ways
+% depending on the factors deemed impactful to that potential
+% \parencite{pap2016}.
+% For example, even with a simple consideration of travel distance as a measure of access,
+% including all the different things this access can be measured in relation to
+% would make the amount of variations, i.e. different \enquote{accessibilities},
+% to measure grow exponentially \parencite{lev2020}.
+% In addition, accessibility is inherently tied not only to location
+% but also time \parencite{jar2018},
+% meaning every place in every time has a level of access
+% in relation to every other place.
+
+% % hard to visualise too
+% Because of its composite and dynamic nature,
+% constructing representative cartographic visualizations of accessibility is difficult.
+% Accessibility visualizations are often constrained
+% to displaying access in relation to
+% a limited number of pre-selected places (for example \textcite{wei2018}),
+% or composing an accessibility index
+% that can be calculated and mapped for all locations,
+% in relation to potentially many different things and locations
+% (for example \textcite{kim2019}).
+% However, more complex accessibility measures tend to lead to
+% less usable presentations \parencite{te2014},
+% while mapping more simple measures could lead to an influx of variations to present.
+% For example, separating different travel modes, times of day or target locations
+% would multiply the amount of visualizations needed to present accessibility.
+
+% % Not only methodological but also a cartographical challenge 
+% % something that is not a physical feature nor an easily explainable variable
+% % ----------------------------------------
+% % general stuff about cartography - what types of phenomena / maps
+% % how is accessibility different?
+% % ----------------------------------------
+% % Why is visualising access important?
+% % This could be before the preceding chapter too?
+% % Leave something for background chapter too
+
+% % how interactivity benefits accessibility visualisation (because of how accesibility is)
+% Even if visualizing every aspect of accessibility
+% from everywhere to everywhere is impossible,
+% careful consideration and implementation
+% of the cartographic methods we have at our disposal might get us closer.
+% Interactive cartography could be one approach with great potential.
+% After all, a key principle of interactivity in map presentations is
+% the map user's ability to change the content of the map \parencite{rot2013b}.
+% For visualizing accessibility this could mean, for example,
+% interactive selection of location or travel mode instead of
+% a static accessibility index that, to a varying extent,
+% tries to account for everything.
+% Scientific literature on the topic seems to support the idea of
+% interactivity in accessibility visualization,
+% even indicating a need for such presentations.
+% In a study focusing on the usability of
+% different accessibility instruments and visualizations,  % accessibility instrument
+% \textcite{te2014} highlight the importance of
+% real-time interactivity between the map and the map user.
+% \textcite{but2018} state that for maps to efficiently communicate accessibility,
+% they should be as flexible and dynamic as possible.
+% However, \textcite{but2018} also note that
+% these qualities are often missing in accessibility visualizations.
+% Along the same lines,
+% \textcite{paj2021} find modern accessibility visualizations often complicated,
+% and lacking in interactivity and flexibility.
+
+% % research questions
+% % Communicating accessibility instead of analyzing it
+% % How to utilize interactive mapping in communicating accessibility
+
+% In this thesis I focus on
+% how cartographic interaction can be utilized in presenting accessibility.
+% My research has two main goals.
+% The first is to produce an interactive accessibility visualization --
+% I develop a system for interactively presenting a massive accessibility dataset,
+% the \acrlong{ttm} (\acrshort{ttm}) \parencite{fin2023},
+% on the web.  % TODO introduce the matrix somewhere, maybe here?
+% The \acrshort{ttm} is a dataset containing travel times for
+% over a 175 million unique routes, by a multitude of travel modes,
+% in the Helsinki region, southern Finland.
+% The sheer volume and detail of the dataset allows for endless options
+% in its presentation, and, from the perspective of this thesis,
+% a real opportunity and a need to take advantage of interactivity in visualizing it.
+% By using cartographic interaction
+% I aim to extend the multi-location and multi-modal nature of the dataset
+% to its presentation.
+% The map user should be able to explore, on a map,
+% travel times to all locations included in the dataset,
+% by all travel modes.
+% However, interaction alone does not yet enable this.
+% Considering the number of different combinations of location and travel mode,
+% interaction with the map must happen in real-time,
+% i.e. with instant visual feedback.
+% Only with this quality is it possible for the map user to
+% explore any meaningful portion of the \acrshort{ttm}
+% in a reasonable amount of time.
+
+% When describing the presentation I use the word system.
+% This is because crafting such a presentation
+% requires the mapmaker to make much more than a map --
+% It means designing, implementing and optimizing
+% a whole that consists of multiple components.
+% These components all have their distinct purposes yet must function together
+% to meet the requirements placed upon the whole.
+% While being a map first and foremost, the complete system
+% requires implementing all the following components:
 % \begin{itemize}
-% 	\item The map application
-% 	\item The bottlenecks of 
-% 	\item Does map interaction change the map user's perception and understanding of the concept of accessibility? If it does, how?
+% 	\item Preprocessing the dataset (the \acrshort{ttm}) to a mappable format,
+% 	and simplifying it to enable its interactive exploration over the internet
+% 	\item A solution for storing and serving the data, i.e. the backend
+% 	\item A web application for interactively presenting the data, i.e. the frontend
 % \end{itemize}
 
-% where participants, after being prompted to complete a task with the interactive map,  % TODO
+% The ultimate purpose of the entire system is to enable a map.
+% The map, in turn, has a goal of conveying information;
+% it is a representation of the mapped phenomenon.
+% However, studying how the map works,
+% not as a piece of technology but as a representation,
+% is impossible based on a technical implementation alone.
 
-% All of these questions call for a review of relevant literature,
-% and of existing accessibility presentations.
-% In addition, to better explore especially the third question in practice,
-% an interactive web-based accessibility presentation will be implemented.
-% This presentation aims to visualize the Helsinki Region Travel Time Matrices \parencite{ten2020}.
-% The production of this presentation is carried out through
-% an iterative development process with interviews (or questionnaries?)
-% to keep in touch with the map user's perspective
-% and the ultimately qualitative nature of mapmaking.
+% My second research goal is to understand how
+% this particular representation of accessibility conveys information.
+% I aim to find out how the map user understands the map,
+% and how they use cartographic interaction to explore the mapped phenomenon.
 
-% TODO open source good: \parencite{un2020}
-% Currently, our data is often acquired, stored
-% and used for a single purpose within pillars or
-% functions. Access is often difficult, partly
-% because of a lack of awareness the data could
-% help others or reticence to share what we can.
-% \parencite{kra2021} 4.13 open access
+
+% My research questions reflect the goals of this study.  % TODO
+% The first goal, being the interactive map presentation,
+% necessitates research on the options and tools
+% needed in its implementation.
+% The way I approach this research is through qualities
+% that the resulting system should have.
+% As real-time interactivity is a priority of the map presentation,
+% the performance of the system,
+% i.e. minimizing the latency between
+% the software receiving input and displaying results of said input,
+% is one key aspect to consider.
+% Just as essential is the visual quality of the map
+% and the intuitiveness of its use.
+% % discussion perhaps?
+% % I also stress the importance of
+% % \textit{how} the system is designed and developed.
+% % If the software cannot be understood or maintained,
+% % it has little real value,
+% % no matter how performant the implementation or how elegant its user interface.
+
+% % With these qualities and the aforementioned components of the system in mind,
+% % I structrure the research.
+
+% % While the resulting system, as a whole, should have all these qualities,
+% % each part of the system is ultimately its own entity.
+% % This is important to keep in mind when forming research questions,
+% % as some qualities are naturally more or less important depending on the component.
+% % For example,
+% % visual quality has little to do with backend implementation.
+
+% Considering the aforementioned components
+% and the desired qualities of the system,
+% my research questions in regard to its implementation are:
+
+% \begin{itemize}
+% 	\item Considering rapid real-time interaction,
+% 	what are the performance bottlenecks of
+% 	a web-based interactive map,
+% 	and what data preprocessing and simplifying approaches
+% 	are needed to overcome them?
+% 	\item What differences are there between web mapping libraries
+% 	when used as a platform for rapid real-time cartographic interaction?
+% \end{itemize}  % TODO maybe list approaches -> which is best? Geometry simplification etc...
+
+% % TODO move following to study design?
+
+% % I answer the first question by evaluating approaches based on three criteria:
+% % \begin{enumerate}
+% % 	\item the impact on file size,
+% % 	and thus on the time needed to transfer the files over the internet
+% % 	\item the impact on rendering speed of the map when mapping the data
+% % 	\item the impact on the visual detail of data,
+% % 	i.e. how much information is lost
+% % \end{enumerate}
+
+% % File sizes can be compared quantitatively.
+% % When evaluating rendering speed,
+% % I combine quantitative tests of rendering speed with
+% % my own qualitative assessment of the rendering performance when using the map.
+% % I evaluate the visual detail by my own qualitative assessment.
+
+% % I choose the most efficient solution for
+% % storing and serving the data based on a qualitative assessment of
+% % the available options. I define efficient as:
+% % \begin{enumerate}
+% % 	\item Introducing the least possible performance overhead
+% % 	\item Introducing the least possible technical complexity
+% % \end{enumerate}
+
+% % I base my comparison of web mapping libraries on three criteria:
+% % \begin{enumerate}
+% % 	\item Visual quality of the map
+% % 	\item Responsiveness of the map
+% % 	\item User interface capabilities for interacting with the map
+% % \end{enumerate}
+
+% % The first two criteria I evaluate qualitatively. The third criteria, while an inherent quality of a mapping-library, Is that too ultimately my own view.  % TODO
+
+% In order to gain insight on how the map functions as an interface and a representation,
+% I focus on how people work with and understand the map.
+% My research questions are:  % TODO?
+
+% \begin{itemize}
+% 	\item Which types of interaction available in the map do people use
+% 	in different types of usage scenarios?
+% 	\item Does rapid real-time interaction with the map change
+% 	the map user's perception of the mapped phenomenon? If it does, how?
+% \end{itemize}
+
+% To answer these questions, user perspective is of course required.
+% Thus, I carry out a survey
+% where I combine the interactive map presentation with
+% a semi-structured online questionnaire.
+
+% In addition to directly addressing the aforementioned research questions,
+% the survey has an important role in validating the map presentation.
+% The complete system can be judged by
+% how, and if, it works when used by real people.
+
+% % In this sense, the survey brings additional weight to
+% % the results of the technical research questions
+% % as well as other choices related to the implementation of the map.
+
+% % and whether map interaction impacts their understanding of the mapped phenomenon.
+
+% % their order of importance depends on the part of the system being considered.
+% % I value them differently depending on the  system With these qualities in mind I can then be applied to 
+% % the parts of the system
+% % that are visible to the user, i.e. the map application, or frontend.
+% % Thus, the research questions I ask are:
+% % at all stages of the implementation.
+% % In regard to the performance of the map application,
+% % there are three main components stages at which implementation decisions must be made:  % TODO
+
+% % It must also be noted that while important,
+% % software performance is not the only thing to consider.
+
+
+% % What are the bottlenecks? What type of simplification is most effective?
+% % What are the pros and cons of different approaches and levels of simplification?
+
+% % qs: does the map work? Pros and cons?
+% % To answer this question, I will divide
+% % \begin{itemize}
+% % 	\item Is isochronal representation of accessibility sufficient for real-time web-based map interaction? What are its pros and cons?
+% % 	\item What kind of application design should be employed to serve and render geographical data fast enough to enable instantaneous interaction?
+% % \end{itemize}
+
+% % \subsection{Outputs}
+
+% % \begin{itemize}
+% % 	\item The map application
+% % 	\item The bottlenecks of 
+% % 	\item Does map interaction change the map user's perception and understanding of the concept of accessibility? If it does, how?
+% % \end{itemize}
+
+% % where participants, after being prompted to complete a task with the interactive map,  % TODO
+
+% % All of these questions call for a review of relevant literature,
+% % and of existing accessibility presentations.
+% % In addition, to better explore especially the third question in practice,
+% % an interactive web-based accessibility presentation will be implemented.
+% % This presentation aims to visualize the Helsinki Region Travel Time Matrices \parencite{ten2020}.
+% % The production of this presentation is carried out through
+% % an iterative development process with interviews (or questionnaries?)
+% % to keep in touch with the map user's perspective
+% % and the ultimately qualitative nature of mapmaking.
+
+% % TODO open source good: \parencite{un2020}
+% % Currently, our data is often acquired, stored
+% % and used for a single purpose within pillars or
+% % functions. Access is often difficult, partly
+% % because of a lack of awareness the data could
+% % help others or reticence to share what we can.
+% % \parencite{kra2021} 4.13 open access
