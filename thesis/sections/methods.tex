@@ -425,7 +425,7 @@ solely reducing the file sizes.
 To enable the assessment
 I constructed a modular preprocessing pipeline
 (figure \ref{fig:preprocessing}).
-By modular I mean that,
+By modular I mean that
 while the complete pipeline applies all preprocessing methods,
 the design allows for isolated testing of the
 different components of the pipeline, with different parameters.
@@ -446,7 +446,12 @@ data varies greatly based on location.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\diagramwidth]{visual/figures/diagrams/preprocessing.png}
-	\caption{Preprocessing}
+	\caption{
+		The preprocessing pipeline used in processing and simplifying the TTM
+		into a format allowing for real-time cartographic interaction with the data.
+		In addition to automating a set of preprocessing steps,
+		it allows for the separated testing of different parts.
+	}
 	\label{fig:preprocessing}
 \end{figure}
 
@@ -475,7 +480,7 @@ Averaging the renders of a single location would not suffice
 due to the differences of data complexity between locations.
 The tools I tried were the Firefox profiler \parencite{firefoxprofiler}
 and the React developer tools browser extension \parencite{reactdevtools}
-on the Firefox and Chromium web browsers. % TODO
+on the Firefox \parencite{firefox} and Chromium \parencite{chromium} web browsers. % TODO
 
 I carried out the assessment of the loss of information in two ways:
 Qualitatively for all methods by observing the processed data on the map,
@@ -541,9 +546,9 @@ means less room for error in the implementation,
 and in, this sense, improves the reliability of results.
 In this study I used React \parencite{react} as the \acrshort{ui} framework
 for three reasons:
-It is the framework I am most familiar with,
-it is the most widely used and documented framework,
-and also it is the only framework that
+It was the framework I am most familiar with,
+it was the most widely used and documented framework,
+and also it was the only framework that
 multiple web-mapping libraries have integration capabilities for.
 
 With the above considerations in mind,
@@ -617,10 +622,6 @@ but adds features such as strict typing to overcome JavaScript's known issues
 when it comes to producing error-free and maintainable web applications \parencite{bie2014}.
 See figure \ref{fig:frontend architecture} for the architecture of the frontend.
 
-A link to the repository containing the source code
-and further technical details of the frontend
-can be found in appendix \ref{appendix:repositories}.
-
 \begin{figure}[H]  % TODO location?
 	\centering
 	\includegraphics[width=\diagramwidth]{visual/figures/diagrams/frontend.png}
@@ -633,6 +634,10 @@ can be found in appendix \ref{appendix:repositories}.
 	}
 	\label{fig:frontend architecture}
 \end{figure}
+
+A link to the repository containing the source code
+and further technical details of the frontend
+can be found in appendix \ref{appendix:repositories}.
 
 Simplicity was the goal in the UI of the frontend as well --
 both to enable the comparable assessment of the map libraries,
@@ -682,10 +687,10 @@ Firstly,
 a backend was necessary for serving the preprocessed \acrshort{ttm} data
 from the server-side to the client running the frontend.
 The software requirements for the backend
-(section \ref{sec:software req}) mean, in essence,
+(section \ref{sec:software req}) meant, in essence,
 that the only functionality required of the backend
-is to respond to requests with TTM data.
-No business logic, state management or data manipulation is necessary.
+was to respond to requests with TTM data.
+No business logic, state management or data manipulation was necessary.
 From the perspective of the responsiveness of the application,
 the backend should respond as quickly as possible.
 Considering the above factors,
@@ -711,7 +716,7 @@ I used Nginx \parencite{nginx} as the frontend server.
 
 As detailed in section \ref{sec:software req},
 the deployment environment for both the back- and frontend
-servers was the OpenShift container orchestration platform.
+servers was the OpenShift \parencite{openshift} container orchestration platform.
 So, in order to be deployed, both the front- and backend had to be containerized.
 In short, containerization refers to a set of technologies
 that enables packaging software and all its necessary components
@@ -732,7 +737,7 @@ and to allow for easier scaling and maintenance as each deployment could be twea
 Since both deployments were on the same platform,
 much of the deployment specifics were identical between both components.
 In the following, I will briefly introduce the structure of the deployments.
-As the deployment tool was, in essence, Kubernetes,
+As the deployment tool was, in essence, Kubernetes \parencite{kubernetes},
 some platform-specific terminology is used --
 for further insight on the terms and concepts,
 refer to the Kubernetes glossary \parencite{kubernetesglossary}.
@@ -835,7 +840,7 @@ their general experience using the map,
 and a backround / demographic information section
 where the participant answers questions about themselves.
 The questions were for the most part closed,
-except for two open questions in the general section.
+except for three open questions in the general section.
 
 Task 1 prompted the user to observe the accessibility of
 a single location as a static presentation,
@@ -877,7 +882,7 @@ if the participants prefer different modes of interaction
 in different types of usage scenarios.
 In essence, task 4 calls for an observation of two point-like locations,
 while in task 5 the participant is required to
-observe a line-like area or set of many locations.
+observe a line-like area or a set of many locations.
 
 The general section included a question on
 which map functionality the participants found most useful for exploring accessibility.
@@ -890,11 +895,11 @@ Another general question was whether
 the participants' general perception and understanding of accessibility
 changed as a result of them interacting with the map.
 This was a yes / no question with an open text field for further detailing the answer.
-The purpose was to gain insight on if, and how, the participants considered the
+The purpose was to gain insight on if, and how, the participants themselves considered the
 interactive map impactful to understanding the mapped phenomenon.
 As a final general question, participants were asked if they found the map
 easy or difficult to use, again with a text field option for detailing the answer.
-This question was intended to gain insight on the usability of the map interface.
+The intention here was to gain insight on the usability of the map interface.
 
 The background section was included to gather information on the participants.
 The questions were on the participants' familiarity with the topic of accessibility,
