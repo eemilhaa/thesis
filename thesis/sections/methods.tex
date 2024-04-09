@@ -64,7 +64,7 @@ Iteratively improving the application as a functional whole
 allowed me to consider the map interface
 from the perspective of the map user as early as possible,
 better integrating the survey into the study.
-This is important as the map presentation is simultaneously an output of the development process
+This was important as the map presentation was simultaneously an output of the development process
 and an input to the design of the survey.
 
 For an overview of the study design see figure \ref{fig:study design}.
@@ -86,14 +86,19 @@ For an overview of the study design see figure \ref{fig:study design}.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\diagramwidth]{visual/figures/diagrams/study_design.png}
-	\caption{An overview of the study design.}
+	\caption{
+		An overview of the study design.
+		While thematically distinct,
+		the two components of the study were functionally intertwined
+		in reaching the broader goals of the study.
+	}
 	\label{fig:study design}
 \end{figure}
 
 
 \subsection{Helsinki region Travel Time Matrix}
 
-The \acrlong{ttm} (\acrshort{ttm}) \parencite{fin2023}
+The \presentacr{ttm} \parencite{fin2023}
 is a dataset containing information of travel times and distances
 in the Helsinki region in southern Finland.
 This dataset was crucial to developing the map application,
@@ -101,10 +106,10 @@ as it was the sole source of the travel times shown on the map.
 The dataset and the set of methods with which it is produced are open-source.
 
 % Describe ttm in general: ykr, origin dest pairs etc (more surface level stuff common to all matrices)
-A significant component of the \acrshort{ttm} is the \acrlong{ykr} (\acrshort{ykr})
+A significant component of the \acrshort{ttm} is the \presentacr{ykr}
 statistical grid made by the Finnish Environmental Institute.
 The grid has a spatial resolution of 250x250m, and it covers the entire Finland.
-Most importantly, however, the part of the \acrshort{ykr} grid that overlaps with
+Most importantly, however, the part of the \acrshort{ykr} grid overlapping with
 the Helsinki region provides the spatial component for
 the travel times stored in the \acrshort{ttm}.
 The spatial extent of the dataset is shown in figure \ref{fig:ttm extent}.
@@ -163,7 +168,7 @@ their variations included in the dataset.
 \subsubsection{Software requirements}
 \label{sec:software req}
 
-Software requirements are the functionalities and properties
+Software requirements detail the functionalities and properties
 that a given system should have,
 as well as the constraints it must adhere to \parencite{chu2009}.
 They are an essential aspect to consider in software development
@@ -195,9 +200,9 @@ immediately placed a number of requirements on the application.
 From the perspective of the user,
 there must be functionalities for interacting with the map to
 select different locations, preferably very rapidly,
-and for selecting different travel modes.
+and to select different travel modes.
 A significant quality attribute to consider is that the application should
-be responsive enough for instantaneous real-time interactivity.
+be responsive enough for real-time interactivity.
 
 From a technology-centric perspective an essential factor was
 the decision to target the web as the platform.
@@ -207,7 +212,7 @@ From an architectural standpoint,
 it meant that the application is more specifically a \textit{web application}
 consisting of a frontend (a map interface) and a backend
 (a solution for getting data to the map interface running on the client).
-The high interactivity necessitates a \acrshort{spa} design in the frontend.
+The high interactivity necessitated a \acrshort{spa} design in the frontend.
 In further references to an \textit{application},
 I mean the functional whole made of a map interface (frontend) and data access (backend)
 \parenfig{web map app}.
@@ -236,10 +241,10 @@ The functional requirements specify the styles and modes of interaction,
 as well as the set of operations a user can carry out with the map.
 Firstly, the map should have two modes of interaction for selecting locations to be mapped,
 both carried out as direct manipulation of the map.
-These include clicking the map with a pointing device to \enquote{lock} the map on the clicked location,
+These included clicking the map with a pointing device to \enquote{lock} the map on the clicked location,
 and continuously changing the mapped location by moving the cursor over the map
 (referred to as \textit{hovering}).
-This enables comparing two different modes of interaction in the study:
+This enabled comparing two different modes of interaction in the study:
 a \textit{locked mode}, i.e. producing a static map by clicking,
 and a \textit{hovering mode}, i.e. producing
 a highly dynamic, live,
@@ -254,33 +259,33 @@ The functional requirements are documented in table \ref{tab:functional requirem
 \input{visual/tables/functional_requirements.tex}
 
 For the quality attributes of the application,
-performance is an essential consideration --
+performance was an essential consideration --
 both in the sense of software performance
 and the responsiveness of the application as perceived by the user.
-The most important consideration here is
+The most important consideration here was
 the aforementioned hovering mode:
 Real-time interaction by hovering the mouse above the map
-can mean tens of data requests and map renders
+could mean tens of data requests and map renders
 per second.
-This must be considered in both the front and backend of the application.
-Quality attributes that are invisible to a user, but still vital,
-are that the application can be maintained and deployed,
+This had to be considered in both the front and backend of the application.
+Quality attributes that were invisible to a user, but still vital,
+were that the application can be maintained and deployed,
 and that it can meet different real-world usage loads.
-If these attributes were lacking,
-the application would have little real value.
+If these attributes had been lacking,
+the application could not have been brought to the users.
 The \textit{deployment environment},
 in other words the computing platform onto which the server-side of the application is deployed,
-is the container orchestration platform \textit{Rahti} provided by the \presentacr{csc}.
-Rahti is based on the \textit{OpenShift} platform,
-which in turn runs on \textit{Kubernetes}.
+was the container orchestration platform \textit{Rahti} provided by the \presentacr{csc}.
+Rahti is based on the \textit{OpenShift} platform \parencite{openshift},
+which in turn runs on \textit{Kubernetes} \parencite{kubernetes}.
 Kubernetes is a container orchestration tool
 that allows for declaratively managing clusters
 of containerized applications and their accompanying services.
-I mention these details because to the application they are constraints:
-Both the front and backend implementations should be completely containerized,
-and they both are deployed with the OpenShift flavour of Kubernetes.
+I mention these details because to the application they were constraints:
+Both the front and backend implementations had to be completely containerized
+as they both were deployed with the OpenShift flavour of Kubernetes.
 Also, as is clear by now,
-the frontend of the application is constrained to running in a web browser.
+the frontend of the application was constrained to running in a web browser.
 For the nonfunctional requirements of the application,
 see table \ref{tab:nonfunctional requirements}.
 

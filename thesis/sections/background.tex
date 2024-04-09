@@ -872,7 +872,7 @@ while \presentacr{pc} \acrshort{os}s
 provide an environment usually accessed with larger displays and
 separate input devices, and enabled with more computational power.
 A software-level platform is, in essence, a piece of software that runs other software \parencite{tiw2010}.
-There are an innumerable amount of such platforms but,
+There are innumerably many such platforms but,
 to give an example, perhaps the most relevant today is the web browser
 \parencite{tai2017}.
 In general, applications running on a software platform can be run wherever
@@ -897,7 +897,7 @@ usually accessed with a web browser,
 and read and used as a web page \parencite{sac2017}.
 To understand what any of this means,
 it must first be acknowledged that
-the web has been, and is, a rapidly changing ecosystem.
+the web has been, and is, a rapidly changing software ecosystem.
 Initially intended for specialist use with the sole purpose of
 sharing static documents through
 interconnected computer networks (the internet) \parencite{ber1994},
@@ -907,7 +907,7 @@ Consequently, what web maps are,
 and what technologies they are implemented with, changes too.
 In the time that the internet has existed,
 the concept of a web map has gone
-from a static map sent as an image, to
+from static maps sent as images to
 highly interactive map applications
 and even extensive web \acrshort{gis} platforms \parencite{vee2017}.
 
@@ -1017,7 +1017,7 @@ gets presented a map, and then changes the content of the map.
 	\includegraphics[width=\diagramwidth]{visual/figures/diagrams/server-side-app.png}
 	\caption{
 		An interactive map of traditional website design.
-		All manipulation of the web page and the map happens on the server-side,
+		The construction of the web page and the map happens on the server-side,
 		and each change results in a complete re-fetch and re-render of the page.
 	}
 	\label{fig:server-side app}
@@ -1050,22 +1050,22 @@ Simply put, the client-side of a
 web map application employing a \acrshort{spa} design
 is potentially a very complex piece of software.
 From the point of view of the mapmaker,
-implementing all the functionalities needed for such an application,
-from the ground, up would be an enormous task \parencite{tai2021}.
+implementing all the functionalities needed for such an application
+from the ground up would be an enormous task \parencite{tai2021}.
 \textit{Software libraries},
 in other words external modules of reusable code,
 are essential in overcoming this.
 Considering web mapping, two types of libraries are especially important.
 A \textit{web mapping library} usually provides capabilities for the most common tasks
 that a web map is expected to perform:
-for example zooming and panning, rendering data on the map,
-and downloading and rendering base maps.
+for example downloading and rendering base maps, zooming and panning,
+and rendering data on the map.
 Especially if an application gets more complex,
 a general purpose \textit{\acrshort{ui} library},
-often called a \textit{framework},
+often called a \textit{UI framework},
 can be beneficial in constructing and managing
 the general, non-map, \acrshort{ui} components of the application
-as well as the application and component state.
+as well as the application- and component-level state.
 
 This section introduced the necessities for
 understanding and crafting interactive maps at a technological level,
@@ -1195,7 +1195,7 @@ many, either explicit or implicit, decisions on what the phenomenon is and is no
 So, what actually is being visualized, depends entirely on
 the particular accessibility measure.
 For example, a simple measure of access could be defined as
-travel time in relation to a single location.
+travel time in relation to a single location \parencite{wei2018}.
 In such a case, a single value of access could be mapped
 for all other locations:
 the ease of accessing the target location, measured in time \parenfig{tt surface}.
@@ -1205,7 +1205,7 @@ result in a massive amount of mapped values.
 For some use cases, this level of detail could be excessive.
 One presentation approach that is often used to overcome
 such information overflow when presenting travel time is
-the \textit{isochrone}.
+the \textit{isochrone} \parencite{osu2000}.
 Isochrones are lines drawn on a map that
 connect points of equal travel time \parenfig{isochrones}.
 However, map presentations often highlight
@@ -1260,7 +1260,7 @@ More complex measures of access, and their mapped representations,
 are often built around the idea of
 an \textit{accessibility index}:
 a value that can be calculated for a location
-based on a set of factors considered impactful to its accessibility.
+based on a set of factors considered impactful to its accessibility \parencite{kim2019}.
 This abstracts a lot of complexity at the presentation stage,
 as the result is again a single value per location.  % TODO ref
 However, what the mapped value means, is now a much more complex question.
@@ -1327,7 +1327,7 @@ The options in constructing such a map interface are vast,
 and most of them I will not detail here as section
 \ref{sec:deconstructing map interface}
 already covered the theme from a general perspective.
-However, one distinction to consider
+However, one important aspect to consider
 in the context of interactive accessibility presentations
 is whether the map is an interface primarily to
 computational methods to analyse accessibility,
@@ -1345,6 +1345,9 @@ An interactive map visualizing ready-made data can
 enable faster interaction exchanges,
 but the level of user control over the presentation
 is ultimately confined to a pre-made dataset \parenfig{chronotrains}.
+% In general, 
+% \textcite{but2018} state that for maps to efficiently communicate accessibility,
+% they should be as flexible and dynamic as possible.
 
 \begin{figure}[H]
 	\centering
