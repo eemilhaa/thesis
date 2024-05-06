@@ -1,8 +1,6 @@
 ![workflow](https://github.com/eemilhaa/thesis/actions/workflows/build.yml/badge.svg)
 
-# thesis (WIP)
-This is the LaTeX source of my thesis.
-Note that everything is very unfinished and things will change constantly.
+# thesis
 
 ## Get the latest PDF
 A PDF file with the latest changes is always\* available for download.
