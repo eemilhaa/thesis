@@ -117,7 +117,7 @@ The spatial extent of the dataset is shown in figure \ref{fig:ttm extent}.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{visual/figures/ttm/ttm_extent}
-	\caption{The location and extent of the TTM}
+	\caption{The TTM covers the entire Helsinki region.}
 	\label{fig:ttm extent}
 \end{figure}
 
@@ -131,7 +131,7 @@ over 175 million routes.
 All the routes are calculated for multiple different travel modes.
 The primary travel modes are walking, cycling, public transportation and private car,
 and, when applicable, each mode has variations based on
-time of day and / or walking or cycling speed.
+time of day and / or walking or cycling speed \parencite{fin2023}.
 The time of day is especially relevant to motorized transport
 in the form of the rush hour, for example,
 while walking speed affects any travel mode
@@ -150,8 +150,8 @@ and, thus, also in the content \parencite{ten2020}.
 Also, the underlying city structure as well as the street and public transport networks
 are by no means static over the years
 which further introduces differences.
-The map presentation I developed in this study
-is based on the 2023 version of the \acrshort{ttm},
+The web map application I developed in this study
+used the 2023 version of the \acrshort{ttm},
 the newest one at the time of writing.
 See table \ref{tab:ttm description} for an overview of the dataset,
 and table \ref{tab:ttm table structure} for all the travel modes and
@@ -162,8 +162,7 @@ their variations included in the dataset.
 \input{visual/tables/ttm_table_structure.tex}
 
 
-
-\subsection{Implementation of the web map application}
+\subsection{Development of the web map application}
 
 \subsubsection{Software requirements}
 \label{sec:software req}
@@ -241,13 +240,15 @@ The functional requirements specify the styles and modes of interaction,
 as well as the set of operations a user can carry out with the map.
 Firstly, the map should have two modes of interaction for selecting locations to be mapped,
 both carried out as direct manipulation of the map.
-These included clicking the map with a pointing device to \enquote{lock} the map on the clicked location,
-and continuously changing the mapped location by moving the cursor over the map
+These included clicking the map with a pointing device to
+produce a static accessibility map of the clicked location
+(referred to as \textit{locking} the map)
+and continuously changing the mapped location and, as a result, the map by moving the cursor over the map
 (referred to as \textit{hovering}).
 This enabled comparing two different modes of interaction in the study:
 a \textit{locked mode}, i.e. producing a static map by clicking,
 and a \textit{hovering mode}, i.e. producing
-a highly dynamic, live,
+a highly dynamic, \enquote{live},
 representation of the accessibility under the cursor.
 There should also be interface capabilities for selecting travel modes
 and changing the mode of interaction.
@@ -283,7 +284,7 @@ that allows for declaratively managing clusters
 of containerized applications and their accompanying services.
 I mention these details because to the application they were constraints:
 Both the front and backend implementations had to be completely containerized
-as they both were deployed with the OpenShift flavour of Kubernetes.
+as they both were deployed with Kubernetes.
 Also, as is clear by now,
 the frontend of the application was constrained to running in a web browser.
 For the nonfunctional requirements of the application,
@@ -497,8 +498,8 @@ Another consideration is that testing, assessing and reporting every possible co
 of all preprocessing methods and their parameters is simply unrealistic.
 So, as briefly mentioned before, I carried out the assessment in two iterations:
 The first was to find out the suitable parameters for each method,
-the goal being to enable the functionalities required of the map application
-\parentab{functional requirements}.
+the goal being to satisfy the software requirements of the map application
+(table \ref{tab:functional requirements}; table \ref{tab:nonfunctional requirements}).
 This part, being reliant on my perception and judgement,
 was a highly qualitative process.
 After finding the suitable parameters,
@@ -706,17 +707,17 @@ as well as computational overhead to the application.
 
 In order to produce a deployable frontend application,
 a frontend build tool was necessary.
-I used Vite \parencite{vite} both as a development-time server
+I used Vite \parencite{vite} both as a development-time frontend server
 and for bundling the frontend application for production,
 i.e. merging and minimizing the application code into
 a single file optimized for browser execution.
 To serve the bundled frontend, a server was necessary.
 For similar reasons as with the backend,
-I used Nginx \parencite{nginx} as the frontend server.
+I used Nginx \parencite{nginx} as the frontend server in production.
 
 As detailed in section \ref{sec:software req},
 the deployment environment for both the back- and frontend
-servers was the OpenShift \parencite{openshift} container orchestration platform.
+was the OpenShift \parencite{openshift} container orchestration platform.
 So, in order to be deployed, both the front- and backend had to be containerized.
 In short, containerization refers to a set of technologies
 that enables packaging software and all its necessary components

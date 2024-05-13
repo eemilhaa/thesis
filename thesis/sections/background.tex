@@ -503,7 +503,7 @@ These issues can stem from the more general limitations of accessing digital app
 for example lack of technical knowledge or unfamiliarity with a specific interface \parencite{kul2019} --
 but are especially severe when it comes to visual impairments,
 potentially leading to complete exclusion from accessing an interface \parencite{duc2018, oks2019}.
-Still, it has been shown that cartographic interaction via digital maps can be made inclusive --
+Still, it has been shown that cartographic interaction and digital maps can be made inclusive --
 for example by optimizing the visual cartographic presentation
 specifically for visually impaired users \parencite{oks2019},
 or by introducing novel interaction methods such as tactile and audio interaction \parencite{bro2015}.
@@ -1048,7 +1048,7 @@ application \textit{state} --
 this means that it records, updates and acts on dynamic information about
 the condition of the application and its components \parencite{fin2014}.
 In the system described above \parenfig{spa},
-the change of mapped data could be an example of such state.
+the change of mapped data could be an example of the application state changing.
 
 Simply put, the client-side of a
 web map application employing a \acrshort{spa} design
@@ -1168,7 +1168,7 @@ Of course, an accessibility measure can exhibit characteristics of
 both location- and person-based approaches \parencite{jar2018}.  % TODO check
 While many more categorizations exist, listing them all is not my goal here.
 Rather, I wish to emphasize the variance in how the topic can be approached,
-and acknowledge the fact that any given accessibility measure is ultimately
+and to acknowledge the fact that any given accessibility measure is ultimately
 a single view of a highly complex phenomenon,
 bound to exclude as well as over- and understate certain elements.
 
@@ -1215,7 +1215,7 @@ connect points of equal travel time \parenfig{isochrones}.
 However, map presentations often highlight
 the areas deliniated by isochrones instead of
 the isochrones themselves.
-Such areas of equal travel time are referred to as isochrone polygons from here on.
+Such areas of equal travel time are referred to as \textit{isochrone polygons} from here on.
 Varying levels of simplification can be carried out with this technique
 depending on the applied interval of travel time between isochrones.
 
@@ -1267,7 +1267,8 @@ a value that can be calculated for a location
 based on a set of factors considered impactful to its accessibility \parencite{kim2019}.
 This abstracts a lot of complexity at the presentation stage,
 as the result is again a single value per location.  % TODO ref
-However, what the mapped value means, is now a much more complex question.
+However, what the mapped value means,
+is now a question far less straightforward to answer.
 In general, more complex accessibility measures can be
 harder to understand when mapped \parencite{te2014}.
 
@@ -1284,7 +1285,7 @@ harder to understand when mapped \parencite{te2014}.
 \end{figure}
 
 
-Another important consideration is
+Another important consideration in visualizing accessibility is
 the number of relationships the presentation aims to depict.
 Many accessibility measures are concerned solely with
 the spatial variance of the phenomenon \parencite{wu2020},
